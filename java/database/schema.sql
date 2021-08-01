@@ -1,14 +1,18 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS event_activity_type;
+DROP TABLE IF EXISTS activity_type;
+DROP TABLE IF EXISTS event;
 DROP SEQUENCE IF EXISTS seq_user_id;
+DROP SEQUENCE IF EXISTS seq_activity_type_id;
+DROP SEQUENCE IF EXISTS seq_event_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;
-
 
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
@@ -21,20 +25,11 @@ CREATE TABLE users (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-DROP TABLE IF EXISTS event_activity_type;
-DROP TABLE IF EXISTS activity_type;
-DROP TABLE IF EXISTS event;
-
-DROP SEQUENCE IF EXISTS seq_activity_type_id;
-DROP SEQUENCE IF EXISTS seq_event_id;
-
-
 CREATE SEQUENCE seq_event_id
   INCREMENT BY 1
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;
-
 
 CREATE TABLE event (
 	event_id int DEFAULT nextval('seq_event_id'::regclass) NOT NULL,
@@ -46,28 +41,6 @@ CREATE TABLE event (
 	total_activity_goal float,
 	CONSTRAINT PK_event PRIMARY KEY (event_id)
 );
-
-CREATE SEQUENCE seq_activity_type_id
-  INCREMENT BY 1
-  NO MAXVALUE
-  NO MINVALUE
-  CACHE 1;
-
-
-CREATE TABLE activity_type (
-	activity_type_id int DEFAULT nextval('seq_activity_type_id'::regclass) NOT NULL,
-	activity_type varchar(50) NOT NULL,
-	CONSTRAINT PK_activity_type PRIMARY KEY (activity_type_id)
-);
-
-CREATE TABLE event_activity_type (
-	event_id int NOT NULL,
-	activity_type_id int NOT NULL,
-	CONSTRAINT pk_event_activity_typt_id PRIMARY KEY (event_id, activity_type_id),
-	FOREIGN KEY(event_id) REFERENCES event(event_id),
-	FOREIGN KEY(activity_type_id) REFERENCES activity_type(activity_type_id)
-);
-
 
 INSERT INTO event (event_name, description, start_date, end_date, user_activity_goal, total_activity_goal)
 VALUES ('Java Green Fun Run', 'Java Green is on the run! Each member will try to run (or walk) 10 miles this month, for 200 total team miles!', '2021-08-01', '2021-08-31', 10, 200);
@@ -96,12 +69,31 @@ VALUES ('Virtual C2C Relay Run', 'Run the distance from Cincinnati to Columbus -
 INSERT INTO event (event_name, description, start_date, end_date, total_activity_goal)
 VALUES ('Mission to the Moon', 'Can all of us together cover the distance to the moon during 2022? Run, walk, or bike your way across space with us!', '2022-01-01', '2022-12-31', 238900);
 
+CREATE SEQUENCE seq_activity_type_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE TABLE activity_type (
+	activity_type_id int DEFAULT nextval('seq_activity_type_id'::regclass) NOT NULL,
+	activity_type varchar(50) NOT NULL,
+	CONSTRAINT PK_activity_type PRIMARY KEY (activity_type_id)
+);
 
 INSERT INTO activity_type (activity_type) VALUES ('Running');
 INSERT INTO activity_type (activity_type) VALUES ('Walking');
 INSERT INTO activity_type (activity_type) VALUES ('Cycling');
 INSERT INTO activity_type (activity_type) VALUES ('Swimming');
 INSERT INTO activity_type (activity_type) VALUES ('Other');
+
+CREATE TABLE event_activity_type (
+	event_id int NOT NULL,
+	activity_type_id int NOT NULL,
+	CONSTRAINT pk_event_activity_typt_id PRIMARY KEY (event_id, activity_type_id),
+	FOREIGN KEY(event_id) REFERENCES event(event_id),
+	FOREIGN KEY(activity_type_id) REFERENCES activity_type(activity_type_id)
+);
 
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (1, 1);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (1, 2);
@@ -120,7 +112,7 @@ INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 1);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 2);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 3);
 
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
+
 
 COMMIT TRANSACTION;
 
