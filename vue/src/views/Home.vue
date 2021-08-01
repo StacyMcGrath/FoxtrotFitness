@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h1>Welcome FoxTrot User</h1>
+    <p></p>
   </div>
 </template>
 

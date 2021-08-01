@@ -19,7 +19,21 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+
+    events: [
+      {
+        eventId: 1,
+        eventName: "Run the Earth",
+        description: "Java Green is on the run! Each member will try to run (or walk) 10 miles this month, for 200 total team miles!" ,
+        activityType: [ "Running", "Walking", "Swimming"],
+        startDate: "08-01-2021", 
+        endDate: "09-01-2021",
+        userGoal: 200,
+        totalGoal: 20000
+
+      }
+    ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
