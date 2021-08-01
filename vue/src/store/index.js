@@ -29,9 +29,8 @@ export default new Vuex.Store({
         activityType: [ "Running", "Walking", "Swimming"],
         startDate: "08-01-2021", 
         endDate: "09-01-2021",
-        userGoal: 200,
-        totalGoal: 20000
-
+        userActivityGoal: 200,
+        totalActivityGoal: 20000
       },
       {
         eventId: 2,
@@ -42,7 +41,6 @@ export default new Vuex.Store({
         endDate: "09-01-2021",
         userGoal: 1,
         totalGoal: 238
-
       }
     ]
   },

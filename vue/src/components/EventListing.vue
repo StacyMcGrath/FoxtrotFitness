@@ -23,8 +23,8 @@
         <td>
           <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
         </td>
-        <td>{{event.totalGoal}}</td>
-        <td>{{event.userGoal}}</td>
+        <td>{{event.totalActivityGoal}}</td>
+        <td>{{event.userActivityGoal}}</td>
         <td>{{event.startDate}} - {{event.endDate}}</td>
         </tr>
       </tbody>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import eventService from '../services/EventService.js'
 export default {
     name: 'event-listing',
     data() {
@@ -43,12 +44,16 @@ export default {
     },
     computed: {
       filteredEvents() {
-        const events = this.$store.state.events;
-
-        return events.filter( (event) => {
+        
+        return this.events.filter( (event) => {
           return this.activityFilter == '' ? true : this.activityFilter == event.activityType;
         })
       }
+    },
+    created() {
+      eventService.retrieveEvents().then(response => {
+        this.events = response.data;
+      })
     }
 
 
