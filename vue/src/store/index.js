@@ -32,6 +32,17 @@ export default new Vuex.Store({
         userGoal: 200,
         totalGoal: 20000
 
+      },
+      {
+        eventId: 2,
+        eventName: "Bike to Mars",
+        description: "Java Green is on the run! Each member will try to run (or walk) 10 miles this month, for 200 total team miles!" ,
+        activityType: [ "Biking"],
+        startDate: "08-01-2021", 
+        endDate: "09-01-2021",
+        userGoal: 1,
+        totalGoal: 238
+
       }
     ]
   },
