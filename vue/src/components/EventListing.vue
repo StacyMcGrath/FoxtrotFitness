@@ -12,8 +12,21 @@
       </thead>
       <tbody>
         <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" name="eventName" v-model="eventFilter">
+        </td>
+        <td>
+          <div id="v-model-select">
+            <select v-model="activityFilter">
+            <option disabled value="">Please select one</option>
+              <option>Running</option>
+              <option>Walking</option>
+              <option>Swimming</option>
+              <option>Cycling</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -39,24 +52,31 @@ export default {
     data() {
       return{
         activityFilter: '',
+        eventFilter: '',
         events: [],
       };
     },
     computed: {
       filteredEvents() {
-        
-        return this.events.filter( (event) => {
-          return this.activityFilter == '' ? true : this.activityFilter == event.activityType;
-        })
+        let filteredEvents = this.events;
+        if(this.activityFilter != '') {
+        filteredEvents = filteredEvents.filter( (event) => 
+          event.activityType.includes(this.activityFilter)
+        );
+      } 
+      if(this.eventFilter != '') {
+        filteredEvents = filteredEvents.filter((event) => 
+          event.eventName.toLowerCase().includes(this.eventFilter.toLowerCase())
+        );
       }
+      return filteredEvents;
+    }
     },
     created() {
       eventService.retrieveEvents().then(response => {
         this.events = response.data;
       })
     }
-
-
 }
 </script>
 
