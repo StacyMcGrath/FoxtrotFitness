@@ -36,6 +36,22 @@ public class JdbcEventDAO implements EventDAO {
         return eventList;
     }
 
+    @Override
+    public Event retrieveEventById(int eventId) {
+        Event event = null;
+
+        String sql = "SELECT event.event_id, event.event_name, event.description, event.start_date, event.end_date, " +
+                "event.user_activity_goal, event.total_activity_goal FROM event " +
+                "WHERE event.event_id = ?";
+
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, eventId);
+
+        if(result.next()){
+            event = mapRowToEvent(result);
+        }
+        return event;
+    }
+
 
     private Event mapRowToEvent(SqlRowSet results) {
         Event event = new Event();

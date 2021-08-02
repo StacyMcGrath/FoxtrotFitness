@@ -3,10 +3,8 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.EventDAO;
 import com.techelevator.model.Event;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -22,5 +20,10 @@ public class EventController {
     @RequestMapping(path = "/events", method = RequestMethod.GET)
     public List<Event> getEvents() {
         return eventDAO.retrieveEvents();
+    }
+
+    @RequestMapping(path = "/events/{eventId}", method = RequestMethod.GET)
+    public Event getEventById(@PathVariable int eventId) {
+        return eventDAO.retrieveEventById(eventId);
     }
 }
