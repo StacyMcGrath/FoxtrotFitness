@@ -30,15 +30,19 @@
         </td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>
+          <button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button>
+        </td>
         </tr>
         <tr v-on:click="viewEventDetails(event.eventId)" v-for="event in filteredEvents" v-bind:key="event.eventId">
         <td>{{event.eventName}}</td>
         <td>
           <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
         </td>
-        <td v-if:>{{event.totalActivityGoal}}</td>
-        <td>{{event.userActivityGoal}}</td>
+        <td v-if="event.totalActivityGoal>0">{{event.totalActivityGoal}}</td>
+        <td v-else>N/A</td>
+        <td v-if="event.userActivityGoal>0">{{event.userActivityGoal}}</td>
+        <td v-else>N/A</td>
         <td>{{event.startDate}} - {{event.endDate}}</td>
         </tr>
       </tbody>
@@ -54,12 +58,18 @@ export default {
       return{
         activityFilter: '',
         eventFilter: '',
+        endDateFilter: Date.now(),
         events: [],
       };
     },
     computed: {
       filteredEvents() {
         let filteredEvents = this.events;
+        if(this.endDateFilter != '') {
+          filteredEvents = filteredEvents.filter((event) => 
+          new Date(event.endDate) >= this.endDateFilter
+          );
+        }
         if(this.activityFilter != '') {
         filteredEvents = filteredEvents.filter( (event) => 
           event.activityType.includes(this.activityFilter)
@@ -81,6 +91,13 @@ export default {
     methods: {
       viewEventDetails(eventId) {
         this.$router.push(`/events/${eventId}`);
+      },
+      togglePastEvents() {
+        if(this.endDateFilter!='') {
+          this.endDateFilter = '';
+        } else {
+          this.endDateFilter = Date.now();
+        }
       }
     }
 }
