@@ -37,7 +37,7 @@
         <td>
           <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
         </td>
-        <td>{{event.totalActivityGoal}}</td>
+        <td v-if:>{{event.totalActivityGoal}}</td>
         <td>{{event.userActivityGoal}}</td>
         <td>{{event.startDate}} - {{event.endDate}}</td>
         </tr>

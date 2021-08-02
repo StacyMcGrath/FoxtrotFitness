@@ -24,7 +24,8 @@ public class JdbcEventDAO implements EventDAO {
         List<Event> eventList = new ArrayList<Event>();
 
         String sql = "SELECT event.event_id, event.event_name, event.description, event.start_date, event.end_date, " +
-                "event.user_activity_goal, event.total_activity_goal FROM event";
+                "event.user_activity_goal, event.total_activity_goal FROM event " +
+                "ORDER BY event.start_date";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
