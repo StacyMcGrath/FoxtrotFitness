@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import EventSearch from '../views/EventSearch.vue'
+import EventDetailPage from '../views/EventDetailPage.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: "/events",
       name: "events",
       component: EventSearch,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/events/:eventId",
+      name: "event-details",
+      component: EventDetailPage,
       meta: {
         requiresAuth: false
       }

@@ -32,7 +32,7 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         </tr>
-        <tr v-for="event in filteredEvents" v-bind:key="event.eventId">
+        <tr v-on:click="viewEventDetails(event.eventId)" v-for="event in filteredEvents" v-bind:key="event.eventId">
         <td>{{event.eventName}}</td>
         <td>
           <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
@@ -77,6 +77,11 @@ export default {
       eventService.retrieveEvents().then(response => {
         this.events = response.data;
       })
+    },
+    methods: {
+      viewEventDetails(eventId) {
+        this.$router.push(`/events/${eventId}`);
+      }
     }
 }
 </script>
