@@ -19,6 +19,7 @@
           <div id="v-model-select">
             <select v-model="activityFilter">
             <option disabled value="">Please select one</option>
+              <option></option>
               <option>Running</option>
               <option>Walking</option>
               <option>Swimming</option>
