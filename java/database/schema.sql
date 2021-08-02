@@ -1,9 +1,15 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS logged_activity;
+DROP TABLE IF EXISTS event_user;
+DROP TABLE IF EXISTS user_profile;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS event_activity_type;
 DROP TABLE IF EXISTS activity_type;
 DROP TABLE IF EXISTS event;
+
+DROP SEQUENCE IF EXISTS seq_logged_activity_id;
+DROP SEQUENCE IF EXISTS seq_user_profile_id;
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP SEQUENCE IF EXISTS seq_activity_type_id;
 DROP SEQUENCE IF EXISTS seq_event_id;
@@ -24,6 +30,44 @@ CREATE TABLE users (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('katy','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('faisal','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('stacy','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
+
+CREATE SEQUENCE seq_user_profile_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+  
+CREATE TABLE user_profile (
+        user_profile_id int DEFAULT nextval('seq_user_profile_id'::regclass) NOT NULL,
+        user_id int NOT NULL,
+        first_name varchar(50) NOT NULL,
+        last_name varchar(50) NOT NULL,
+        email_address varchar(200) NOT NULL,
+        handle varchar(100) NOT NULL,
+        CONSTRAINT pk_user_profile PRIMARY KEY (user_profile_id),
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+INSERT INTO user_profile (user_id, first_name, last_name, email_address, handle) 
+VALUES (1, 'Sample', 'User', 'user@user.com', 'User');
+
+INSERT INTO user_profile (user_id, first_name, last_name, email_address, handle) 
+VALUES (2, 'Sample', 'Admin', 'admin@admin.com', 'Admin');
+
+INSERT INTO user_profile (user_id, first_name, last_name, email_address, handle) 
+VALUES (3, 'Katy', 'Richardson', 'katy.berkman@gmail.com', 'KatyR');
+
+INSERT INTO user_profile (user_id, first_name, last_name, email_address, handle) 
+VALUES (4, 'Faisal', 'Ismail', 'afismail.25@gmail.com', 'Faisal');
+
+INSERT INTO user_profile (user_id, first_name, last_name, email_address, handle) 
+VALUES (5, 'Stacy', 'McGrath', 'stacymcgrath23@gmail.com', 'StacyMc');
+
+
 
 CREATE SEQUENCE seq_event_id
   INCREMENT BY 1
@@ -90,7 +134,7 @@ INSERT INTO activity_type (activity_type) VALUES ('Other');
 CREATE TABLE event_activity_type (
 	event_id int NOT NULL,
 	activity_type_id int NOT NULL,
-	CONSTRAINT pk_event_activity_typt_id PRIMARY KEY (event_id, activity_type_id),
+	CONSTRAINT pk_event_activity_type_id PRIMARY KEY (event_id, activity_type_id),
 	FOREIGN KEY(event_id) REFERENCES event(event_id),
 	FOREIGN KEY(activity_type_id) REFERENCES activity_type(activity_type_id)
 );
@@ -113,8 +157,44 @@ INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 2);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 3);
 
 
+CREATE TABLE event_user (
+	event_id int NOT NULL,
+	user_id int NOT NULL,
+	CONSTRAINT pk_event_user_id PRIMARY KEY (event_id, user_id),
+	FOREIGN KEY(event_id) REFERENCES event(event_id),
+	FOREIGN KEY(user_id) REFERENCES users(user_id)
+);
+
+INSERT INTO event_user (event_id, user_id) VALUES (1, 3);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 3);
+INSERT INTO event_user (event_id, user_id) VALUES (5, 3);
+INSERT INTO event_user (event_id, user_id) VALUES (1, 4);
+INSERT INTO event_user (event_id, user_id) VALUES (3, 4);
+INSERT INTO event_user (event_id, user_id) VALUES (7, 4);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 5);
+INSERT INTO event_user (event_id, user_id) VALUES (8, 5);
+INSERT INTO event_user (event_id, user_id) VALUES (9, 5);
+
+
+CREATE SEQUENCE seq_logged_activity_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE TABLE logged_activity (
+        logged_activity_id int DEFAULT nextval('seq_logged_activity_id'::regclass) NOT NULL,
+        user_id int NOT NULL,
+        activity_type_id int NOT NULL,
+        activity_date date NOT NULL,
+        distance float NOT NULL,
+        CONSTRAINT pk_logged_activity PRIMARY KEY (logged_activity_id),
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
+        FOREIGN KEY (activity_type_id) REFERENCES activity_type(activity_type_id)
+        );
+        
+        
 
 COMMIT TRANSACTION;
-
 
 
