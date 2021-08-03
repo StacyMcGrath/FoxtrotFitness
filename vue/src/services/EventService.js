@@ -11,7 +11,7 @@ export default {
   },
 
   retrieveEventsByUser() {
-    return axios.get(`/dashboard`)
+    return axios.get(`/dashboard/events`)
   }
 
 }

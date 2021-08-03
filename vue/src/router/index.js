@@ -73,7 +73,7 @@ const router = new Router({
       }
     },
     {
-      path: "/dashboard",
+      path: "/dashboard/",
       name: "dashboard",
       component: Dashboard,
       meta: {

@@ -9,6 +9,7 @@ public class Activity {
     private int activityTypeId;
     private Date activityDate;
     private double distance;
+    private String activityType;
 
     public Activity() {
     }
@@ -51,5 +52,13 @@ public class Activity {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    public String getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(String activityType) {
+        this.activityType = activityType;
     }
 }
