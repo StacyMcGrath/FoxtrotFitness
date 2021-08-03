@@ -25,3 +25,5 @@ ON ALL SEQUENCES IN SCHEMA public
 TO final_capstone_appuser;
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO final_capstone_appuser;
+
