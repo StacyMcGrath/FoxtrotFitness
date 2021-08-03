@@ -1,12 +1,16 @@
 <template>
-  <my-events />
+  <div>
+    <activity-form />
+    <my-events />
+  </div>
 </template>
 
 <script>
+import ActivityForm from '../components/ActivityForm.vue'
 import MyEvents from '../components/MyEvents.vue'
 
 export default {
-  components: { MyEvents },
+  components: { MyEvents, ActivityForm },
 
 }
 </script>
