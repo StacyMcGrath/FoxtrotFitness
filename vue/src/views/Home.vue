@@ -1,12 +1,19 @@
 <template>
   <div class="home">
-    <h1>Welcome FoxTrot User</h1>
-    <p></p>
+    <about-foxtrot />
   </div>
 </template>
 
 <script>
+import AboutFoxtrot from '../components/AboutFoxtrot'
 export default {
-  name: "home"
-};
+  name: "home",
+  components: {
+    AboutFoxtrot
+  }
+}
 </script>
+
+<style scoped>
+
+</style>

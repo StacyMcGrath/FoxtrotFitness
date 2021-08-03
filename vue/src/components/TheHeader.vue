@@ -1,12 +1,12 @@
 <template>
   <div>
-      <h1>FoxTrot Fitness Tracker</h1>
-      <nav>
-          <router-link v-bind:to="{name: 'home'}">Home</router-link> | 
-          <router-link v-bind:to="{name: 'events'}">Events</router-link> | 
-          <a href="#">About</a>
 
-      </nav>
+    <nav>
+        <router-link v-bind:to="{name: 'home'}">Home</router-link> | 
+        <router-link v-bind:to="{name: 'events'}">Events</router-link>
+  </nav>
+
+
   </div>
 </template>
 
@@ -21,6 +21,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
