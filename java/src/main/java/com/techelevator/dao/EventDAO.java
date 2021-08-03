@@ -7,5 +7,6 @@ public interface EventDAO {
 
     List<Event> retrieveEvents();
     Event retrieveEventById(int eventId);
+    List<Event> retrieveEventsByUser(int userId);
 
 }

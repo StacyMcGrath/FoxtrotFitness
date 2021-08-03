@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import EventSearch from '../views/EventSearch.vue'
 import EventDetailPage from '../views/EventDetailPage.vue'
+import Dashboard from '../views/Dashboard.vue'
 
 Vue.use(Router)
 
@@ -71,6 +72,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: Dashboard,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 

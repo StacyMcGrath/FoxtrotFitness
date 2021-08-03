@@ -8,6 +8,10 @@ export default {
 
   retrieveEventById(eventId) {
     return axios.get(`/events/${eventId}`)
+  },
+
+  retrieveEventsByUser() {
+    return axios.get(`/dashboard`)
   }
 
 }
