@@ -30,7 +30,7 @@
 
 
       <button class="btn btn-submit">Submit</button>
-      <button class="btn btn-cancel" type="cancel">Cancel</button>
+      <button class="btn btn-cancel" type="reset" v-on:click.prevent="clearForm">Clear</button>
     </form>
 
   </div>
@@ -57,11 +57,12 @@ data() {
 },
 methods: {
 submitForm() {
-          
           activityService.logActivity(this.activity).then(response => {
               if (response.status == 201) {
-                 
+                  this.$router.go();
                   this.logMessage = "Success logging your Activity!";
+                  
+                  
               }
           }).catch(error => {
               
@@ -80,7 +81,15 @@ handleErrorResponse(error) {
             this.logMessage = "Java Green has left you high and dry. Pick better developers next time!";
         }
       }
-   },      
+   }, 
+   clearForm() {
+     this.activity = {
+            activityId: null,
+            userId: null,
+            activityTypeId: null,
+            activityDate: "",
+            distance: ""};
+   }     
 
 
 }
