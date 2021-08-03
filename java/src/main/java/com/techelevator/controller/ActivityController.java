@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 import com.techelevator.dao.ActivityDAO;
 import com.techelevator.model.Activity;
+import com.techelevator.model.Event;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,10 @@ public class ActivityController {
         activity.setUserID(5);
         activityDAO.logActivity(activity);
         //userDAO.findIdByUsername(principal.getName())
+    }
+
+    @RequestMapping(path = "/dashboard/activities", method = RequestMethod.GET)
+    public List<Activity> getActivities() {
+        return activityDAO.retrieveActivitiesByUser(5);
     }
 }

@@ -30,7 +30,7 @@ public class EventController {
         return eventDAO.retrieveEventById(eventId);
     }
 
-    @RequestMapping(path = "/dashboard", method = RequestMethod.GET)
+    @RequestMapping(path = "/dashboard/events", method = RequestMethod.GET)
     public List<Event> getEventsByUser(Principal principal) {
         return eventDAO.retrieveEventsByUser(4);
         //userDAO.findIdByUsername(principal.getName())
