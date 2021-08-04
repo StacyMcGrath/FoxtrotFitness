@@ -11,3 +11,4 @@ VALUES (DEFAULT, 4, 2, '2021-08-03', 10);
 INSERT INTO logged_activity (logged_activity_id, user_id, activity_type_id, activity_date, distance) 
 VALUES (DEFAULT, 5, 3, '2021-08-02', 15);
 
+SELECT logged_activity_id, user_id, activity_type_id, activity_date, distance FROM logged_activity;
