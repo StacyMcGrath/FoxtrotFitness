@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <img src="" alt="Image of Event">
+  <div class="events">
+      <img src="..\assets\istockphoto-1176397624-612x612.jpg" alt="Image of Event">
       <h1>My Events and Goals</h1>
       <ul>
         <li v-for="event in computedEvents" v-bind:key="event.eventId">{{event.eventName}}</li>
@@ -41,6 +41,27 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+
+img {
+    height: 200px;
+    width: auto;
+}
+
+/* Events/Goals */
+
+/* .events {
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 18px;
+letter-spacing: -0.015em;
+}
+
+button {
+color: #18A0FB;
+} */
 
 </style>

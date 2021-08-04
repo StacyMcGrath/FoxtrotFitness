@@ -1,6 +1,6 @@
 <template>
   <div>
-      <img src="" alt="Image of Activity">
+      <img src="..\assets\istockphoto-1176397624-612x612.jpg" alt="Image of Activity">
       <h1>My Activities</h1>
       <ul>
         <li v-for="activity in computedActivities" v-bind:key="activity.activityId">Date: {{activity.activityDate}} {{activity.activityType}}: {{activity.distance}} miles</li>
@@ -41,6 +41,10 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
+img {
+    height: 200px;
+    width: auto;
+}
 </style>

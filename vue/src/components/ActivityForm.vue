@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div v-show="logMessage != ''">{{logMessage}}</div>  
+    <div v-show="logMessage != ''">{{this.logMessage}}</div>  
    <form v-on:submit.prevent="submitForm" class="activityForm">
  
-
-     <!-- <div class="form-group"> -->
+     <h1 class="form-header">Log recent activity</h1>
+     <div class="form-date">
         <label for="date">Date:</label>
         <input id="date" type="text" class="form-control" v-model="activity.activityDate" />
-      <!-- </div> -->
+      </div>
       
-      <!-- <div class="form-group"> -->
-        <label for="activityType">Activity</label>
+      <div class="form-activity">
+        <label for="activityType">Activity:</label>
         <select v-model="activity.activityTypeId">
           <option value="" disabled selected>Choose your option</option>
           <option value=1>Running</option>
@@ -20,13 +20,13 @@
           <option value=5>Other</option>
         </select>
 
-      <!-- </div> -->
+      </div>
       
 
-     <!-- <div class="form-group"> -->
+     <div class="form-distance">
         <label for="distance">Distance:</label>
         <input id="distance" type="text" class="form-control" v-model="activity.distance" />
-      <!-- </div> -->
+      </div>
 
 
       <button class="btn btn-submit">Submit</button>
@@ -61,11 +61,8 @@ submitForm() {
               if (response.status == 201) {
                   this.$router.go();
                   this.logMessage = "Success logging your Activity!";
-                  
-                  
               }
           }).catch(error => {
-              
               this.handleErrorResponse(error);
           });
       },
@@ -80,8 +77,8 @@ handleErrorResponse(error) {
         else {
             this.logMessage = "Java Green has left you high and dry. Pick better developers next time!";
         }
-      }
-   }, 
+      },
+
    clearForm() {
      this.activity = {
             activityId: null,
@@ -89,7 +86,10 @@ handleErrorResponse(error) {
             activityTypeId: null,
             activityDate: "",
             distance: ""};
-   }     
+   }  
+
+   }, 
+   
 
 
 }
@@ -100,6 +100,51 @@ handleErrorResponse(error) {
 
 
 
-<style>
+<style scoped>
+
+.form-date {
+  grid-area: date;
+}
+.form-activity {
+  grid-area: activity;
+}
+.form-distance {
+  grid-area: distance;
+}
+.form-header {
+  grid-area: header;
+
+}
+.btn-submit{
+  margin: 5px;
+  grid-area: submit;
+}
+.btn-cancel{
+  margin: 5px;
+  grid-area: cancel;
+}
+form {
+  display: grid;
+  padding-left: 20px;
+  background: lightblue;
+  margin: 10%;
+  grid-template-columns:2fr 2fr 2fr 1fr 1fr ;
+  grid-template-areas:
+  "header header header header header"
+  "date activity distance submit cancel";
+
+}
+
+input {
+  width: 50%;
+}
+
+label {
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 36px;
+}
 
 </style>
