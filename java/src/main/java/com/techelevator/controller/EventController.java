@@ -12,12 +12,14 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class EventController {
+
     private UserDAO userDAO;
 
     private EventDAO eventDAO;
 
-    public EventController(EventDAO eventDAO) {
+    public EventController(EventDAO eventDAO, UserDAO userDAO) {
         this.eventDAO = eventDAO;
+        this.userDAO = userDAO;
     }
 
     @RequestMapping(path = "/events", method = RequestMethod.GET)
@@ -32,7 +34,7 @@ public class EventController {
 
     @RequestMapping(path = "/dashboard/events", method = RequestMethod.GET)
     public List<Event> getEventsByUser(Principal principal) {
-        return eventDAO.retrieveEventsByUser(4);
+        return eventDAO.retrieveEventsByUser(userDAO.findIdByUsername(principal.getName()));
         //userDAO.findIdByUsername(principal.getName())
     }
 }

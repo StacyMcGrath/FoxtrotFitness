@@ -6,10 +6,12 @@
         <li><img src="..\assets\Fox logo.png" alt=""></li>
         <li><router-link class="navbutton" v-bind:to="{name: 'home'}">Home</router-link></li>
         <li><router-link class="navbutton" v-bind:to="{name: 'events'}">Events</router-link></li>
-        <li><router-link class="navbutton" v-bind:to="{name: 'dashboard'}">Dashboard</router-link></li>
-        <li class="register">Register</li>
-        <li class="register">Login</li>
-      </ul>
+        <li><router-link class="navbutton" v-bind:to="{name: 'dashboard'}" v-if="$store.state.token != ''">Dashboard</router-link></li>
+        <li2><router-link  class="register" v-bind:to="{name: 'login'}" v-if="$store.state.token == ''">Login</router-link></li2>
+        <li2><router-link  class="register" v-bind:to="{name: 'logout'}" v-if="$store.state.token != ''">Logout</router-link></li2>    
+        <li2><router-link class="register" v-bind:to="{name: 'register'}" v-show="$store.state.token == ''">Register</router-link></li2>
+        <li3 v-if="$store.state.token != ''">Welcome, User!</li3>
+     </ul>
     </nav>
 
 
@@ -30,12 +32,19 @@
 </template>
 
 <script>
+
 export default {
     name: 'the-header',
     data() {
         return {
           
         }
+    },
+    computed: {
+      displayName() {
+        const displayName = this.$store.state.user;
+        return displayName;
+      }
     }
 }
 </script>
@@ -57,9 +66,17 @@ ul {
 }
 li{
   float: left;
-
+  text-decoration: none;
 }
-
+li2{
+  float: right;
+  text-decoration: none;
+}
+li3{
+  float: right;
+  padding: 13px;
+  text-decoration: none;
+}
  .navbutton {
   display: block;
   padding: 14px 16px;

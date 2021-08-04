@@ -11,7 +11,7 @@
       <p>Individual Activity Goal: {{event.userActivityGoal}} miles</p>
       <p>Total Event Activity Goal: {{event.totalActivityGoal}} miles</p>
 
-      <button>Register for this Event</button>
+      <button v-if="$store.state.token != ''">Register for this Event</button>
   </div>
 </template>
 
