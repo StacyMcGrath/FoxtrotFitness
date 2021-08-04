@@ -2,8 +2,8 @@
   <div>
 
     <nav>
-      <img src="..\assets\Orange Fox Animal Logo.png" alt="">
       <ul>
+        <li><img src="..\assets\Fox logo.png" alt=""></li>
         <li><router-link class="navbutton" v-bind:to="{name: 'home'}">Home</router-link></li>
         <li><router-link class="navbutton" v-bind:to="{name: 'events'}">Events</router-link></li>
         <li><router-link class="navbutton" v-bind:to="{name: 'dashboard'}">Dashboard</router-link></li>
@@ -44,6 +44,7 @@ export default {
 img {
   height: 50px;
   width: auto;
+  margin-right: 20px;
 }
 
 ul {
@@ -61,25 +62,33 @@ li{
 
  .navbutton {
   display: block;
-  padding: 14px 16px;
+  padding: 12px 16px;
   background-color: #dddddd;
   text-align: center;
   text-decoration: none;
+  font-family: Arial;
+  color: darkslategray;
 }
 .register{
   float:right;
   display: block;
-  padding: 14px 16px;
-  background-color: coral;
+  padding: 12px 16px;
+  background-color: #f16120;
   text-align: center;
   text-decoration: none;
+  color: white;
+  font-family: Arial;
 }
 .navbutton:hover {
+  height: 50px;
   background-color: white;
 }
 
 .register:hover {
+  height: 50px;
   background-color: white;
+  color:black;
+
 }
 
 

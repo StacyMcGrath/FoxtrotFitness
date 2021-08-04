@@ -1,8 +1,9 @@
 <template>
 <div>
   <div class="container">
-  <img class="bgimg-1" src="../assets/oscar-aguilar-elias-Ku8MDO-FcaY-unsplash.jpg">
+  <img class="bgimg-1" src="..\assets\Home Page Graphic.jpg">
   <h4 class="top-left">Foxtrot Fitness Tracker</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius vel pharetra vel turpis nunc.</p>
 
 </div>
 
@@ -41,48 +42,26 @@ body, html {
   color: white;
 }
 
-/* Bottom left text */
-.bottom-left {
-  color: black;
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-}
-
 /* Top left text */
 .top-left {
   font-family: "Raleway", sans-serif;
   color: black;
-  font-size: 32px;
+  font-size: 40px;
   position: absolute;
-  top: 40px;
+  top: 20px;
   left: 40px;
 }
 
-/* Top right text */
-.top-right {
+p {
+  font-family: "Raleway", sans-serif;
   color: black;
+  font-size: 24px;
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 100px;
+  left: 40px;
 }
 
-/* Bottom right text */
-.bottom-right {
-  color: black;
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
 
-/* Centered text */
-.centered {
-  color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 
 </style>
