@@ -5,27 +5,27 @@
  
      <h1 class="form-header">Log recent activity</h1>
      <div class="form-date">
-        <label for="date">Date:</label>
-        <input id="date" type="text" class="form-control" v-model="activity.activityDate" />
+        <label for="date">Date: </label>
+        <input id="date" type="text" class="form-control" placeholder="yyyy-mm-dd" v-model="activity.activityDate" />
       </div>
       
       <div class="form-activity">
-        <label for="activityType">Activity:</label>
-        <select v-model="activity.activityTypeId">
-          <option value="" disabled selected>Choose your option</option>
-          <option value=1>Running</option>
-          <option value=2>Walking</option>
-          <option value=3>Cycling</option>
-          <option value=4>Swimming</option>
-          <option value=5>Other</option>
+        <label for="activityType">Activity: </label>
+        <select class="form-control" v-model="activity.activityTypeId">
+          <option disabled value="">Choose Activity</option>
+            <option value=1>Running</option>
+            <option value=2>Walking</option>
+            <option value=3>Cycling</option>
+            <option value=4>Swimming</option>
+            <option value=5>Other</option>
         </select>
 
       </div>
       
 
      <div class="form-distance">
-        <label for="distance">Distance:</label>
-        <input id="distance" type="text" class="form-control" v-model="activity.distance" />
+        <label for="distance">Distance: </label>
+        <input id="distance" type="text" class="form-control" placeholder="Miles" v-model="activity.distance" />
       </div>
 
 
@@ -117,17 +117,20 @@ handleErrorResponse(error) {
 }
 .btn-submit{
   margin: 5px;
+  width: 100px;
   grid-area: submit;
 }
 .btn-cancel{
   margin: 5px;
+  width: 100px;
   grid-area: cancel;
 }
 form {
   display: grid;
-  padding-left: 20px;
-  background: lightblue;
-  margin: 10%;
+  padding: 20px 15%;
+  background: rgb(111, 139, 148);
+  font-family: Arial, Helvetica, sans-serif;
+  /* margin-top: 20px; */
   grid-template-columns:2fr 2fr 2fr 1fr 1fr ;
   grid-template-areas:
   "header header header header header"
@@ -135,12 +138,13 @@ form {
 
 }
 
-input {
+.form-control {
   width: 50%;
+  height: 30px;
 }
 
 label {
-font-family: Montserrat;
+
 font-style: normal;
 font-weight: bold;
 font-size: 18px;

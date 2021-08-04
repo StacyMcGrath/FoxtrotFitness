@@ -19,7 +19,7 @@
           <div id="v-model-select">
             <select v-model="activityFilter">
             <option disabled value="">Please select one</option>
-              <option></option>
+              <option value="">View All</option>
               <option>Running</option>
               <option>Walking</option>
               <option>Swimming</option>
@@ -46,7 +46,7 @@
         <td>{{event.startDate}} - {{event.endDate}}</td>
         </tr>
       </tbody>
-    </table> 
+    </table>  
   </div>
 </template>
 
