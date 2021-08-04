@@ -1,10 +1,12 @@
 <template>
+<div>
+  <activity-form class="form"/>
   <div class="dashboard">
-    <activity-form class="form"/>
     <my-events class="events"/>
     <my-activities class="activities"/>
     <my-badges class="badges"/>
   </div>
+</div>  
 </template>
 
 <script>
@@ -23,6 +25,7 @@ export default {
 
 .form {
   grid-area: form;
+  
 }
 .events {
   grid-area: events;
@@ -35,9 +38,9 @@ export default {
 }
 .dashboard {
 display: grid;
+justify-items: center;
 grid-template-columns: 1fr 1fr 1fr;
 grid-template-areas: 
-"form form form"
 "events activities badges";
 
 }

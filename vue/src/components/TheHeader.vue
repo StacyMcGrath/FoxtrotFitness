@@ -62,7 +62,8 @@ li{
 
  .navbutton {
   display: block;
-  padding: 12px 16px;
+  padding: 14px 16px;
+  height: 50px;
   background-color: #dddddd;
   text-align: center;
   text-decoration: none;
@@ -72,7 +73,8 @@ li{
 .register{
   float:right;
   display: block;
-  padding: 12px 16px;
+  height: 50px;
+  padding: 14px 16px;
   background-color: #f16120;
   text-align: center;
   text-decoration: none;

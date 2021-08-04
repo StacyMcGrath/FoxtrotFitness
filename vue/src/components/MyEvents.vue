@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-      <img src="..\assets\istockphoto-1176397624-612x612.jpg" alt="Image of Event">
+      <img src="..\assets\goal_progress.jpg" alt="Image of Event">
       <h1>My Events and Goals</h1>
       <ul>
         <li v-for="event in computedEvents" v-bind:key="event.eventId">{{event.eventName}}</li>
@@ -44,7 +44,7 @@ export default {
 <style scoped>
 
 img {
-    height: 200px;
+    height: 150px;
     width: auto;
 }
 

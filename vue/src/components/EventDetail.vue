@@ -45,7 +45,9 @@ export default {
 </script>
 
 <style scoped>
-
+div {
+    margin-left: 20px;
+}
 .date {
     color: black;
 }

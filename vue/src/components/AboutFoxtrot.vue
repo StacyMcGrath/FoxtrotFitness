@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 
 body, html {
@@ -56,6 +56,8 @@ p {
   font-family: "Raleway", sans-serif;
   color: black;
   font-size: 24px;
+  text-align: left;
+  margin-right: 20%;
   position: absolute;
   top: 100px;
   left: 40px;
