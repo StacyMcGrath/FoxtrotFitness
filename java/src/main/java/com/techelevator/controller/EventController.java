@@ -3,7 +3,12 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.EventDAO;
 import com.techelevator.dao.UserDAO;
+import com.techelevator.model.Activity;
 import com.techelevator.model.Event;
+import com.techelevator.model.User;
+import com.techelevator.model.UserEvent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -37,4 +42,14 @@ public class EventController {
         return eventDAO.retrieveEventsByUser(userDAO.findIdByUsername(principal.getName()));
         //userDAO.findIdByUsername(principal.getName())
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/events/{eventId}", method = RequestMethod.POST)
+    public void addUserToEvent(@PathVariable int eventId, Principal principal) {
+        UserEvent userEvent = new UserEvent();
+        userEvent.setEventId(eventId);
+        userEvent.setUserID(userDAO.findIdByUsername(principal.getName()));
+        eventDAO.addEventToUser(userEvent);
+    }
+
 }

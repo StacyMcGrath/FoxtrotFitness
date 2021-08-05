@@ -12,6 +12,9 @@ export default {
 
   retrieveEventsByUser() {
     return axios.get(`/dashboard/events`)
-  }
+  },
 
+  addUserToEvent(eventId) {
+    return axios.post(`/events/${eventId}`)
+  }
 }
