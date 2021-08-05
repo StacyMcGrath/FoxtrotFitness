@@ -1,6 +1,8 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Activity;
 import com.techelevator.model.Event;
+import com.techelevator.model.UserEvent;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -73,6 +75,14 @@ public class JdbcEventDAO implements EventDAO {
         }
 
         return eventList;
+    }
+
+    @Override
+    public void addEventToUser(UserEvent userEvent) {
+
+        String sql = "INSERT INTO event_user (event_id, user_id) VALUES (?, ?)";
+
+        jdbcTemplate.update(sql, userEvent.getEventId(), userEvent.getUserID());
     }
 
 

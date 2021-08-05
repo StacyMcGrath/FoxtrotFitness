@@ -11,7 +11,7 @@
       <p>Individual Activity Goal: {{event.userActivityGoal}} miles</p>
       <p>Total Event Activity Goal: {{event.totalActivityGoal}} miles</p>
 
-      <button v-if="$store.state.token != ''">Register for this Event</button>
+      <button v-if="$store.state.token != ''" v-on:click="addEventToUser">Register for this Event</button>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
             endDate: "",
             userActivityGoal: null,
             totalActivityGoal: null
-        },
+        }
       };
     },
 
@@ -39,6 +39,18 @@ export default {
         this.event = response.data;
     }
     );
+  },
+
+  methods: {
+    addEventToUser() {
+      eventService.addUserToEvent(this.event.eventId).then(response => {
+         if (response.status == 201) {
+                  this.logMessage = "Success signing up for your Event!";
+              }
+          }).catch(error => {
+              this.handleErrorResponse(error);
+      });
+    }
   }
 
 }
