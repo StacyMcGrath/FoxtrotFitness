@@ -30,11 +30,9 @@ body, html {
 .bgimg-1 {
   background-position: center;
   background-size: cover;
-  margin-top: 20px;
   width: 100%;
   height: auto;
 }
-
 
 .container {
   position: relative;
@@ -44,8 +42,9 @@ body, html {
 
 /* Top left text */
 .top-left {
-  font-family: "Raleway", sans-serif;
-  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #505170;
   font-size: 40px;
   position: absolute;
   top: 20px;
@@ -53,11 +52,11 @@ body, html {
 }
 
 p {
-  font-family: "Raleway", sans-serif;
-  color: black;
+  font-family: 'Montserrat', sans-serif;
+   color: #505170;
   font-size: 24px;
   text-align: left;
-  margin-right: 20%;
+  margin-right: 30%;
   position: absolute;
   top: 100px;
   left: 40px;

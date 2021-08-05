@@ -117,7 +117,7 @@ export default {
 
 <style scoped>
 div {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: black;
 }
 
@@ -154,7 +154,7 @@ hr {
 
 /* Set a style for the submit button */
 .registerbtn {
-  background-color: #04AA6D;
+  background-color: #f16120;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;

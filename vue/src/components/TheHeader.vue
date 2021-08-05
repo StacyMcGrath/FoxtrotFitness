@@ -53,6 +53,7 @@ export default {
 img {
   height: 50px;
   width: auto;
+  margin-left: 20px;
   margin-right: 20px;
 }
 
@@ -62,7 +63,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #dddddd;
+  background-color: #cfe6e0;
 }
 li{
   float: left;
@@ -75,17 +76,21 @@ li2{
 li3{
   float: right;
   padding: 13px;
+  font-family: 'Montserrat', sans-serif;
   text-decoration: none;
+  color: #505170
 }
  .navbutton {
   display: block;
   padding: 14px 16px;
   height: 50px;
-  background-color: #dddddd;
+  background-color:  #cfe6e0;
   text-align: center;
   text-decoration: none;
-  font-family: Arial;
-  color: darkslategray;
+  font-weight: bold;
+  
+  font-family: 'Montserrat', sans-serif;
+  color: #505170
 }
 .register{
   float:right;
@@ -95,18 +100,19 @@ li3{
   background-color: #f16120;
   text-align: center;
   text-decoration: none;
-  color: white;
-  font-family: Arial;
+  font-weight: bold;
+  color: #edf0db;
+  font-family: 'Montserrat', sans-serif;
 }
 .navbutton:hover {
   height: 50px;
-  background-color: white;
+  background-color:#edf0db
 }
 
 .register:hover {
   height: 50px;
-  background-color: white;
-  color:black;
+  background-color: #edf0db;
+  color: #505170;
 
 }
 

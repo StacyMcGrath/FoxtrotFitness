@@ -8,6 +8,7 @@ import store from '../store/index'
 import EventSearch from '../views/EventSearch.vue'
 import EventDetailPage from '../views/EventDetailPage.vue'
 import Dashboard from '../views/Dashboard.vue'
+import TestView from '../views/TestView.vue'
 
 Vue.use(Router)
 
@@ -78,6 +79,14 @@ const router = new Router({
       component: Dashboard,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: "/test",
+      name: "test-cards",
+      component: TestView,
+      meta: {
+        requiresAuth: false
       }
     }
   ]

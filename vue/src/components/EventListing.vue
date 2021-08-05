@@ -1,24 +1,24 @@
 <template>
   <div>
-    <table class="minimalistBlack">
+    <table class="event-list">
       <thead>
         <tr>
         <th>Event Name</th>
         <th>Activity Type</th>
-        <th>Total Event Miles</th>
-        <th>Individual Member Miles</th>
+        <th>Individual Goal</th>
+        <th>Event Community Goal</th>
         <th>Dates</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr class="filter-row">
         <td>
-          <input type="text" name="eventName" v-model="eventFilter">
+          <input type="text" name="eventName" placeholder="Search Event Name" v-model="eventFilter">
         </td>
         <td>
-          <div id="v-model-select">
+          <div class="input-field col s12">
             <select v-model="activityFilter">
-            <option disabled value="">Please select one</option>
+            <option disabled value="">Filter by Activity</option>
               <option value="">View All</option>
               <option>Running</option>
               <option>Walking</option>
@@ -34,14 +34,14 @@
           <button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button>
         </td>
         </tr>
-        <tr v-on:click="viewEventDetails(event.eventId)" v-for="event in filteredEvents" v-bind:key="event.eventId">
-        <td>{{event.eventName}}</td>
+        <tr class="event-rows" v-on:click="viewEventDetails(event.eventId)" v-for="event in filteredEvents" v-bind:key="event.eventId">
+        <td id="eventname">{{event.eventName}}</td>
         <td>
           <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
         </td>
-        <td v-if="event.totalActivityGoal>0">{{event.totalActivityGoal}}</td>
-        <td v-else>N/A</td>
         <td v-if="event.userActivityGoal>0">{{event.userActivityGoal}}</td>
+        <td v-else>Whatever you can do!</td>
+        <td v-if="event.totalActivityGoal>0">{{event.totalActivityGoal}}</td>
         <td v-else>N/A</td>
         <td>{{event.startDate}} - {{event.endDate}}</td>
         </tr>
@@ -104,31 +104,82 @@ export default {
 </script>
 
 <style>
-table.minimalistBlack {
-  border: 3px solid #000000;
-  width: 100%;
-  text-align: left;
+template {
+  background-color: #edf0db;
+}
+
+.event-list-view{
+  background-color: #edf0db;
+}
+table.event-list {
+  font-family: 'Montserat', sans-serif;
+  color: #505170;
+  background-color: #edf0db;
   border-collapse: collapse;
+  border: 1px solid #505170;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: auto;
 }
-table.minimalistBlack td, table.minimalistBlack th {
-  border: 1px solid #000000;
+td:nth-child(1) {
+  width: 30%;
+}
+td:nth-child(2) {
+  width: 20%;
+}
+td:nth-child(3) {
+  width: 15%;
+}
+ td:nth-child(4) {
+  width: 15%;
+}
+td:nth-child(5) {
+  width: 20%;
+}
+tr:nth-child(even) {
+  background: #edf0db;
+}
+tr:nth-child(odd) {
+  background: #cfe6e0;
+}
+tr:nth-child(1) {
+  background: #74769D;
+}
+table.event-list td, table.event-list th {
+  border-bottom: 0.5px solid #505170;
   padding: 5px 4px;
+  text-align: center;
 }
-table.minimalistBlack tbody td {
+#eventname, th.eventname {
+  text-align: left;
+}
+
+table.event-list tbody td {
   font-size: 13px;
 }
-table.minimalistBlack thead {
-  background: #CFCFCF;
-  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-  background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-  border-bottom: 3px solid #000000;
+table.m.event-list thead {
+  background: #edf0db;
+  
 }
-table.minimalistBlack thead th {
+table.event-list thead th {
   font-size: 15px;
+  height: 50px;
   font-weight: bold;
-  color: #000000;
-  text-align: left;
+  color: #edf0db;
+  text-align: center;
+  background-color: #74769D;
 }
+#activity {
+  line-height: normal;
+}
+select, input {
+  background-color: #f6f7ed;
+}
+button {
+  background-color: #f6f7ed;
+}
+
 
 </style>
