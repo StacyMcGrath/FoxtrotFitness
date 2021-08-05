@@ -14,7 +14,7 @@ export default {
     return axios.get(`/dashboard/events`)
   },
 
-  addUserToEvent(eventId) {
-    return axios.post(`/myEvents`, eventId)
+  addUserToEvent(event) {
+    return axios.post(`/myEvents`, event)
   }
 }

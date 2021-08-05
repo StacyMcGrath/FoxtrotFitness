@@ -50,9 +50,9 @@ public class EventController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/myEvents", method = RequestMethod.POST)
-    public void addUserToEvent(@RequestBody int eventId, Principal principal) {
+    public void addUserToEvent(@RequestBody Event event, Principal principal) {
         UserEvent userEvent = new UserEvent();
-        userEvent.setEventId(eventId);
+        userEvent.setEventId(event.getEventId());
         userEvent.setUserID(userDAO.findIdByUsername(principal.getName()));
         eventDAO.addEventToUser(userEvent);
     }

@@ -11,9 +11,12 @@
       <p>Individual Activity Goal: {{event.userActivityGoal}} miles</p>
       <p>Total Event Activity Goal: {{event.totalActivityGoal}} miles</p>
 
-      <button v-if="$store.state.token != ''" v-on:click="addEventToUser">Register for this Event</button>
+      <button v-if="$store.state.token != ''" v-on:click.prevent="addEventToUser">Register for this Event</button>
+      <p> {{logMessage}} </p>
   </div>
 </template>
+
+
 
 <script>
 import eventService from '../services/EventService.js'
@@ -30,7 +33,9 @@ export default {
             endDate: "",
             userActivityGoal: null,
             totalActivityGoal: null
-        }
+        },
+
+        logMessage: ""
       };
     },
 
@@ -43,14 +48,26 @@ export default {
 
   methods: {
     addEventToUser() {
-      eventService.addUserToEvent(this.event.eventId).then(response => {
+      eventService.addUserToEvent(this.event).then(response => {
          if (response.status == 201) {
                   this.logMessage = "Success signing up for your Event!";
               }
           }).catch(error => {
               this.handleErrorResponse(error);
       });
-    }
+    },
+
+    handleErrorResponse(error) {
+        if (error.response) {
+            this.logMessage = "Error adding a new activity. Error: " + error.response.status;
+        }
+        else if (error.request) {
+               this.logMessage = "Error adding a new activity. Server unavailable, Error: " + error.status;
+        }
+        else {
+            this.logMessage = "Java Green has left you high and dry. Pick better developers next time!";
+        }
+      }
   }
 
 }
