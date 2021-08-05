@@ -9,11 +9,13 @@ import com.techelevator.model.User;
 import com.techelevator.model.UserEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
 
+@PreAuthorize("isAuthenticated()")
 @RestController
 @CrossOrigin
 public class EventController {
@@ -27,15 +29,18 @@ public class EventController {
         this.userDAO = userDAO;
     }
 
+    @PreAuthorize("permitAll")
     @RequestMapping(path = "/events", method = RequestMethod.GET)
     public List<Event> getEvents() {
         return eventDAO.retrieveEvents();
     }
 
+    @PreAuthorize("permitAll")
     @RequestMapping(path = "/events/{eventId}", method = RequestMethod.GET)
     public Event getEventById(@PathVariable int eventId) {
         return eventDAO.retrieveEventById(eventId);
     }
+
 
     @RequestMapping(path = "/dashboard/events", method = RequestMethod.GET)
     public List<Event> getEventsByUser(Principal principal) {
@@ -44,12 +49,20 @@ public class EventController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/events/{eventId}", method = RequestMethod.POST)
-    public void addUserToEvent(@PathVariable int eventId, Principal principal) {
+    @RequestMapping(path = "/myEvents", method = RequestMethod.POST)
+    public void addUserToEvent(@RequestBody int eventId, Principal principal) {
         UserEvent userEvent = new UserEvent();
         userEvent.setEventId(eventId);
         userEvent.setUserID(userDAO.findIdByUsername(principal.getName()));
         eventDAO.addEventToUser(userEvent);
     }
+
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @RequestMapping(path = "/dashboard", method = RequestMethod.POST)
+//    public void logActivity(@RequestBody Activity activity, Principal principal) {
+//        activity.setUserID(userDAO.findIdByUsername(principal.getName()));
+//        activityDAO.logActivity(activity);
+//        //userDAO.findIdByUsername(principal.getName())
+//    }
 
 }

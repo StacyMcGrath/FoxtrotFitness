@@ -15,6 +15,6 @@ export default {
   },
 
   addUserToEvent(eventId) {
-    return axios.post(`/events/${eventId}`)
+    return axios.post(`/myEvents`, eventId)
   }
 }

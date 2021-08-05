@@ -78,13 +78,11 @@ public class JdbcEventDAO implements EventDAO {
     }
 
     @Override
-    public UserEvent addEventToUser(UserEvent userEvent) {
+    public void addEventToUser(UserEvent userEvent) {
 
         String sql = "INSERT INTO event_user (event_id, user_id) VALUES (?, ?)";
 
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userEvent.getEventId(), userEvent.getUserID());
-
-        return userEvent;
+        jdbcTemplate.update(sql, userEvent.getEventId(), userEvent.getUserID());
     }
 
 

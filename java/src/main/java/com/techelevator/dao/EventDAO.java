@@ -11,6 +11,6 @@ public interface EventDAO {
     List<Event> retrieveEvents();
     Event retrieveEventById(int eventId);
     List<Event> retrieveEventsByUser(int userId);
-    UserEvent addEventToUser(UserEvent userEvent);
+    void addEventToUser(UserEvent userEvent);
 
 }
