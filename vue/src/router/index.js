@@ -8,7 +8,7 @@ import store from '../store/index'
 import EventSearch from '../views/EventSearch.vue'
 import EventDetailPage from '../views/EventDetailPage.vue'
 import Dashboard from '../views/Dashboard.vue'
-import TestView from '../views/TestView.vue'
+import CardView from '../views/CardView.vue'
 
 Vue.use(Router)
 
@@ -84,7 +84,7 @@ const router = new Router({
     {
       path: "/test",
       name: "test-cards",
-      component: TestView,
+      component: CardView,
       meta: {
         requiresAuth: false
       }

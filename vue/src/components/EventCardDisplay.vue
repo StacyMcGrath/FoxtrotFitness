@@ -1,17 +1,17 @@
 <template>
     <div>
-        <test-card v-for="event in filteredEvents" v-bind:key="event.eventId" v-bind:event="event" />
+        <event-card v-for="event in filteredEvents" v-bind:key="event.eventId" v-bind:event="event" />
     </div>
 </template>
 
 <script>
-import TestCard from '../components/TestCard.vue'
+import EventCard from '../components/EventCard.vue'
 import eventService from '../services/EventService.js'
 export default {
 
-    name: 'test-event-card-display',
+    name: 'event-card-display',
     components: {
-        TestCard
+        EventCard
     },
     data() {
       return{
@@ -57,7 +57,7 @@ export default {
         } else {
           this.endDateFilter = Date.now();
         }
-      }
+      },
     }
 }
 
