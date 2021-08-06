@@ -8,7 +8,8 @@ import store from '../store/index'
 import EventSearch from '../views/EventSearch.vue'
 import EventDetailPage from '../views/EventDetailPage.vue'
 import Dashboard from '../views/Dashboard.vue'
-import CardView from '../views/CardView.vue'
+import MyActivityHistoryPage from '../views/MyActivityHistoryPage.vue'
+import MyEventHistoryPage from '../views/MyEventHistoryPage.vue'
 
 Vue.use(Router)
 
@@ -82,11 +83,19 @@ const router = new Router({
       }
     },
     {
-      path: "/test",
-      name: "test-cards",
-      component: CardView,
+      path: "/myActivities",
+      name: "my-activity-history",
+      component: MyActivityHistoryPage,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/myEvents",
+      name: "my-event-history",
+      component: MyEventHistoryPage,
+      meta: {
+        requiresAuth: true
       }
     }
   ]

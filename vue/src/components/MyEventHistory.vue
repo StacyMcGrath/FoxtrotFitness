@@ -2,39 +2,30 @@
   <div class="events">
       <img src="..\assets\goal_progress.jpg" alt="Image of Event">
       <h1>My Events and Goals</h1>
-      <ul>
-        <!-- <router-link v-on:click="$router.push(`/events/${eventId}`)" >{{event.eventName}}</router-link> -->
+      <!-- <ul> -->
+        <!-- <li v-for="event in events" v-bind:key="event.eventId">{{event.eventName}}</li> -->
         
-        <li v-for="event in computedEvents" v-bind:key="event.eventId">
-          <a href="#" v-on:click.prevent="viewEventDetails(event.eventId)">{{event.eventName}}</a>
-        </li> 
-      </ul>
-      <button v-on:click="$router.push({name: 'my-event-history'})">View All</button>
+      <!-- </ul> -->
+      <event-card v-for="event in events" v-bind:key="event.eventId" v-bind:event="event" />
   </div>
 </template>
 
 <script>
 import eventService from '../services/EventService.js'
+import EventCard from '../components/EventCard.vue'
 export default {
-  name: "my-events",
+  name: "my-events-history",
+  components: {
+        EventCard
+    },
   data() {
     return {
-      events: [],
-      limit: 3
-      
+      events: []
     };
 
   },
-  computed: {
-    computedEvents() {
-      return this.limit ? this.events.slice(0, this.limit) : this.events
-    }
-
-  },
   methods: {
-  viewEventDetails(eventId) {
-        this.$router.push(`/events/${eventId}`);
-      }  
+
   },
   created() {
     eventService.retrieveEventsByUser().then(response => {
