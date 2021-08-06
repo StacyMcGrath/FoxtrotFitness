@@ -18,29 +18,29 @@ INSERT INTO user_profile (user_id, first_name, last_name, email_address, handle)
 VALUES (5, 'Stacy', 'McGrath', 'stacymcgrath23@gmail.com', 'StacyMc');
 
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
-VALUES ('Java Green Fun Run', 'Java Green is on the run! Each member will try to run (or walk) 10 miles this month, for 200 total team miles!', '', '2021-08-01', '2021-08-31', 10, 200, 'event_1');
+VALUES ('Java Green Fun Run', 'Java Green is on the run! Each member will try to run (or walk) 10 miles this month, for 200 total team miles!', '', '2021-08-01', '2021-08-31', 10, 200, 'event_1.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('TE Bike-a-thon', 'We are rolling! Set a goal to ride your bike 150 miles this month!', '', '2021-08-01', '2021-08-31', 150, 'event_2');
+VALUES ('TE Bike-a-thon', 'We are rolling! Set a goal to ride your bike 150 miles this month!', '', '2021-08-01', '2021-08-31', 150, 'event_2.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
-VALUES ('Walk the World', 'Walk around the world with us! Can we walk a total of 24901 miles in three months? Each participant''s goal is 100 miles.', '', '2021-08-01', '2021-10-31', 100, 24901, 'event_3');
+VALUES ('Walk the World', 'Walk around the world with us! Can we walk a total of 24901 miles in three months? Each participant''s goal is 100 miles.', '', '2021-08-01', '2021-10-31', 100, 24901, 'event_3.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('Foxtrot 5K', 'Lace up your shoes for a virtual 5K run at your convenience this month!', '', '2021-08-01', '2021-8-31', 3.1, 'event_4');
+VALUES ('Foxtrot 5K', 'Lace up your shoes for a virtual 5K run at your convenience this month!', '', '2021-08-01', '2021-8-31', 3.1, 'event_4.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('Swim the Channel', 'The distance across the English Channel is 21 miles. Can you swim that far this month?', '', '2021-08-01', '2021-08-31', 21, 'event_5');
+VALUES ('Swim the Channel', 'The distance across the English Channel is 21 miles. Can you swim that far this month?', '', '2021-08-01', '2021-08-31', 21, 'event_5.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('Move it - your way!', 'Run, walk, bike, or swim - even roller skate! Anything goes! Just move your body 50 total miles!', '', '2021-09-01', '2021-09-14', 50, 'event_6');
+VALUES ('Move it - your way!', 'Run, walk, bike, or swim - even roller skate! Anything goes! Just move your body 50 total miles!', '', '2021-09-01', '2021-09-14', 50, 'event_6.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('Pan Ohio Hope Ride - Create Your Own 328', 'Can''t join us to ride 328 miles? Complete the miles on your own during the month of July!', '', '2021-07-01', '2021-07-31', 328, 'event_7');
+VALUES ('Pan Ohio Hope Ride - Create Your Own 328', 'Can''t join us to ride 328 miles? Complete the miles on your own during the month of July!', '', '2021-07-01', '2021-07-31', 328, 'event_7.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('Virtual C2C Relay Run', 'Run the distance from Cincinnati to Columbus - 139 miles - during the month of August!', '', '2021-08-01', '2021-08-31', 139, 'event_8');
+VALUES ('Virtual C2C Relay Run', 'Run the distance from Cincinnati to Columbus - 139 miles - during the month of August!', '', '2021-08-01', '2021-08-31', 139, 'event_8.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, total_activity_goal, image_name)
-VALUES ('Mission to the Moon', 'Can all of us together cover the distance to the moon during 2022? Run, walk, or bike your way across space with us!', '', '2022-01-01', '2022-12-31', 238900, 'event_9');
+VALUES ('Mission to the Moon', 'Can all of us together cover the distance to the moon during 2022? Run, walk, or bike your way across space with us!', '', '2022-01-01', '2022-12-31', 238900, 'event_9.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('Sea to Sea Cycling', 'Set a goal to cycle the distance from Portland, Oregon to Portland, Maine in a year!', '', '2022-01-01', '2022-12-31', 3236, 'event_10');
+VALUES ('Sea to Sea Cycling', 'Set a goal to cycle the distance from Portland, Oregon to Portland, Maine in a year!', '', '2022-01-01', '2022-12-31', 3236, 'event_10.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, image_name)
-VALUES ('Walk the Wall - together!', 'Can we collectively walk the length of the Great Wall of China in a month? Get your friends to join and lace up your shoes!', '', '2022-09-01', '2022-09-30', 2145, 'event_11');
+VALUES ('Walk the Wall - together!', 'Can we collectively walk the length of the Great Wall of China in a month? Get your friends to join and lace up your shoes!', '', '2022-09-01', '2022-09-30', 2145, 'event_11.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
-VALUES ('Coach Steve''s Marathon', 'Java Green is going to collectively run a marathon!! That''s just 1.46 miles each!', '', '2022-08-13', '2022-08-13', '1.46', '26.2','event_11');
+VALUES ('Coach Steve''s Marathon', 'Java Green is going to collectively run a marathon!! That''s just 1.46 miles each!', '', '2022-08-13', '2022-08-13', '1.46', '26.2','event_12.jpg');
 
 INSERT INTO activity_type (activity_type) VALUES ('Running');
 INSERT INTO activity_type (activity_type) VALUES ('Walking');
@@ -77,7 +77,6 @@ INSERT INTO event_user (event_id, user_id) VALUES (7, 4);
 INSERT INTO event_user (event_id, user_id) VALUES (6, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (8, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (9, 5);
-
 INSERT INTO event_user (event_id, user_id) VALUES (12, 3);
 INSERT INTO event_user (event_id, user_id) VALUES (12, 4);
 INSERT INTO event_user (event_id, user_id) VALUES (10, 3);

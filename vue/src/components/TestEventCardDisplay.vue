@@ -1,6 +1,5 @@
 <template>
     <div>
-      <p>TEST</p>
         <test-card v-for="event in filteredEvents" v-bind:key="event.eventId" v-bind:event="event" />
     </div>
 </template>

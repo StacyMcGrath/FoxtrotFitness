@@ -25,8 +25,8 @@ public class JdbcEventDAO implements EventDAO {
 
         List<Event> eventList = new ArrayList<Event>();
 
-        String sql = "SELECT event.event_id, event.event_name, event.description, event.start_date, event.end_date, " +
-                "event.user_activity_goal, event.total_activity_goal FROM event " +
+        String sql = "SELECT event.event_id, event.event_name, event.description, event.long_description, event.start_date, event.end_date, " +
+                "event.user_activity_goal, event.total_activity_goal, event.image_name FROM event " +
                 "ORDER BY event.start_date";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -43,8 +43,8 @@ public class JdbcEventDAO implements EventDAO {
     public Event retrieveEventById(int eventId) {
         Event event = null;
 
-        String sql = "SELECT event.event_id, event.event_name, event.description, event.start_date, event.end_date, " +
-                "event.user_activity_goal, event.total_activity_goal FROM event " +
+        String sql = "SELECT event.event_id, event.event_name, event.description, event.long_description, event.start_date, event.end_date, " +
+                "event.user_activity_goal, event.total_activity_goal, event.image_name FROM event " +
                 "WHERE event.event_id = ?";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, eventId);
@@ -60,8 +60,8 @@ public class JdbcEventDAO implements EventDAO {
 
         List<Event> eventList = new ArrayList<Event>();
 
-        String sql = "SELECT event.event_id, event.event_name, event.description, event.start_date, event.end_date, " +
-                "event.user_activity_goal, event.total_activity_goal " +
+        String sql = "SELECT event.event_id, event.event_name, event.description, event.long_description, event.start_date, event.end_date, " +
+                "event.user_activity_goal, event.total_activity_goal, event.image_name " +
                 "FROM event " +
                 "JOIN event_user ON event_user.event_id = event.event_id " +
                 "WHERE event_user.user_id = ? " +
@@ -91,10 +91,12 @@ public class JdbcEventDAO implements EventDAO {
         event.setEventId(results.getInt("event_id"));
         event.setEventName(results.getString("event_name"));
         event.setDescription(results.getString("description"));
+        event.setLongDescription(results.getString("long_description"));
         event.setStartDate(results.getDate("start_date"));
         event.setEndDate(results.getDate("end_date"));
         event.setUserActivityGoal(results.getDouble("user_activity_goal"));
         event.setTotalActivityGoal(results.getDouble("total_activity_goal"));
+        event.setImageName(results.getString("image_name"));
 
         List<String> activityListForEvent = new ArrayList<>();
 

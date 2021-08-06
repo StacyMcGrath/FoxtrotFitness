@@ -8,11 +8,13 @@ public class Event {
     private int eventId;
     private String eventName;
     private String description;
+    private String longDescription;
     private List<String> activityType;
     private Date startDate;
     private Date endDate;
     private double userActivityGoal;
     private double totalActivityGoal;
+    private String imageName;
 
     public Event() {
     }
@@ -79,6 +81,22 @@ public class Event {
 
     public void setTotalActivityGoal(double totalActivityGoal) {
         this.totalActivityGoal = totalActivityGoal;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }
 

@@ -18,7 +18,7 @@
         <label for="username"><b>Username</b></label>
         <input type="text" id="username" placeholder="Enter Username" v-model="user.username" required autofocus>
 
-        <label for="psw"><b>Password</b></label>
+        <label for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" id="password" v-model="user.password" required>
         
         <hr>

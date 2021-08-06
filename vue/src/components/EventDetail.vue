@@ -40,11 +40,13 @@ export default {
             eventId: null,
             eventName: "",
             description: "" ,
+            longDescription: "",
             activityType: [],
             startDate: "", 
             endDate: "",
             userActivityGoal: null,
-            totalActivityGoal: null
+            totalActivityGoal: null,
+            imageName: ""
         },
 
         logMessage: ""
