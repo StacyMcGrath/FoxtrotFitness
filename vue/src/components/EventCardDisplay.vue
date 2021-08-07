@@ -1,6 +1,8 @@
 <template>
-    <div>
+    <div class="card-display">
+      <div class="row">
         <event-card v-for="event in filteredEvents" v-bind:key="event.eventId" v-bind:event="event" />
+      </div>
     </div>
 </template>
 
@@ -66,5 +68,7 @@ export default {
 </script>
 
 <style>
-
+.card-display {
+  margin: 4%;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <button v-on:click="cardView = !cardView">{{cardView ? "View as List" : "View as Cards"}}</button>
+  <button class="list-toggle" v-on:click="cardView = !cardView">{{cardView ? "View as List" : "View as Cards"}}</button>
   <div v-show="!cardView"><event-listing /></div>
   <div v-show="cardView"><event-card-display /></div>
 </div>
@@ -22,6 +22,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
-</style>
+.list-toggle {
+  margin-left: 5%;
+  margin-top: 2%;
+  text-align: center;
+}
+</style>>
