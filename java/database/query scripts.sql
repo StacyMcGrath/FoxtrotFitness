@@ -1,14 +1,25 @@
 SELECT event_id, event_name, description, start_date, end_date, user_activity_goal, total_activity_goal FROM event WHERE event_id = 1;
 
-
-INSERT INTO logged_activity (logged_activity_id, user_id, activity_type_id, activity_date, distance) 
-VALUES (DEFAULT, 3, 1, '2021-08-03', 5);
-
-INSERT INTO logged_activity (logged_activity_id, user_id, activity_type_id, activity_date, distance) 
-VALUES (DEFAULT, 4, 2, '2021-08-03', 10);
-
-
-INSERT INTO logged_activity (logged_activity_id, user_id, activity_type_id, activity_date, distance) 
-VALUES (DEFAULT, 5, 3, '2021-08-02', 15);
-
 SELECT logged_activity_id, user_id, activity_type_id, activity_date, distance FROM logged_activity;
+
+--activity by event for all users
+SELECT event_user.event_id, event_user.user_id, logged_activity.activity_type_id, logged_activity.distance, logged_activity.activity_date from logged_activity
+
+JOIN event_user ON logged_activity.user_id = event_user.user_id
+JOIN event_activity_type ON event_user.event_id = event_activity_type.event_id
+JOIN event on event_user.event_id = event.event_id
+
+WHERE event_activity_type.event_id = 1 AND (logged_activity.activity_date >= event.start_date AND logged_activity.activity_date <= event.end_date)
+AND logged_activity.activity_type_id IN (SELECT event_activity_type.activity_type_id FROM event_activity_type WHERE event_id = 1)
+GROUP BY event_user.event_id, event_user.user_id, logged_activity.activity_type_id, logged_activity.distance, logged_activity.activity_date;
+
+--activity by event for specific user ID
+SELECT event_user.event_id, event_user.user_id, logged_activity.activity_type_id, logged_activity.distance, logged_activity.activity_date from logged_activity
+
+JOIN event_user ON logged_activity.user_id = event_user.user_id
+JOIN event_activity_type ON event_user.event_id = event_activity_type.event_id
+JOIN event on event_user.event_id = event.event_id
+
+WHERE event_activity_type.event_id = 1 AND event_user.user_id = 3 AND (logged_activity.activity_date >= event.start_date AND logged_activity.activity_date <= event.end_date)
+AND logged_activity.activity_type_id IN (SELECT event_activity_type.activity_type_id FROM event_activity_type WHERE event_id = 1)
+GROUP BY event_user.event_id, event_user.user_id, logged_activity.activity_type_id, logged_activity.distance, logged_activity.activity_date

@@ -6,7 +6,7 @@
      <h1 class="form-header">Log recent activity</h1>
      <div class="form-date">
         <label for="date">Date: </label>
-        <input id="date" type="text" class="form-control" placeholder="yyyy-mm-dd" v-model="activity.activityDate" />
+        <input id="date" type="date" class="form-control" placeholder="yyyy-mm-dd" v-model="activity.activityDate" />
       </div>
       
       <div class="form-activity">
