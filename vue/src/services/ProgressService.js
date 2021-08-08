@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export default {
-    retrieveProgressByEventForAllUsers(){
-        return axios.get(`/progress/1`)
+    retrieveProgressByEventForAllUsers(eventId){
+        return axios.get(`/progress/${eventId}`)
     }
-}
+        
+    }

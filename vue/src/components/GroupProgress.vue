@@ -1,12 +1,13 @@
 <template>
     <div>
         <h1>Group Progress</h1>
-        <p v-for="(progress, index) in progresses" v-bind:key="`progress-${index}`">
-            User Id: {{progress.userId}} 
-            Event Id: {{progress.eventId}} 
-            Activity Type Id: {{progress.activityTypeId}} 
-            Distance: {{progress.distance}} 
-            Date: {{progress.activityDate}}</p>
+        <p v-for="(progress, index) in progresses" :key="index">
+            User Id: {{progresses[index].userId}} 
+            Event Id: {{progresses[index].eventId}} 
+            Activity Type Id: {{progresses[index].activityTypeId}} 
+            Distance: {{progresses[index].distance}} 
+            Date: {{progresses[index].activityDate}}
+            </p>
     </div>
 </template>
 
@@ -20,11 +21,15 @@ export default {
         }
     },
     created(){
-      progessService.retrieveProgressByEventForAllUsers().then(response => {
-        this.progress = response.data;
-      })
+      progessService.retrieveProgressByEventForAllUsers(this.$route.params.eventId).then(response => {
+        this.progresses = response.data;
+      });
     },
-
+    methods: {
+      viewEventDetails(eventId) {
+        this.$router.push(`/events/${eventId}`);
+      }
+    }
     }
 </script>
 

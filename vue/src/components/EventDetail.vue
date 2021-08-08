@@ -64,16 +64,6 @@ export default {
       return{
         events: [],
         event: {
-            eventId: null,
-            eventName: "",
-            description: "" ,
-            longDescription: "",
-            activityType: [],
-            startDate: "", 
-            endDate: "",
-            userActivityGoal: null,
-            totalActivityGoal: null,
-            imageName: ""
         },
         userIsSignedUp: false,
         logMessage: "",
