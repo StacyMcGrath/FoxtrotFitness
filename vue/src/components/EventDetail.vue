@@ -36,18 +36,18 @@ export default {
     name: "event-detail",
     data() {
       return{
-        event: {
-            eventId: null,
-            eventName: "",
-            description: "" ,
-            longDescription: "",
-            activityType: [],
-            startDate: "", 
-            endDate: "",
-            userActivityGoal: null,
-            totalActivityGoal: null,
-            imageName: ""
-        },
+        event: {},
+        //     eventId: null,
+        //     eventName: "",
+        //     description: "" ,
+        //     longDescription: "",
+        //     activityType: [],
+        //     startDate: "", 
+        //     endDate: "",
+        //     userActivityGoal: null,
+        //     totalActivityGoal: null,
+        //     imageName: ""
+        // },
 
         logMessage: ""
       };
