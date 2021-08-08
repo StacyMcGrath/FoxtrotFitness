@@ -7,7 +7,11 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -26,6 +30,13 @@ public class JdbcActivityDAO implements ActivityDAO{
 
         String sql = "INSERT INTO logged_activity (logged_activity_id, user_id, activity_type_id, activity_date, distance) " +
                 "VALUES (DEFAULT, ?, ?, ?, ?) RETURNING logged_activity_id";
+
+        Date adjustedDate = activity.getActivityDate();
+        Calendar c = Calendar.getInstance();
+        c.setTime(adjustedDate);
+        c.add(Calendar.DATE, 1);
+        adjustedDate = (c.getTime());
+        activity.setActivityDate(adjustedDate);
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, activity.getUserID(), activity.getActivityTypeId(),
                 activity.getActivityDate(), activity.getDistance());
@@ -64,15 +75,21 @@ public class JdbcActivityDAO implements ActivityDAO{
         return null;
     }
 
-    private Activity mapRowToActivity(SqlRowSet results) {
+    private Activity mapRowToActivity(SqlRowSet results)  {
         Activity activity = new Activity();
         activity.setActivityID(results.getInt("logged_activity_id"));
         activity.setUserID(results.getInt("user_id"));
         activity.setActivityTypeId(results.getInt("activity_type_id"));
         activity.setActivityDate(results.getDate("activity_date"));
+
+
+
         activity.setDistance(results.getDouble("distance"));
         activity.setActivityType(results.getString("activity_type"));
+
 
         return activity;
     }
 }
+
+

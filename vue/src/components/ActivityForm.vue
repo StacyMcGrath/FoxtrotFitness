@@ -55,8 +55,10 @@ data() {
     };
 
 },
+
 methods: {
 submitForm() {
+
           activityService.logActivity(this.activity).then(response => {
               if (response.status == 201) {
                   this.$router.go();
@@ -78,7 +80,6 @@ handleErrorResponse(error) {
             this.logMessage = "Java Green has left you high and dry. Pick better developers next time!";
         }
       },
-
    clearForm() {
      this.activity = {
             activityId: null,
@@ -86,12 +87,8 @@ handleErrorResponse(error) {
             activityTypeId: null,
             activityDate: "",
             distance: ""};
-   }  
-
-   }, 
-   
-
-
+   },
+}
 }
 
 

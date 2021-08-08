@@ -43,7 +43,7 @@
         <td v-else>Whatever you can do!</td>
         <td v-if="event.totalActivityGoal>0">{{event.totalActivityGoal}}</td>
         <td v-else>N/A</td>
-        <td>{{event.startDate}} - {{event.endDate}}</td>
+        <td>{{event.startDate | formatDate}} - {{event.endDate | formatDate}}</td>
         </tr>
       </tbody>
     </table>  
