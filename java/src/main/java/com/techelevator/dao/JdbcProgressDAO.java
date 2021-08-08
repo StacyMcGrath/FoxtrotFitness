@@ -48,7 +48,28 @@ public class JdbcProgressDAO implements ProgressDAO{
 
     @Override
     public List<Progress> retrieveProgressByEventForUser(int eventId, int userId) {
-        return null;
+        List<Progress> individualProgress = new ArrayList<>();
+
+        String sql = "SELECT event_user.event_id, event_user.user_id, logged_activity.activity_type_id, " +
+                    "logged_activity.distance, logged_activity.activity_date from logged_activity " +
+                    "JOIN event_user ON logged_activity.user_id = event_user.user_id " +
+                    "JOIN event_activity_type ON event_user.event_id = event_activity_type.event_id " +
+                    "JOIN event on event_user.event_id = event.event_id " +
+                    "WHERE event_activity_type.event_id = ? AND event_user.user_id = ? " +
+                    "AND (logged_activity.activity_date >= event.start_date AND logged_activity.activity_date <= event.end_date) " +
+                    "AND logged_activity.activity_type_id IN (SELECT event_activity_type.activity_type_id FROM event_activity_type " +
+                    "WHERE event_id = ?) " +
+                    "GROUP BY event_user.event_id, event_user.user_id, logged_activity.activity_type_id, logged_activity.distance, " +
+                    "logged_activity.activity_date";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventId, userId, eventId);
+
+        while(results.next()) {
+            Progress progress = mapRowToProgress(results);
+            individualProgress.add(progress);
+        }
+
+        return individualProgress;
     }
 
     @Override

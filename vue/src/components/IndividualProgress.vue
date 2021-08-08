@@ -1,27 +1,29 @@
 <template>
     <div>
-        <h1>Group Progress</h1>
+        <h1>Individual Progress</h1>
         <p v-for="(progress, index) in progresses" :key="index">
             User Id: {{progresses[index].userId}} 
             Event Id: {{progresses[index].eventId}} 
             Activity Type Id: {{progresses[index].activityTypeId}} 
             Distance: {{progresses[index].distance.toLocaleString()}} 
             Date: {{progresses[index].activityDate}}
-            Total Distance: {{distanceOfAllUsers.toLocaleString()}}
+            Total Distance: {{totalDistanceOfUser.toLocaleString()}}
             </p>
-            <div class="container">
+        <div class="container">
          <div class="row">
             <div class="col-md-6">
-            
-                <h3 class="progress-title">Community Progress</h3>
-                <div class="progress blue">
-                    <div class="progress-bar" :style="{width: getProgress}" style="background:#1a4966">
-                        <div class="progress-value">{{progressLabel}} %</div>
+                <h3 class="progress-title">My Progress</h3>
+                <div class="progress green">
+                    <div class="progress-bar" :style="{width: getProgress}" style="background:#b6d44a" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-value">{{progressLabel.toLocaleString()}}%</div>
                     </div>
                 </div>
+              
+                    
             </div>
         </div>
-    </div>
+        </div>
+    
     </div>
 </template>
 
@@ -29,7 +31,7 @@
 import progessService from "../services/ProgressService.js"
 import eventService from "../services/EventService.js"
 export default {
-    name: 'group-progress',
+    name: 'individual-progress',
     data(){
         return {
             progresses: [],
@@ -37,37 +39,29 @@ export default {
         }
     },
     computed: {
-      distanceOfAllUsers(){
-        let distanceOfAllUsers = 0;
+      totalDistanceOfUser(){
+        let totalDistanceOfUser = 0;
         this.progresses.forEach(progress => {
-          distanceOfAllUsers = distanceOfAllUsers + progress.distance;
+          totalDistanceOfUser = totalDistanceOfUser + progress.distance;
         })
-        return distanceOfAllUsers;
-
+        return totalDistanceOfUser;
       },
-      getProgress() {
+            getProgress() {
           let percent = 0;
-          percent = ((this.distanceOfAllUsers / this.event.totalActivityGoal)*100);
+          percent = ((this.totalDistanceOfUser / this.event.userActivityGoal)*100);
           return percent + "%";
       },
       progressLabel() {
           let progressLabel = 0;
-          progressLabel = ((this.distanceOfAllUsers / this.event.totalActivityGoal)*100);
+          progressLabel = ((this.totalDistanceOfUser / this.event.userActivityGoal)*100);
           return progressLabel;
-      },
+      }
     },
-
-    watch: {
-          progess(progress) {
-              this.currentProgress = progress;
-          }
-    },
-
     created(){
-      progessService.retrieveProgressByEventForAllUsers(this.$route.params.eventId).then(response => {
+      progessService.retrieveProgressByEventForIndividualUser(this.$route.params.eventId).then(response => {
         this.progresses = response.data;
       });
-      eventService.retrieveEventById(this.$route.params.eventId).then(response => {
+        eventService.retrieveEventById(this.$route.params.eventId).then(response => {
         this.event = response.data;
       })
     },

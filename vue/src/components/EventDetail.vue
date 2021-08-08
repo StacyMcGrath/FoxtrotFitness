@@ -71,8 +71,10 @@ export default {
     addEventToUser() {
       eventService.addUserToEvent(this.event).then(response => {
          if (response.status == 201) {
-                  this.logMessage = "Success signing up for your Event!";
-                  this.$router.go();
+                this.$router.go();
+                this.logMessage = "Success signing up for your Event!";
+                
+                  
               }
           }).catch(error => {
               this.handleErrorResponse(error);
@@ -93,15 +95,6 @@ export default {
 
   },
   computed: {
-    getProgress() {
-          return 60 + "%";
-      },
-      watch: {
-          progess(progress) {
-              this.currentProgress = progress;
-          }
-      },
-
     isUserSignedUp() {
         let isUserSignedUp = false;
         this.events.forEach(event => {
@@ -112,7 +105,6 @@ export default {
         return isUserSignedUp;
     }
   }
-
 }
 </script>
 
