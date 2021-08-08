@@ -18,32 +18,14 @@
                 <h2>Activity Types</h2>
                 <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
             </div>
-            <div id="register-button" v-show="!userIsSignedUp">
+            <div id="register-button" v-show="!isUserSignedUp">
                 <button class="bookButton" v-if="$store.state.token != ''" v-on:click.prevent="addEventToUser">Sign Up</button>
                 <button class="bookButton" v-else v-on:click.prevent="$router.push(`/login`)">Sign Up</button>
                 <p> {{logMessage}} </p>
             </div>
     </div>   
 
-    <div class="container">
-         <div class="row">
-            <div class="col-md-6">
-                <h3 class="progress-title">My Progress</h3>
-                <div class="progress green">
-                    <div class="progress-bar" :style="{width: getProgress}" style="background:#b6d44a" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-value">20%</div>
-                    </div>
-                </div>
-                <h3 class="progress-title">Community Progress</h3>
-                <div class="progress blue">
-                    <div class="progress-bar" style="width:90%; background:#1a4966;">
-                        <div class="progress-value">90%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="leaderboard">Leaderboard</div>
+    
 </div>
 
 </template>
@@ -65,7 +47,6 @@ export default {
         events: [],
         event: {
         },
-        userIsSignedUp: false,
         logMessage: "",
         currentProgress: 0,
         
@@ -91,6 +72,7 @@ export default {
       eventService.addUserToEvent(this.event).then(response => {
          if (response.status == 201) {
                   this.logMessage = "Success signing up for your Event!";
+                  this.$router.go();
               }
           }).catch(error => {
               this.handleErrorResponse(error);
@@ -121,12 +103,13 @@ export default {
       },
 
     isUserSignedUp() {
+        let isUserSignedUp = false;
         this.events.forEach(event => {
             if(event.eventId == this.$route.params.eventId){
-            this.userIsSignedUp = !this.userIsSignedUp;
+            isUserSignedUp = true;
                 } 
             });
-        return this.userIsSignedUp;
+        return isUserSignedUp;
     }
   }
 

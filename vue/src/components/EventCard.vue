@@ -22,7 +22,8 @@
             <i v-if="containsOther" class="fas fa-asterisk fa-2x"></i>
           </div>  
           <a class="card-button" v-on:click="viewEventDetails(event.eventId)">View Details</a>
-          <a class="signup-button" v-on:click.prevent="addEventToUser(event)">Sign Up</a>
+          <a class="signup-button" v-if="$store.state.token != ''"  v-show="!isUserSignedUp" v-on:click.prevent="addEventToUser(event)">Sign Up</a>
+          <a class="signup-button" v-else v-show="!isUserSignedUp" v-on:click.prevent="$router.push(`/login`)">Sign Up</a>
         </div>
       </b-col>  
 
@@ -34,8 +35,17 @@ import eventService from '../services/EventService.js'
 export default {
 name: "event-card",
 props: ['event'],
-
-
+data(){
+  return {
+    events: []
+  }
+},
+created() {
+    eventService.retrieveEventsByUser().then(response => {
+            this.events = response.data;
+    }
+    );
+  },
 computed: {
   containsRunning() {
     let containsRunning = false;
@@ -72,6 +82,15 @@ computed: {
     }
     return containsOther;
   },
+  isUserSignedUp() {
+        let isUserSignedUp = false;
+        this.events.forEach(event => {
+            if(event.eventId == this.event.eventId){
+            isUserSignedUp = true;
+                } 
+            });
+        return isUserSignedUp;
+    }
 },
   methods: {
      getImageURL(pic) {
@@ -91,6 +110,7 @@ computed: {
       });
     },
   },
+  
 
 }
 </script>

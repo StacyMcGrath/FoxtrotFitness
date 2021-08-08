@@ -1,5 +1,18 @@
 <template>
     <div class="card-display">
+      <input type="text" name="eventName" placeholder="Search Event Name" v-model="eventFilter">
+      <div class="input-field col s12">
+            <select v-model="activityFilter">
+            <option disabled value="">Filter by Activity</option>
+              <option value="">View All</option>
+              <option>Running</option>
+              <option>Walking</option>
+              <option>Swimming</option>
+              <option>Cycling</option>
+              <option>Other</option>
+            </select>
+          </div>
+      <button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button>
       <div class="row">
         <event-card v-for="event in filteredEvents" v-bind:key="event.eventId" v-bind:event="event" />
       </div>
@@ -43,6 +56,7 @@ export default {
       }
       return filteredEvents;
     }
+  
     },
     created() {
       eventService.retrieveEvents().then(response => {
