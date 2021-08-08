@@ -3,7 +3,7 @@
       <img src="..\assets\activities.jpg" alt="Image of Activity">
       <h1>My Recent Activities</h1>
       <ul>
-        <li v-for="activity in computedActivities" v-bind:key="activity.activityId">Date: {{activity.activityDate}} {{activity.activityType}}: {{activity.distance}} miles</li>
+        <li v-for="activity in computedActivities" v-bind:key="activity.activityId">Date: {{activity.activityDate | formatDate }} {{activity.activityType}}: {{activity.distance}} miles</li>
       </ul>
       <button v-on:click="$router.push({name: 'my-activity-history'})">View All</button>
   </div>

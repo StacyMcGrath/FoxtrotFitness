@@ -2,7 +2,7 @@
 <div>
   <div class="container">
   <img class="bgimg-1" src="..\assets\Home Page Graphic.jpg">
-  <h4 class="top-left">Personal Goals + Community Events = FITNESS FUN</h4>
+  <h4 class="top-left">Personal Goals + Community Goals = FITNESS FUN</h4>
   <p>Keep your fitness goals on track by combining your personal goals with fun, virtual community events!</p>
 
 </div>
