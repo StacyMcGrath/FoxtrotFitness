@@ -11,8 +11,8 @@
             {{ event.description }}
           </div>
           <ul class="card-list">
-            <li>Community Goal: {{ event.totalActivityGoal }} miles</li>
-            <li>Individual Goal: {{ event.userActivityGoal }} miles</li>
+            <li>Community Goal: {{ event.totalActivityGoal.toLocaleString() }} miles</li>
+            <li>Individual Goal: {{ event.userActivityGoal.toLocaleString() }} miles</li>
           </ul>
           <div class="icons">
             <i v-if="containsRunning" class="fas fa-running fa-2x"></i>

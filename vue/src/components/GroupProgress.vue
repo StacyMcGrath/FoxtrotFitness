@@ -5,9 +5,9 @@
             User Id: {{progresses[index].userId}} 
             Event Id: {{progresses[index].eventId}} 
             Activity Type Id: {{progresses[index].activityTypeId}} 
-            Distance: {{progresses[index].distance}} 
+            Distance: {{progresses[index].distance.toLocaleString()}} 
             Date: {{progresses[index].activityDate}}
-            Total Distance: {{distanceOfAllUsers}}
+            Total Distance: {{distanceOfAllUsers.toLocaleString()}}
             </p>
             <div class="container">
          <div class="row">

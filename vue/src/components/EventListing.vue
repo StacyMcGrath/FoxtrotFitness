@@ -39,9 +39,9 @@
         <td>
           <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
         </td>
-        <td v-if="event.userActivityGoal>0">{{event.userActivityGoal}}</td>
+        <td v-if="event.userActivityGoal>0">{{event.userActivityGoal.toLocaleString()}}</td>
         <td v-else>Whatever you can do!</td>
-        <td v-if="event.totalActivityGoal>0">{{event.totalActivityGoal}}</td>
+        <td v-if="event.totalActivityGoal>0">{{event.totalActivityGoal.toLocaleString()}}</td>
         <td v-else>N/A</td>
         <td>{{event.startDate | formatDate}} - {{event.endDate | formatDate}}</td>
         </tr>
