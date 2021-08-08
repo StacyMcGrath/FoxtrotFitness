@@ -22,7 +22,7 @@
             <i v-if="containsOther" class="fas fa-asterisk fa-2x"></i>
           </div>  
           <a class="card-button" v-on:click="viewEventDetails(event.eventId)">View Details</a>
-          <a class="signup-button" v-on:click.prevent="EventDetail.addEventToUser">Sign Up</a>
+          <a class="signup-button" v-on:click.prevent="addEventToUser(event)">Sign Up</a>
         </div>
       </b-col>  
 
@@ -30,6 +30,7 @@
 
 
 <script>
+import eventService from '../services/EventService.js'
 export default {
 name: "event-card",
 props: ['event'],
@@ -78,7 +79,17 @@ computed: {
       },
       viewEventDetails(eventId) {
         this.$router.push(`/events/${eventId}`);
-      }
+      },
+      addEventToUser(event) {
+      eventService.addUserToEvent(event).then(response => {
+         if (response.status == 201) {
+                  this.$router.push(`/events/${event.eventId}`);
+                  this.logMessage = "Success signing up for your Event!";
+              }
+          }).catch(error => {
+              this.handleErrorResponse(error);
+      });
+    },
   },
 
 }
