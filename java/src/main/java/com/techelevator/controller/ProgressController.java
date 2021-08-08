@@ -24,5 +24,5 @@ public class ProgressController {
         return progressDAO.retrieveProgressByEventForAllUsers(eventId);
     }
 
-    
+
 }
