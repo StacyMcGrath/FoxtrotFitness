@@ -7,12 +7,16 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS event_activity_type;
 DROP TABLE IF EXISTS activity_type;
 DROP TABLE IF EXISTS event;
+DROP TABLE IF EXISTS goals;
+DROP TABLE IF EXISTS premade_goals;
 
 DROP SEQUENCE IF EXISTS seq_logged_activity_id;
 DROP SEQUENCE IF EXISTS seq_user_profile_id;
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP SEQUENCE IF EXISTS seq_activity_type_id;
 DROP SEQUENCE IF EXISTS seq_event_id;
+DROP SEQUENCE IF EXISTS seq_goal_id;
+DROP SEQUENCE IF EXISTS seq_premade_goal_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -62,6 +66,39 @@ CREATE TABLE event (
 	total_activity_goal float,
         image_name varchar(50),
 	CONSTRAINT PK_event PRIMARY KEY (event_id)
+);
+
+CREATE SEQUENCE seq_goal_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE TABLE goals (
+	goal_id int DEFAULT nextval('seq_goal_id'::regclass) NOT NULL,
+	goal_name varchar(50) NOT NULL,
+	start_date date,
+	end_date date,
+	user_activity_goal float,
+	goal_units varchar(50),
+	user_id int,
+	CONSTRAINT PK_goals PRIMARY KEY (goal_id),
+	FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE SEQUENCE seq_premade_goal_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE TABLE premade_goals (
+	premade_goal_id int DEFAULT nextval('seq_premade_goal_id'::regclass) NOT NULL,
+	premade_goal_name varchar(50) NOT NULL,
+	premade_goal_description varchar(1000),
+	premade_user_activity_goal float,
+	premade_goal_units varchar(50),
+	CONSTRAINT PK_premade_goals PRIMARY KEY (premade_goal_id)
 );
 
 CREATE SEQUENCE seq_activity_type_id
