@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS event_user;
 DROP TABLE IF EXISTS user_profile;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS event_activity_type;
+DROP TABLE IF EXISTS goal_activity_type;
+DROP TABLE IF EXISTS premade_goal_activity_type;
 DROP TABLE IF EXISTS activity_type;
 DROP TABLE IF EXISTS event;
 DROP TABLE IF EXISTS goals;
@@ -121,6 +123,22 @@ CREATE TABLE event_activity_type (
 	FOREIGN KEY(activity_type_id) REFERENCES activity_type(activity_type_id)
 );
 
+CREATE TABLE goal_activity_type (
+	goal_id int NOT NULL,
+	activity_type_id int NOT NULL,
+	CONSTRAINT pk_goal_activity_type_id PRIMARY KEY (goal_id, activity_type_id),
+	FOREIGN KEY(goal_id) REFERENCES goals(goal_id),
+	FOREIGN KEY(activity_type_id) REFERENCES activity_type(activity_type_id)
+);
+
+CREATE TABLE premade_goal_activity_type (
+	premade_goal_id int NOT NULL,
+	activity_type_id int NOT NULL,
+	CONSTRAINT pk_premade_goal_activity_type_id PRIMARY KEY (premade_goal_id, activity_type_id),
+	FOREIGN KEY(premade_goal_id) REFERENCES premade_goals(premade_goal_id),
+	FOREIGN KEY(activity_type_id) REFERENCES activity_type(activity_type_id)
+);
+
 CREATE TABLE event_user (
 	event_id int NOT NULL,
 	user_id int NOT NULL,
@@ -140,7 +158,8 @@ CREATE TABLE logged_activity (
         user_id int NOT NULL,
         activity_type_id int NOT NULL,
         activity_date date NOT NULL,
-        distance float NOT NULL,
+        distance float,
+        number_of_minutes float,
         CONSTRAINT pk_logged_activity PRIMARY KEY (logged_activity_id),
         FOREIGN KEY (user_id) REFERENCES users(user_id),
         FOREIGN KEY (activity_type_id) REFERENCES activity_type(activity_type_id)

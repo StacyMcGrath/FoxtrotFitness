@@ -42,6 +42,20 @@ VALUES ('Walk the Wall - together!', 'Can we collectively walk the length of the
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
 VALUES ('Coach Steve''s Marathon', 'Java Green is going to collectively run a marathon!! That''s just 1.46 miles each!', '', '2022-08-13', '2022-08-13', '1.46', '26.2','event_12.jpg');
 
+
+INSERT INTO premade_goals (premade_goal_name, premade_goal_description, premade_user_activity_goal, premade_goal_units) 
+VALUES ('Weekly Exercise Time', 'It is recommended that you get 150 minutes of exercise per week! Suggested duration: 1 week', 150, 'minutes');
+INSERT INTO premade_goals (premade_goal_name, premade_goal_description, premade_user_activity_goal, premade_goal_units) 
+VALUES ('Daily Exercise Time', 'It is recommended that you get 30 minutes of exercise per day! Suggested duration: 1 day', 30, 'minutes');
+INSERT INTO premade_goals (premade_goal_name, premade_goal_description, premade_user_activity_goal, premade_goal_units) 
+VALUES ('Monthly Cycling Goal', 'Suggested duration: 1 month', 200, 'miles');
+
+
+INSERT INTO goals (goal_name, start_date, end_date, user_activity_goal, goal_units, user_id) 
+VALUES ('Weekly Exercise Time', '2021-08-09', '2021-08-15', 150, 'minutes', 5);
+INSERT INTO goals (goal_name, start_date, end_date, user_activity_goal, goal_units, user_id) 
+VALUES ('Monthly Cycling Goal', '2021-08-01', '2021-08-31', 200, 'miles', 5);
+
 INSERT INTO activity_type (activity_type) VALUES ('Running');
 INSERT INTO activity_type (activity_type) VALUES ('Walking');
 INSERT INTO activity_type (activity_type) VALUES ('Cycling');
@@ -68,6 +82,25 @@ INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (10, 3);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (11, 2);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (12, 1);
 
+INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 1);
+INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 2);
+INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 3);
+INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 4);
+INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 5);
+INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (2, 3);
+
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (1, 1);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (1, 2);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (1, 3);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (1, 4);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (1, 5);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (2, 1);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (2, 2);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (2, 3);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (2, 4);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (2, 5);
+INSERT INTO premade_goal_activity_type (premade_goal_id, activity_type_id) VALUES (3, 3);
+
 INSERT INTO event_user (event_id, user_id) VALUES (1, 3);
 INSERT INTO event_user (event_id, user_id) VALUES (2, 3);
 INSERT INTO event_user (event_id, user_id) VALUES (5, 3);
@@ -85,59 +118,61 @@ INSERT INTO event_user (event_id, user_id) VALUES (12, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (4, 5);
 
 
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 1, '2021-07-15', 2.5);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance)
-VALUES (3, 1, '2021-07-20', 2.2);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 1, '2021-07-23', 3.1);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 1, '2021-08-01', 6.2);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 2, '2021-07-17', 5);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 2, '2021-07-29', 4.8);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 2, '2021-08-05', 2.5);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 3, '2021-07-25', 10);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (3, 4, '2021-07-26', 1);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (4, 1, '2021-07-10', 4);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance)
-VALUES (4, 1, '2021-07-22', 6);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (4, 1, '2021-07-29', 3.1);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (4, 1, '2021-08-04', 13.1);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (4, 2, '2021-07-11', 5);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (4, 2, '2021-07-25', 4.8);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (4, 4, '2021-08-01', 1.8);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (4, 3, '2021-07-20', 20);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 4, '2021-07-26', 1);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 3, '2021-07-10', 25);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance)
-VALUES (5, 3, '2021-07-22', 40);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 1, '2021-07-27', 3.1);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 1, '2021-08-04', 13.1);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 5, '2021-07-11', 5);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 2, '2021-07-25', 4.8);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 2, '2021-08-03', 10);
-INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance) 
-VALUES (5, 3, '2021-07-26', 20);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 1, '2021-07-15', 2.5, 25);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes)
+VALUES (3, 1, '2021-07-20', 2.2, 15);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 1, '2021-07-23', 3.1, 30);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 1, '2021-08-01', 6.2, 45);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 2, '2021-07-17', 5, 60);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 2, '2021-07-29', 4.8, 60);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 2, '2021-08-05', 2.5, 45);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 3, '2021-07-25', 10, 60);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (3, 4, '2021-07-26', 1, 35);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (4, 1, '2021-07-10', 4, 30);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes)
+VALUES (4, 1, '2021-07-22', 6, 50);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (4, 1, '2021-07-29', 3.1, 19);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (4, 1, '2021-08-04', 13.1, 120);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (4, 2, '2021-07-11', 5, 45);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (4, 2, '2021-07-25', 4.8, 40);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (4, 4, '2021-08-01', 1.8, 120);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (4, 3, '2021-07-20', 20, 90);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 4, '2021-07-26', 1, 35);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 3, '2021-07-10', 25, 120);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes)
+VALUES (5, 3, '2021-07-22', 40, 120);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 1, '2021-07-27', 3.1, 60);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 1, '2021-08-04', 13.1, 200);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 5, '2021-07-11', 5, 25);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 2, '2021-07-25', 4.8, 75);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 2, '2021-08-03', 10, 100);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (5, 3, '2021-07-26', 20, 75);
 
 
 COMMIT TRANSACTION;
+
+
 

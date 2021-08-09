@@ -77,6 +77,7 @@ public class JdbcProgressDAO implements ProgressDAO{
         return null;
     }
 
+
     private Progress mapRowToProgress(SqlRowSet results) {
         Progress progress = new Progress();
 

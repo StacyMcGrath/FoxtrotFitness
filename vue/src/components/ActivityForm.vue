@@ -28,6 +28,11 @@
         <input id="distance" type="text" class="form-control" placeholder="Miles" v-model="activity.distance" />
       </div>
 
+      <div class="form-number-of-minutes">
+        <label for="number-of-minutes">Time: </label>
+        <input id="number-of-minutes" type="text" class="form-control" placeholder="Minutes" v-model="activity.numberOfMinutes" />
+      </div>
+
 
       <button class="btn btn-submit">Submit</button>
       <button class="btn btn-cancel" type="reset" v-on:click.prevent="clearForm">Clear</button>
@@ -48,7 +53,8 @@ data() {
             userId: null,
             activityTypeId: null,
             activityDate: "",
-            distance: ""
+            distance: "",
+            numberOfMinutes: ""
         },
         logMessage: ""
 

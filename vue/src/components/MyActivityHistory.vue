@@ -3,7 +3,7 @@
       <img src="..\assets\activities.jpg" alt="Image of Activity">
       <h1>My Activity History</h1>
       <ul>
-        <li v-for="activity in activities" v-bind:key="activity.activityId">Date: {{activity.activityDate}} {{activity.activityType}}: {{activity.distance}} miles</li>
+        <li v-for="activity in activities" v-bind:key="activity.activityId">Date: {{activity.activityDate}} {{activity.activityType}}: {{activity.distance}} miles | Time: {{activity.numberOfMinutes}} minutes</li>
       </ul>
       
   </div>

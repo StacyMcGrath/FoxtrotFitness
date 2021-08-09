@@ -9,7 +9,10 @@ public class Activity {
     private int activityTypeId;
     private Date activityDate;
     private double distance;
+    private double numberOfMinutes;
     private String activityType;
+
+
 
     public Activity() {
     }
@@ -61,4 +64,13 @@ public class Activity {
     public void setActivityType(String activityType) {
         this.activityType = activityType;
     }
+
+    public double getNumberOfMinutes() {
+        return numberOfMinutes;
+    }
+
+    public void setNumberOfMinutes(double numberOfMinutes) {
+        this.numberOfMinutes = numberOfMinutes;
+    }
+
 }
