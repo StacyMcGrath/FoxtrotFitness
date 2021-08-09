@@ -16,5 +16,10 @@ export default {
 
   addUserToEvent(event) {
     return axios.post(`/myEvents`, event)
-  }
+  },
+
+  addNewEvent(event) {
+    return axios.post(`/createEvent`, event)
+  },
+
 }

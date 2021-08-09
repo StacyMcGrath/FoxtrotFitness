@@ -10,6 +10,7 @@ import EventDetailPage from '../views/EventDetailPage.vue'
 import Dashboard from '../views/Dashboard.vue'
 import MyActivityHistoryPage from '../views/MyActivityHistoryPage.vue'
 import MyEventHistoryPage from '../views/MyEventHistoryPage.vue'
+import NewEventFormPage from '../views/NewEventFormPage.vue'
 
 Vue.use(Router)
 
@@ -94,6 +95,14 @@ const router = new Router({
       path: "/myEvents",
       name: "my-event-history",
       component: MyEventHistoryPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/createEvent",
+      name: "create-event",
+      component: NewEventFormPage,
       meta: {
         requiresAuth: true
       }
