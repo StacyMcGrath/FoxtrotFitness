@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -70,8 +72,24 @@ public class JdbcGoalDAO implements GoalDAO {
 
     @Override
     public Goal addNewGoal(Goal goal) {
+        Goal newGoal = new Goal();
+
         String sql = "INSERT INTO goals (goal_id, goal_name, start_date, end_date, user_activity_goal, goal_units, " +
         "user_id) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?) RETURNING goal_id";
+
+        Date adjustedStartDate = goal.getStartDate();
+        Calendar c = Calendar.getInstance();
+        c.setTime(adjustedStartDate);
+        c.add(Calendar.DATE, 1);
+        adjustedStartDate = (c.getTime());
+        goal.setStartDate(adjustedStartDate);
+
+        Date adjustedEndDate = goal.getEndDate();
+        Calendar c2 = Calendar.getInstance();
+        c2.setTime(adjustedEndDate);
+        c2.add(Calendar.DATE, 1);
+        adjustedEndDate = (c2.getTime());
+        goal.setEndDate(adjustedEndDate);
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, goal.getGoalName(), goal.getStartDate(), goal.getEndDate(),
                 goal.getActivityGoal(), goal.getActivityUnits(), goal.getUserId());
@@ -80,8 +98,28 @@ public class JdbcGoalDAO implements GoalDAO {
         if (results.next()) {
             newGoalId = results.getInt("goal_id");
         }
-        goal.setGoalId(newGoalId);
-        return goal;
+        newGoal.setGoalId(newGoalId);
+
+        List<String>  activityList = new ArrayList<>();
+        activityList = goal.getActivityType();
+        for (String activity : activityList) {
+
+            String sql2 = "SELECT activity_type_id FROM activity_type " +
+                    "WHERE activity_type = ?";
+
+            SqlRowSet activityResult = jdbcTemplate.queryForRowSet(sql2, activity);
+            int newActivityId = 0;
+            if (activityResult.next()) {
+                newActivityId = activityResult.getInt("activity_type_id");
+            }
+
+            String sql3 = "INSERT INTO goal_activity_type (goal_id, activity_type_id) " +
+                    "VALUES (?, ?)";
+
+            jdbcTemplate.update(sql3, newGoalId, newActivityId);
+        }
+
+        return newGoal;
     }
 
     private Goal mapRowToPremadeGoal(SqlRowSet results){
