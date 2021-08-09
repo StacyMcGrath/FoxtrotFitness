@@ -41,7 +41,6 @@ public class EventController {
         return eventDAO.retrieveEventById(eventId);
     }
 
-
     @RequestMapping(path = "/dashboard/events", method = RequestMethod.GET)
     public List<Event> getEventsByUser(Principal principal) {
         return eventDAO.retrieveEventsByUser(userDAO.findIdByUsername(principal.getName()));
@@ -55,6 +54,12 @@ public class EventController {
         userEvent.setEventId(event.getEventId());
         userEvent.setUserID(userDAO.findIdByUsername(principal.getName()));
         eventDAO.addEventToUser(userEvent);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
+    public void createNewEvent(@RequestBody Event event) {
+        eventDAO.addNewEvent(event);
     }
 
 //    @ResponseStatus(HttpStatus.CREATED)

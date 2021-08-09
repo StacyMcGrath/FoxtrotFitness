@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -83,6 +85,60 @@ public class JdbcEventDAO implements EventDAO {
         String sql = "INSERT INTO event_user (event_id, user_id) VALUES (?, ?)";
 
         jdbcTemplate.update(sql, userEvent.getEventId(), userEvent.getUserID());
+    }
+
+    @Override
+    public Event addNewEvent(Event event) {
+        Event newEvent = new Event();
+
+        String sql = "INSERT INTO event (event_id, event_name, description, long_description, " +
+                    "start_date, end_date, user_activity_goal, total_activity_goal, image_name) " +
+                    "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING event_id";
+
+        Date adjustedStartDate = event.getStartDate();
+        Calendar c = Calendar.getInstance();
+        c.setTime(adjustedStartDate);
+        c.add(Calendar.DATE, 1);
+        adjustedStartDate = (c.getTime());
+        event.setStartDate(adjustedStartDate);
+
+        Date adjustedEndDate = event.getEndDate();
+        Calendar c2 = Calendar.getInstance();
+        c2.setTime(adjustedEndDate);
+        c2.add(Calendar.DATE, 1);
+        adjustedEndDate = (c2.getTime());
+        event.setEndDate(adjustedEndDate);
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, event.getEventName(), event.getDescription(),
+        event.getLongDescription(), event.getStartDate(), event.getEndDate(), event.getUserActivityGoal(),
+        event.getTotalActivityGoal(), "CoachSteve.jpg");
+
+       int newEventId = 0;
+       if (results.next()) {
+           newEventId = results.getInt("event_id");
+       }
+       newEvent.setEventId(newEventId);
+
+       List<String>  activityList = new ArrayList<>();
+       activityList = event.getActivityType();
+       for (String activity : activityList) {
+
+           String sql2 = "SELECT activity_type_id FROM activity_type " +
+                     "WHERE activity_type = ?";
+
+           SqlRowSet activityResult = jdbcTemplate.queryForRowSet(sql2, activity);
+           int newActivityId = 0;
+           if (activityResult.next()) {
+               newActivityId = activityResult.getInt("activity_type_id");
+           }
+
+           String sql3 = "INSERT INTO event_activity_type (event_id, activity_type_id) " +
+                        "VALUES (?, ?)";
+
+           jdbcTemplate.update(sql3, newEventId, newActivityId);
+       }
+
+        return newEvent;
     }
 
 
