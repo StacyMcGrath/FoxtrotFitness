@@ -69,5 +69,8 @@ public class EventController {
 //        activityDAO.logActivity(activity);
 //        //userDAO.findIdByUsername(principal.getName())
 //    }
-
+    @RequestMapping(path = "/events/{eventId}/users", method = RequestMethod.GET)
+    public List<Integer> getUsersByEvent(@PathVariable int eventId) {
+        return eventDAO.retrieveUsersByEventId(eventId);
+    }
 }

@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Activity;
 import com.techelevator.model.Event;
+import com.techelevator.model.User;
 import com.techelevator.model.UserEvent;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -139,6 +140,19 @@ public class JdbcEventDAO implements EventDAO {
        }
 
         return newEvent;
+    }
+
+    @Override
+    public List<Integer> retrieveUsersByEventId(int eventId) {
+        List<Integer> userList = new ArrayList<>();
+
+        String sqlUsers = "SELECT user_id FROM event_user WHERE event_id = ?";
+
+        SqlRowSet userResults = jdbcTemplate.queryForRowSet(sqlUsers, eventId);
+        while (userResults.next()){
+            userList.add(userResults.getInt("user_id"));
+        }
+        return userList;
     }
 
 
