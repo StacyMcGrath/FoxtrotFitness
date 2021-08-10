@@ -1,52 +1,44 @@
 <template>
-  <div>
-    <table class="event-list">
-      <thead>
-        <tr>
-        <th>Event Name</th>
-        <th>Activity Type</th>
-        <th>Individual Goal</th>
-        <th>Event Community Goal</th>
-        <th>Dates</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="filter-row">
-        <td>
-          <input type="text" name="eventName" placeholder="Search Event Name" v-model="eventFilter">
-        </td>
-        <td>
-          <div class="input-field col s12">
-            <select v-model="activityFilter">
-            <option disabled value="">Filter by Activity</option>
-              <option value="">View All</option>
-              <option>Running</option>
-              <option>Walking</option>
-              <option>Swimming</option>
-              <option>Cycling</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>
-          <button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button>
-        </td>
-        </tr>
-        <tr class="event-rows" v-on:click="viewEventDetails(event.eventId)" v-for="event in filteredEvents" v-bind:key="event.eventId">
-        <td id="eventname">{{event.eventName}}</td>
-        <td>
-          <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
-        </td>
-        <td v-if="event.userActivityGoal>0">{{event.userActivityGoal.toLocaleString()}}</td>
-        <td v-else>Whatever you can do!</td>
-        <td v-if="event.totalActivityGoal>0">{{event.totalActivityGoal.toLocaleString()}}</td>
-        <td v-else>N/A</td>
-        <td>{{event.startDate | formatDate}} - {{event.endDate | formatDate}}</td>
-        </tr>
-      </tbody>
-    </table>  
+  <div class="container">
+        <p><input type="text" name="eventName" placeholder="Search Event Name" v-model="eventFilter"></p>
+        <p>
+                        <select v-model="activityFilter">
+                          <option disabled value="">Filter by Activity</option>
+                          <option value="">View All</option>
+                          <option>Running</option>
+                          <option>Walking</option>
+                          <option>Swimming</option>
+                          <option>Cycling</option>
+                          <option>Other</option>
+                        </select>
+        </p>
+        <p><button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button></p>
+
+      <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-1">Event Name</div>
+            <div class="col col-2">Activity Type(s)</div>
+            <div class="col col-3">Individual Goal</div>
+            <div class="col col-4">Community Goal</div>
+            <div class="col col-5">Dates</div>
+          </li>
+
+          <li class="table-row" v-on:click="viewEventDetails(event.eventId)" v-for="event in filteredEvents" v-bind:key="event.eventId">
+            <div class="col col-1" data-label="Event Name">{{event.eventName}}</div>
+            <div class="col col-2" data-label="Activity Type">
+              <p id="activity" v-for="activity in event.activityType" v-bind:key="activity">{{activity}}</p>
+            </div>
+            <div class="col col-3" data-label="Individual Goal">
+              <p v-if="event.userActivityGoal>0">{{event.userActivityGoal.toLocaleString()}}</p>
+              <p v-else>Whatever you can do!</p>
+            </div>
+            <div class="col col-4" data-label="Event Community Goal">
+              <p v-if="event.totalActivityGoal>0">{{event.totalActivityGoal.toLocaleString()}}</p>
+              <p v-else>N/A</p>
+            </div>
+            <div class="col col-5" data-label="Dates">{{event.startDate | formatDate}} - {{event.endDate | formatDate}}</div>
+          </li>
+      </ul>
   </div>
 </template>
 
@@ -104,82 +96,81 @@ export default {
 </script>
 
 <style scoped>
-template {
-  background-color: #edf0db;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.container {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.event-list-view{
-  background-color: #edf0db;
-}
-table.event-list {
-  font-family: 'Montserat', sans-serif;
-  color: #505170;
-  background-color: #edf0db;
-  border-collapse: collapse;
-  border: 1px solid #505170;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10%;
-  margin-right: 10%;
-  width: auto;
-}
-td:nth-child(1) {
-  width: 30%;
-}
-td:nth-child(2) {
-  width: 20%;
-}
-td:nth-child(3) {
-  width: 15%;
-}
- td:nth-child(4) {
-  width: 15%;
-}
-td:nth-child(5) {
-  width: 20%;
-}
-tr:nth-child(even) {
-  background: #edf0db;
-}
-tr:nth-child(odd) {
-  background: #cfe6e0;
-}
-tr:nth-child(1) {
-  background: #74769D;
-}
-table.event-list td, table.event-list th {
-  border-bottom: 0.5px solid #505170;
-  padding: 5px 4px;
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
   text-align: center;
-}
-#eventname, th.eventname {
-  text-align: left;
-}
-
-table.event-list tbody td {
-  font-size: 13px;
-}
-table.m.event-list thead {
-  background: #edf0db;
   
 }
-table.event-list thead th {
-  font-size: 15px;
-  height: 50px;
-  font-weight: bold;
-  color: #edf0db;
-  text-align: center;
-  background-color: #74769D;
-}
-#activity {
-  line-height: normal;
-}
-select, input {
+
+
+  li {
+    border-radius: 3px;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    vertical-align: middle;
+    
+  }
+  .table-header {
+    background-color: #e6e6e6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: bold;
+    vertical-align: bottom;
+    margin-bottom: 0%;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    vertical-align: middle;
+    
+  }
+  .table-row:nth-child(even) {
+  background: #edf0db;
+  }
+  .table-row:nth-child(odd) {
+    background: #cfe6e0;
+    
+  }
+  
+  .col-1 {
+    flex-basis: 20%;
+  }
+  .col-2 {
+    flex-basis: 20%;
+  }
+  .col-3 {
+    flex-basis: 20%;
+  }
+  .col-4 {
+    flex-basis: 20%;
+  }
+
+  .col-5 {
+    flex-basis: 20%;
+  }
+  select, input {
   background-color: #f6f7ed;
 }
 button {
   background-color: #f6f7ed;
 }
+  
 
 
 </style>

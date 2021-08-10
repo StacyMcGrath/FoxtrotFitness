@@ -28,7 +28,7 @@ export default {
 
   },
   methods: {
-
+   
   },
   created() {
     activityService.retrieveActivitiesByUser().then(response => {
