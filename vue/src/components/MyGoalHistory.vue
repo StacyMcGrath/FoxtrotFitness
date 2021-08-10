@@ -1,18 +1,13 @@
 <template>
-  <div class="container">
-      <!-- <img src="..\assets\goal_progress.jpg" alt="Image of Event">
-      <h1>My Goal History</h1>
-      <ul> 
-        <li v-for="goal in goals" v-bind:key="goal.goalId">{{goal.goalName}}</li> 
-        
-      </ul> -->
-            <h2>Responsive Tables Using LI <small>Triggers on 767px</small></h2>
+  <div class="container">    
+        <h2>My Goal History </h2>
         <ul class="responsive-table">
           <li class="table-header">
             <div class="col col-1">Goal</div>
             <div class="col col-2">Activity Type(s)</div>
             <div class="col col-3">Activity Goal</div>
             <div class="col col-4">Date Range</div>
+            <div class="col col-5">Progress</div>
           </li>
           <li class="table-row" v-for="goal in goals" v-bind:key="goal.goalId">
             <div class="col col-1" data-label="Goal">{{goal.goalName}}</div>
@@ -21,6 +16,7 @@
             </div>
             <div class="col col-3" data-label="Activity Goal">{{goal.activityGoal}} {{goal.activityUnits}}</div>
             <div class="col col-4" data-label="Date Range">{{goal.startDate | formatDate}} - {{goal.endDate | formatDate}}</div>
+            <div class="col col-5" data-label="Image"></div>
           </li>
         </ul>  
   </div>
@@ -54,12 +50,11 @@ export default {
 </script>
 
 <style scoped>
-
 body {
-  font-family: 'lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .container {
-  max-width: 1000px;
+  max-width: 70%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
@@ -70,12 +65,10 @@ h2 {
   font-size: 26px;
   margin: 20px 0;
   text-align: center;
-  small {
-    font-size: 0.5em;
-  }
+  
 }
 
-.responsive-table {
+
   li {
     border-radius: 3px;
     padding: 25px 30px;
@@ -94,47 +87,22 @@ h2 {
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
   }
   .col-1 {
-    flex-basis: 15%;
+    flex-basis: 20%;
   }
   .col-2 {
-    flex-basis: 35%;
+    flex-basis: 15%;
   }
   .col-3 {
-    flex-basis: 25%;
+    flex-basis: 15%;
   }
   .col-4 {
     flex-basis: 25%;
   }
-  
-  @media all and (max-width: 767px) {
-    .table-header {
-      display: none;
-    }
-    .table-row{
-      
-    }
-    li {
-      display: block;
-    }
-    .col {
-      
-      flex-basis: 100%;
-      
-    }
-    .col {
-      display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-      }
-    }
+
+  .col-5 {
+    flex-basis: 25%;
   }
-}
-
-
+  
+  
 
 </style>

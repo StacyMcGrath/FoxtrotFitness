@@ -5,9 +5,7 @@
       <ul>
         <!-- <router-link v-on:click="$router.push(`/events/${eventId}`)" >{{event.eventName}}</router-link> -->
         
-        <li v-for="goal in computedGoals" v-bind:key="goal.userId">
-          <a href="#" v-on:click.prevent="viewGoalDetails(goal.goalId)">{{goal.goalName}}</a>
-        </li> 
+        <li v-for="goal in computedGoals" v-bind:key="goal.userId">{{goal.goalName}}</li> 
       </ul>
       <button v-on:click="$router.push({name: 'my-goal-history'})">View All</button>
   <div>
@@ -36,8 +34,8 @@ export default {
 
   },
   methods: {
-  viewGoalDetails(goalId) {
-        this.$router.push(`/goals/${goalId}`);
+  viewGoalDetails() {
+        this.$router.push(`/myGoals`);
       }  
   },
   created() {
