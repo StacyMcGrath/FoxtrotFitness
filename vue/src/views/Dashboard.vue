@@ -4,7 +4,7 @@
   <div class="dashboard">
     <my-events class="events"/>
     <my-activities class="activities"/>
-    <my-badges class="badges"/>
+    <my-goals class="goals"/>
   </div>
 </div>  
 </template>
@@ -12,11 +12,11 @@
 <script>
 import ActivityForm from '../components/ActivityForm.vue'
 import MyActivities from '../components/MyActivities.vue'
-import MyBadges from '../components/MyBadges.vue'
+import MyGoals from '../components/MyGoals.vue'
 import MyEvents from '../components/MyEvents.vue'
 
 export default {
-  components: { MyEvents, ActivityForm, MyActivities, MyBadges },
+  components: { MyEvents, ActivityForm, MyActivities, MyGoals },
 
 }
 </script>
@@ -33,15 +33,15 @@ export default {
 .activities {
   grid-area: activities;
 }
-.badges {
-  grid-area: badges;
+.goals {
+  grid-area: goals;
 }
 .dashboard {
 display: grid;
 justify-items: center;
 grid-template-columns: 1fr 1fr 1fr;
 grid-template-areas: 
-"events activities badges";
+"events goals activities";
 
 }
 

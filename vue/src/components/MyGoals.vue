@@ -1,44 +1,44 @@
 <template>
-  <div class="events">
+  <div class="goals">
       <img src="..\assets\goal_progress.jpg" alt="Image of Event">
-      <h1>My Events</h1>
+      <h1>My Goals</h1>
       <ul>
         <!-- <router-link v-on:click="$router.push(`/events/${eventId}`)" >{{event.eventName}}</router-link> -->
         
-        <li v-for="event in computedEvents" v-bind:key="event.eventId">
-          <a href="#" v-on:click.prevent="viewEventDetails(event.eventId)">{{event.eventName}}</a>
+        <li v-for="goal in computedGoals" v-bind:key="goal.userId">
+          <a href="#" v-on:click.prevent="viewGoalDetails(goal.goalId)">{{goal.goalName}}</a>
         </li> 
       </ul>
-      <button v-on:click="$router.push({name: 'my-event-history'})">View All</button>
+      <button v-on:click="$router.push({name: 'my-goal-history'})">View All</button>
   </div>
 </template>
 
 <script>
-import eventService from '../services/EventService.js'
+import goalService from '../services/GoalService.js'
 export default {
-  name: "my-events",
+  name: "my-goals",
   data() {
     return {
-      events: [],
+      goals: [],
       limit: 3
       
     };
 
   },
   computed: {
-    computedEvents() {
-      return this.limit ? this.events.slice(0, this.limit) : this.events
+    computedGoals() {
+      return this.limit ? this.goals.slice(0, this.limit) : this.goals
     }
 
   },
   methods: {
-  viewEventDetails(eventId) {
-        this.$router.push(`/events/${eventId}`);
+  viewGoalDetails(goalId) {
+        this.$router.push(`/goals/${goalId}`);
       }  
   },
   created() {
-    eventService.retrieveEventsByUser().then(response => {
-        this.events = response.data;
+    goalService.retrieveGoalsByUser().then(response => {
+        this.goals = response.data;
   }
     )
 }

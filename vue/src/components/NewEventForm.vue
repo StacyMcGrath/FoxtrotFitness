@@ -6,6 +6,7 @@
             <p class="blue-text">Just answer a few questions<br> so that we can personalize the right experience for you.</p>
             <div class="card">
                 <h5 class="text-center mb-4">Create a New Event</h5>
+                <div v-show="logMessage != ''">{{this.logMessage}}</div>
                 <form class="form-card" v-on:submit.prevent="submitForm">
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Event Name<span class="text-danger"> *</span></label> <input type="text" id="eventName" name="eventName" placeholder="Enter Event Name" v-model="event.eventName"> </div>
