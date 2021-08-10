@@ -40,4 +40,4 @@ VALUES (14, 1)
 
 
 SELECT event_id, user_id FROM event_user
-WHERE event_id = 3;
+WHERE event_id = 12;
