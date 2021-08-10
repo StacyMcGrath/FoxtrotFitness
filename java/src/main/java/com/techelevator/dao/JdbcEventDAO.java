@@ -1,9 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Activity;
-import com.techelevator.model.Event;
-import com.techelevator.model.User;
-import com.techelevator.model.UserEvent;
+import com.techelevator.model.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -143,14 +140,19 @@ public class JdbcEventDAO implements EventDAO {
     }
 
     @Override
-    public List<Integer> retrieveUsersByEventId(int eventId) {
-        List<Integer> userList = new ArrayList<>();
+    public List<UserProfile> retrieveUsersByEventId(int eventId) {
+        List<UserProfile> userList = new ArrayList<>();
 
-        String sqlUsers = "SELECT user_id FROM event_user WHERE event_id = ?";
+        String sqlUsers = "SELECT user_profile_id, user_profile.user_id, first_name, last_name, " +
+                "email_address, handle FROM user_profile " +
+                "JOIN event_user on user_profile.user_id = event_user.user_id " +
+                "WHERE event_id = ?";
 
         SqlRowSet userResults = jdbcTemplate.queryForRowSet(sqlUsers, eventId);
-        while (userResults.next()){
-            userList.add(userResults.getInt("user_id"));
+
+        while(userResults.next()) {
+            UserProfile userProfile = mapRowToUserProfile(userResults);
+            userList.add(userProfile);
         }
         return userList;
     }
@@ -196,5 +198,17 @@ public class JdbcEventDAO implements EventDAO {
 
         return activityListForEvent;
 
+    }
+
+    private UserProfile mapRowToUserProfile(SqlRowSet results) {
+        UserProfile userProfile = new UserProfile();
+
+        userProfile.setUserId(results.getInt("user_id"));
+        userProfile.setFirstName(results.getString("first_name"));
+        userProfile.setLastName(results.getString("last_name"));
+        userProfile.setEmailAddress(results.getString("email_address"));
+        userProfile.setHandle(results.getString("handle"));
+
+        return userProfile;
     }
 }

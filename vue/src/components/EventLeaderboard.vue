@@ -25,15 +25,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Faisal</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Katy</td>
-                                <td>15</td>
+                            <tr v-for="userProfile in userProfiles" v-bind:key="userProfile.handle">
+                                <td></td>
+                                <td>{{userProfile.handle}}</td>
+                                <td>{{totalDistanceForEachUser(userProfile.userId)}}</td>
                             </tr>
                            
                         </tbody>
@@ -55,29 +50,77 @@ export default {
         return {
             progresses: [],
             event: {},
-            users: {},
+            userProfiles: [],
+            sortBy: 'totalDistanceForEachUser',
+            sortDirection: 'asc',
+            // sortedUserProfiles: [],
+            // profile: {
+            //     handle: "",
+            //     totalDistance: ""
+            // }
         }
     },
     created(){
       progessService.retrieveProgressByEventForAllUsers(this.$route.params.eventId).then(response => {
         this.progresses = response.data;
-      });
+      }),
       eventService.retrieveEventById(this.$route.params.eventId).then(response => {
         this.event = response.data;
+      }),
+      eventService.getUsersByEvent(this.$route.params.eventId).then(response => {
+          this.userProfiles = response.data;
       })
     },
-    computed: {     
-        totalDistanceOfUser(){
-        let totalDistanceOfUser = 0;
-        this.progresses.forEach(progress => {
-            if (this.progress.userId == 4) {
-                totalDistanceOfUser = totalDistanceOfUser + progress.distance;
-            }
-        })
-        return totalDistanceOfUser;
-      },
-    }
+    methods: {     
+        totalDistanceForEachUser(userId){
+        let totalDistanceForEachUser = 0;
+            this.progresses.forEach(progress => {
+            if (progress.userId == userId) {
+                totalDistanceForEachUser = totalDistanceForEachUser + progress.distance;
+                }
+            })
+            return totalDistanceForEachUser;
+        },
+    
+    //     sortedProfiles: function() {
+    //         return this.userProfiles.sort((u1,u2) => {
+    //             if(this.totalDistanceForEachUser(u1.userId) < this.totalDistanceForEachUser(u2.userId)) {
+    //                 return -1;
+    //             }
+    //             else if(this.totalDistanceForEachUser(u1.userId) > this.totalDistanceForEachUser(u2.userId)) { 
+    //                 return 1;
+    //                 }
+    //             else {
+    //                 return 0;
+    //             }
+    //         }); 
+            
+    //     } 
+    // },
+
+    // computed: {
+    //     sortedUserProfiles() {
+    //         this.userProfiles.forEach(userProfile => {
+    //             let totalDistance = this.totalDistanceForEachUser(userProfile.userId);
+    //             let handle = userProfile.handle;
+                
+    //             this.profile.handle = handle;
+    //             this.profile.totalDistance = totalDistance;
+
+    //             this.sortedUserProfiles.add(this.profile);
+
+    //         }) 
+    //         return this.sortedUserProfiles;
+    //     } 
+
+    // },
+    
+    // watch: {
+
+    // }
+    }    
 }
+ 
 </script>
 
 <style>

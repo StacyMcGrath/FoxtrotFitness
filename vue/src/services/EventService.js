@@ -22,4 +22,8 @@ export default {
     return axios.post(`/createEvent`, event)
   },
 
+  getUsersByEvent(eventId) {
+    return axios.get(`/events/${eventId}/users/`)
+  }
+
 }

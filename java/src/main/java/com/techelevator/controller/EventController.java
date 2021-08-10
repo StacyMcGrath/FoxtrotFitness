@@ -3,10 +3,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.EventDAO;
 import com.techelevator.dao.UserDAO;
-import com.techelevator.model.Activity;
-import com.techelevator.model.Event;
-import com.techelevator.model.User;
-import com.techelevator.model.UserEvent;
+import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -70,7 +67,7 @@ public class EventController {
 //        //userDAO.findIdByUsername(principal.getName())
 //    }
     @RequestMapping(path = "/events/{eventId}/users", method = RequestMethod.GET)
-    public List<Integer> getUsersByEvent(@PathVariable int eventId) {
+    public List<UserProfile> getUsersByEvent(@PathVariable int eventId) {
         return eventDAO.retrieveUsersByEventId(eventId);
     }
 }
