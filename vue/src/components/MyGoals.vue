@@ -10,6 +10,10 @@
         </li> 
       </ul>
       <button v-on:click="$router.push({name: 'my-goal-history'})">View All</button>
+  <div>
+      <router-link v-bind:to="{name: 'create-goal'}" >Create New Goal</router-link>
+  </div>
+
   </div>
 </template>
 

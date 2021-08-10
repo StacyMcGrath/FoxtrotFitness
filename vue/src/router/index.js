@@ -10,7 +10,9 @@ import EventDetailPage from '../views/EventDetailPage.vue'
 import Dashboard from '../views/Dashboard.vue'
 import MyActivityHistoryPage from '../views/MyActivityHistoryPage.vue'
 import MyEventHistoryPage from '../views/MyEventHistoryPage.vue'
+import MyGoalHistoryPage from '../views/MyGoalHistoryPage.vue'
 import NewEventFormPage from '../views/NewEventFormPage.vue'
+import NewGoalFormPage from '../views/NewGoalFormPage.vue'
 
 Vue.use(Router)
 
@@ -100,9 +102,25 @@ const router = new Router({
       }
     },
     {
+      path: "/myGoals",
+      name: "my-goal-history",
+      component: MyGoalHistoryPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: "/createEvent",
       name: "create-event",
       component: NewEventFormPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/createGoal",
+      name: "create-goal",
+      component: NewGoalFormPage,
       meta: {
         requiresAuth: true
       }

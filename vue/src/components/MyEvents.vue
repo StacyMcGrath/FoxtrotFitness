@@ -10,6 +10,9 @@
         </li> 
       </ul>
       <button v-on:click="$router.push({name: 'my-event-history'})">View All</button>
+  <div>
+      <router-link v-bind:to="{name: 'create-event'}" >Create New Event</router-link>
+  </div>
   </div>
 </template>
 

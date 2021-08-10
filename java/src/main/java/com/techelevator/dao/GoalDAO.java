@@ -11,6 +11,6 @@ public interface GoalDAO {
     List<Goal> retrievePremadeGoals();
     Goal retrieveGoalById(int goalId);
     List<Goal> retrieveGoalsByUser(int userId);
-    Goal addNewGoal(Goal goal);
+    Goal addNewGoal(Goal goal, int userId);
 
 }

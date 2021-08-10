@@ -71,7 +71,7 @@ public class JdbcGoalDAO implements GoalDAO {
     }
 
     @Override
-    public Goal addNewGoal(Goal goal) {
+    public Goal addNewGoal(Goal goal, int userId) {
         Goal newGoal = new Goal();
 
         String sql = "INSERT INTO goals (goal_id, goal_name, start_date, end_date, user_activity_goal, goal_units, " +
@@ -92,7 +92,7 @@ public class JdbcGoalDAO implements GoalDAO {
         goal.setEndDate(adjustedEndDate);
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, goal.getGoalName(), goal.getStartDate(), goal.getEndDate(),
-                goal.getActivityGoal(), goal.getActivityUnits(), goal.getUserId());
+                goal.getActivityGoal(), goal.getActivityUnits(), userId);
 
         int newGoalId = 0;
         if (results.next()) {

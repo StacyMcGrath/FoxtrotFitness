@@ -44,7 +44,7 @@ public class GoalController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/createGoal", method = RequestMethod.POST)
-    public void createNewGoal(@RequestBody Goal goal) {
-        goalDAO.addNewGoal(goal);
+    public void createNewGoal(@RequestBody Goal goal, Principal principal) {
+        goalDAO.addNewGoal(goal, userDAO.findIdByUsername((principal.getName())));
     }
 }

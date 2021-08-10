@@ -2,14 +2,12 @@
   <div>
     <div v-show="logMessage != ''">{{this.logMessage}}</div>  
    <form v-on:submit.prevent="submitForm" class="activityForm">
- 
      <h1 class="form-header">Log recent activity</h1>
      <div class="form-date">
         <label for="date">Date: </label>
         <input id="date" type="date" class="form-control" placeholder="yyyy-mm-dd" v-model="activity.activityDate" />
       </div>
-      
-      <div class="form-activity">
+            <div class="form-activity">
         <label for="activityType">Activity: </label>
         <select class="form-control" v-model="activity.activityTypeId">
           <option disabled value="">Choose Activity</option>
@@ -21,9 +19,7 @@
         </select>
 
       </div>
-      
-
-     <div class="form-distance">
+           <div class="form-distance">
         <label for="distance">Distance: </label>
         <input id="distance" type="text" class="form-control" placeholder="Miles" v-model="activity.distance" />
       </div>
@@ -33,9 +29,8 @@
         <input id="number-of-minutes" type="text" class="form-control" placeholder="Minutes" v-model="activity.numberOfMinutes" />
       </div>
 
-
       <button class="btn btn-submit">Submit</button>
-      <button class="btn btn-cancel" type="reset" v-on:click.prevent="clearForm">Clear</button>
+      <button class="btn btn-cancel" type="reset" v-on:click.prevent="clearForm">Clear Form</button>
     </form>
 
   </div>
@@ -114,44 +109,77 @@ handleErrorResponse(error) {
 .form-distance {
   grid-area: distance;
 }
+.form-number-of-minutes{
+  grid-area: minutes;
+}
 .form-header {
   grid-area: header;
 
 }
 .btn-submit{
-  margin: 5px;
-  width: 100px;
   grid-area: submit;
+  background-color: #f16120;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  color: #edf0db;
+  text-align: center;
+  width: 50%;
+  margin-top: 3%;
+  margin-left: 20%;
+  font-size: 15px;
+  border-radius: 10px;
 }
 .btn-cancel{
-  margin: 5px;
-  width: 100px;
+
   grid-area: cancel;
+  background-color:edf0db;
+  font-family: 'Montserrat', sans-serif;
+  color: #505170;
+  text-align: center;
+  align-content: center;
+  width: 50%;
+  margin-left: 20%;
+  font-size: 15px;
+  border-radius: 10px;
+
 }
 form {
   display: grid;
-  padding: 20px 15%;
-  background: rgb(111, 139, 148);
-  font-family: Arial, Helvetica, sans-serif;
-  /* margin-top: 20px; */
-  grid-template-columns:2fr 2fr 2fr 1fr 1fr ;
+  padding: 2% 5% 5%;
+  background: #e6e6e6;
+  font-family: 'Monserrat', sans-serif;
+  grid-template-columns:1fr 1fr 2fr;
   grid-template-areas:
-  "header header header header header"
-  "date activity distance submit cancel";
+  "header header header"
+  "date activity ." 
+  "distance minutes ." 
+  "submit submit ."
+  "cancel cancel .";
 
 }
 
 .form-control {
-  width: 50%;
-  height: 30px;
-}
+  width: 80%;
+  height: 35px;
+  font-family: 'Montserrat', sans-serif;
+  color: #505170;
+  }
 
 label {
-
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-line-height: 36px;
+  font-family: 'Montserrat', sans-serif;
+  color: #505170;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 30px;
+}
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #505170;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 </style>
