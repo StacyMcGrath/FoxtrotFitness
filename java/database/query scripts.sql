@@ -36,4 +36,16 @@ WHERE activity_type = 'Running'
 INSERT INTO event_activity_type (event_id, activity_type_id)
 VALUES (14, 1)
 
+-- get user progress by event
+
+SELECT event_user.event_id, event_user.user_id, logged_activity.activity_type_id, logged_activity.distance, logged_activity.activity_date from logged_activity
+
+JOIN event_user ON logged_activity.user_id = event_user.user_id
+JOIN event_activity_type ON event_user.event_id = event_activity_type.event_id
+JOIN event on event_user.event_id = event.event_id
+JOIN user_profile on user_profile.user_id = logged_activity.user_id
+
+WHERE event_activity_type.event_id = 1 AND (logged_activity.activity_date >= event.start_date AND logged_activity.activity_date <= event.end_date)
+AND logged_activity.activity_type_id IN (SELECT event_activity_type.activity_type_id FROM event_activity_type WHERE event_id = 1)
+GROUP BY event_user.event_id, event_user.user_id, logged_activity.activity_type_id, logged_activity.distance, logged_activity.activity_date;
 
