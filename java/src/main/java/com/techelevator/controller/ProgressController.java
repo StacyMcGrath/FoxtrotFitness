@@ -33,5 +33,9 @@ public class ProgressController {
         return progressDAO.retrieveProgressByEventForUser(eventId, userDAO.findIdByUsername(principal.getName()));
     }
 
+    @RequestMapping(path = "/progress/goal/{goalId}", method = RequestMethod.GET)
+    public List<Progress> getProgressByGoalForIndividualUser(@PathVariable int goalId, Principal principal) {
+        return progressDAO.retrieveProgressByGoalForUser(goalId, userDAO.findIdByUsername(principal.getName()));
+    }
 
 }

@@ -74,7 +74,29 @@ public class JdbcProgressDAO implements ProgressDAO{
 
     @Override
     public List<Progress> retrieveProgressByGoalForUser(int goalId, int userId) {
-        return null;
+        List<Progress> individualGoalProgress = new ArrayList<>();
+
+        String sql = "SELECT goals.goal_id, goals.user_id, logged_activity.activity_type_id, logged_activity.distance, " +
+                    "logged_activity.number_of_minutes, logged_activity.activity_date " +
+                    "FROM logged_activity " +
+                    "JOIN goals ON logged_activity.user_id = goals.user_id " +
+                    "JOIN goal_activity_type ON goals.goal_id = goal_activity_type.goal_id " +
+                    "WHERE goal_activity_type.goal_id = ? AND goals.user_id = ? " +
+                    "AND (logged_activity.activity_date >= goals.start_date AND logged_activity.activity_date <= goals.end_date) " +
+                    "AND logged_activity.activity_type_id IN (SELECT goal_activity_type.activity_type_id  " +
+                    "FROM goal_activity_type " +
+                    "WHERE goal_id = ?) " +
+                    "GROUP BY goals.goal_id, goals.user_id, logged_activity.activity_type_id, logged_activity.distance, " +
+                    "logged_activity.number_of_minutes, logged_activity.activity_date";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, goalId, userId, goalId);
+
+        while(results.next()) {
+            Progress progress = mapRowToGoalProgress(results);
+            individualGoalProgress.add(progress);
+        }
+
+        return individualGoalProgress;
     }
 
 
@@ -85,6 +107,19 @@ public class JdbcProgressDAO implements ProgressDAO{
         progress.setUserId(results.getInt("user_id"));
         progress.setActivityTypeId(results.getInt("activity_type_id"));
         progress.setDistance(results.getDouble("distance"));
+        progress.setActivityDate(results.getDate("activity_date"));
+
+        return progress;
+    }
+
+    private Progress mapRowToGoalProgress(SqlRowSet results) {
+        Progress progress = new Progress();
+
+        progress.setGoalId(results.getInt("goal_id"));
+        progress.setUserId(results.getInt("user_id"));
+        progress.setActivityTypeId(results.getInt("activity_type_id"));
+        progress.setDistance(results.getDouble("distance"));
+        progress.setTimeInMinutes(results.getDouble("number_of_minutes"));
         progress.setActivityDate(results.getDate("activity_date"));
 
         return progress;
