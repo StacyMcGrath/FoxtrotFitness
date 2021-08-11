@@ -67,20 +67,30 @@ h2 {
 
   li {
     border-radius: 3px;
-    padding: 25px 30px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
   }
   .table-header {
-    background-color: #95A5A6;
+     background-color: #e6e6e6;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+    font-weight: bold;
+    vertical-align: bottom;
+    margin-bottom: 0%;
   }
   .table-row {
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+  }
+  .table-row:nth-child(even) {
+  background: #edf0db;
+  }
+  .table-row:nth-child(odd) {
+    background: #cfe6e0;
+    
   }
   .col-1 {
     flex-basis: 25%;
