@@ -1,8 +1,14 @@
 <template>
-  <div> 
-        <nav>
-        </nav>
-    </div>
+ <div>
+   <div class="footer">  
+   <i class="fab fa-facebook-square fa-2x"></i>
+   <i class="fab fa-instagram-square fa-2x"></i>
+   <i class="fab fa-twitter-square fa-2x"></i>
+   <i class="fab fa-pinterest-square fa-2x"></i>
+   <i class="fab fa-linkedin fa-2x"></i>
+  </div>
+ </div> 
+ 
 </template>
 
 <script>
@@ -13,13 +19,14 @@ name: 'the-footer',
 
 <style scoped>
 
-nav {
-  height: 50px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+
+.footer {
+  height: 100%;
+  padding-right: 5%;
   background-color: #cfe6e0;
+  text-align: right;
+  vertical-align: middle;
+  overflow: hidden;
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Group Progress</h1>
+        <!-- <h1>Group Progress</h1>
         <p v-for="(progress, index) in progresses" :key="index">
             User Id: {{progresses[index].userId}} 
             Event Id: {{progresses[index].eventId}} 
@@ -8,7 +8,7 @@
             Distance: {{progresses[index].distance.toLocaleString()}} 
             Date: {{progresses[index].activityDate}}
             Total Distance: {{distanceOfAllUsers.toLocaleString()}}
-            </p>
+            </p> -->
             <div class="container">
          <div class="row">
             <div class="col-md-6">

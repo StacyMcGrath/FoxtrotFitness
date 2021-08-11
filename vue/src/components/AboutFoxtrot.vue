@@ -2,12 +2,15 @@
 <div>
   <div class="container">
   <img class="bgimg-1" src="..\assets\Home Page Graphic.jpg">
-  <h4 class="top-left">Personal Goals + Community Goals = FITNESS FUN</h4>
-  <p>Keep your fitness goals on track by combining your personal goals with fun, virtual community events!</p>
-
+  <h4 class="top-left">Your Goals + Community Events = FITNESS FUN</h4>
+  <p>Keep your health and fitness on track by combining your personal goals with fun, virtual community events!</p>
 </div>
-
-  
+<div class="screenshots">
+<h3 id="p1">Log activities and see your events and goals on your personal dashboard</h3>
+<img id="img1" src="..\assets\MyDashboard.png">
+<img id="img2" src="..\assets\EventDetail.png">
+<img id="img3" src="..\assets\MyGoalsHistory.png">
+</div>
 </div>
 </template>
 
@@ -53,7 +56,7 @@ body, html {
 
 p {
   font-family: 'Montserrat', sans-serif;
-   color: #505170;
+  color: #505170;
   font-size: 24px;
   text-align: left;
   margin-right: 30%;
@@ -62,7 +65,41 @@ p {
   left: 40px;
 }
 
+.screenshots {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "p1 . ."
+                      "one two three";
+  column-gap: 5%;
+  margin: 5%;
+  
 
+}
+
+#img1 {
+  grid-area: one;
+  width: 100%;
+  height: auto;
+  border: solid #505170 1px;
+}
+
+#img2 {
+  grid-area: two;
+  width: 100%;
+  height: auto;
+  border: solid #505170 1px;
+}
+
+#img3 {
+  grid-area: three;
+  width: 100%;
+  height: auto;
+  border: solid #505170 1px;
+}
+
+#p1 {
+  grid-area: p1;
+}
 
 
 </style>

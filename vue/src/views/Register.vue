@@ -118,7 +118,7 @@ export default {
 <style scoped>
 div {
   font-family: 'Montserrat', sans-serif;
-  background-color: black;
+  background-color: #e6e6e6;
 }
 
 * {
@@ -129,6 +129,7 @@ div {
 .container {
   padding: 16px;
   background-color: white;
+  width: 50%;
 }
 
 /* Full-width input fields */
