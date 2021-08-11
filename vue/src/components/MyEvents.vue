@@ -1,7 +1,7 @@
 <template>
   <div class="events">
-      <img src="..\assets\goal_progress.jpg" alt="Image of Event">
-      <h1>My Events</h1>
+        <span id="myEvents"><i class="fas fa-calendar-check fa-2x"></i>My Events</span>
+          
       <ul>
         <!-- <router-link v-on:click="$router.push(`/events/${eventId}`)" >{{event.eventName}}</router-link> -->
         
@@ -52,6 +52,16 @@ export default {
 
 <style scoped>
 
+#myEvents {
+  font-size: 30px;
+
+
+}
+
+h1 {
+  display: inline;
+}
+
 img {
     height: 150px;
     width: auto;
@@ -59,7 +69,7 @@ img {
 
 /* Events/Goals */
 
-/* .events {
+.events {
 
 font-family: Montserrat;
 font-style: normal;
@@ -69,7 +79,7 @@ line-height: 18px;
 letter-spacing: -0.015em;
 }
 
-button {
+/* button {
 color: #18A0FB;
 } */
 
