@@ -4,6 +4,9 @@ import router from './router/index'
 import store from './store/index'
 import axios from 'axios'
 import moment from 'moment'
+import Carousel3d from 'vue-carousel-3d'
+
+Vue.use(Carousel3d);
 
 Vue.config.productionTip = false
 Vue.filter('formatDate', function(value) {
