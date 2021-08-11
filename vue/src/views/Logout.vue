@@ -7,6 +7,7 @@ export default {
   created() {
     this.$store.commit("LOGOUT");
     this.$router.push("/");
+    this.$router.go();
   }
 };
 </script>

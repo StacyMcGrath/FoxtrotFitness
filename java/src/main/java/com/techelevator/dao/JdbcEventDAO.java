@@ -157,6 +157,20 @@ public class JdbcEventDAO implements EventDAO {
         return userList;
     }
 
+    @Override
+    public UserProfile getUserProfileForLoggedInUser(int userId) {
+        UserProfile userProfile = new UserProfile();
+
+        String sqlUserProfile = "SELECT user_profile_id, user_id, first_name, last_name, email_address, handle FROM user_profile " +
+                "WHERE user_id = ?";
+
+        SqlRowSet userProfileResults = jdbcTemplate.queryForRowSet(sqlUserProfile, userId);
+
+        if(userProfileResults.next()) {
+            userProfile = mapRowToUserProfile(userProfileResults);
+        }
+        return userProfile;
+    }
 
     private Event mapRowToEvent(SqlRowSet results) {
         Event event = new Event();
@@ -211,4 +225,6 @@ public class JdbcEventDAO implements EventDAO {
 
         return userProfile;
     }
+
+
 }
