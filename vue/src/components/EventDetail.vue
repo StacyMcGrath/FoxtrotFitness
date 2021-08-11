@@ -24,7 +24,9 @@
                 <p> {{logMessage}} </p>
             </div>
     </div>   
-
+<group-progress v-show="isUserSignedUp"/>
+<individual-progress v-show="isUserSignedUp"/>
+<event-leaderboard v-show="isUserSignedUp"/>
     
 </div>
 
@@ -34,8 +36,14 @@
 
 <script>
 import eventService from '../services/EventService.js'
+import GroupProgress from '../components/GroupProgress.vue'
+import IndividualProgress from '../components/IndividualProgress.vue'
+import EventLeaderboard from '../components/EventLeaderboard.vue'
 export default {
     name: "event-detail",
+    components: {
+        GroupProgress, IndividualProgress, EventLeaderboard
+    },
     props: {
         progress: {
             default: 0,
