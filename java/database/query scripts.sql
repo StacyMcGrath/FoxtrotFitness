@@ -39,5 +39,7 @@ VALUES (14, 1)
 -- get user progress by event
 
 
-SELECT event_id, user_id FROM event_user
-WHERE event_id = 12;
+
+SELECT user_profile_id, user_profile.user_id, first_name, last_name, email_address, handle FROM user_profile
+JOIN event_user on user_profile.user_id = event_user.user_id
+WHERE event_id = 12

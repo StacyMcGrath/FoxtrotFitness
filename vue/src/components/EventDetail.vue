@@ -7,8 +7,8 @@
                 <ul>  
                     <li>Start Date: {{event.startDate | formatDate}}</li>
                     <li>End Date: {{event.endDate | formatDate}}</li>
-                    <li>Individual Activity Goal: {{event.userActivityGoal}} miles.</li> 
-                    <li>Total Community Goal: {{event.totalActivityGoal}} miles</li>
+                    <li>Individual Activity Goal: {{event.userActivityGoal.toLocaleString()}} miles.</li> 
+                    <li>Total Community Goal: {{event.totalActivityGoal.toLocaleString()}} miles</li>
                 </ul>
             </div>
             <div id="event-description">

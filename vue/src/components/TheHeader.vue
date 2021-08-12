@@ -10,36 +10,32 @@
         <li2><router-link  class="register" v-bind:to="{name: 'login'}" v-if="$store.state.token == ''">Login</router-link></li2>
         <li2><router-link  class="register" v-bind:to="{name: 'logout'}" v-if="$store.state.token != ''">Logout</router-link></li2>    
         <li2><router-link class="register" v-bind:to="{name: 'register'}" v-show="$store.state.token == ''">Register</router-link></li2>
-        <li3 v-if="$store.state.token != ''">Welcome!</li3>
+        <li3 v-if="$store.state.token != ''">Welcome, {{UserProfile.firstName}}!</li3>
      </ul>
     </nav>
 
-
-  <!-- <nav>
-    <div class="nav-wrapper">
-      <img src="..\assets\Orange Fox Animal Logo.png" alt="">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><router-link v-bind:to="{name: 'home'}">Home</router-link> </li>
-        <li><router-link v-bind:to="{name: 'events'}">Events</router-link></li>
-        <li><router-link v-bind:to="{name: 'dashboard'}">Dashboard</router-link></li>
-      </ul>
-    </div>
-  </nav> -->
-        
-
-
+      
   </div>
 </template>
 
 <script>
 
+import eventService from "../services/EventService.js"
 export default {
     name: 'the-header',
     data() {
         return {
-          
+
+          UserProfile: {}
+      
         }
     },
+    created() {
+      eventService.getUserProfileForLoggedInUser().then(response => {
+        this.UserProfile = response.data;
+      })
+    },
+
     computed: {
       displayName() {
         const displayName = this.$store.state.user;

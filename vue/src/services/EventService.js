@@ -24,6 +24,10 @@ export default {
 
   getUsersByEvent(eventId) {
     return axios.get(`/events/${eventId}/users/`)
+  },
+
+  getUserProfileForLoggedInUser() {
+    return axios.get(`/header`)
   }
 
 }
