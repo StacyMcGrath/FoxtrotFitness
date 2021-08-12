@@ -1,11 +1,19 @@
 <template>
  <div>
-   <div class="footer">  
-   <i class="fab fa-facebook-square fa-2x"></i>
-   <i class="fab fa-instagram-square fa-2x"></i>
-   <i class="fab fa-twitter-square fa-2x"></i>
-   <i class="fab fa-pinterest-square fa-2x"></i>
-   <i class="fab fa-linkedin fa-2x"></i>
+   <div class="footer">
+      <div class="copyright">
+      © 2001 Team Foxtrot <br>
+      About Us
+      </div>
+   
+  
+      <div class="social">
+        <i class="fab fa-facebook-square fa-2x"></i>
+        <i class="fab fa-instagram-square fa-2x"></i>
+        <i class="fab fa-twitter-square fa-2x"></i>
+        <i class="fab fa-pinterest-square fa-2x"></i>
+        <i class="fab fa-linkedin fa-2x"></i>
+      </div>  
   </div>
  </div> 
  
@@ -21,12 +29,26 @@ name: 'the-footer',
 
 
 .footer {
+  display: flex;
+  justify-content: center;
   height: 100%;
-  padding-right: 5%;
   background-color: #cfe6e0;
-  text-align: right;
-  vertical-align: middle;
+  padding: 1% 15%;
   overflow: hidden;
+  font-size: 18px;
+}
+
+
+i {
+  margin: 3%;
+}
+.copyright {
+  flex-grow: 3;
+}
+
+.social {
+  flex-grow: 1;
+  display: inline;
 }
 
 </style>

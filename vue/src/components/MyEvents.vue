@@ -65,17 +65,6 @@ width: 100%;
 margin-left: 15%;
 }
 
-/* #myEvents {
-  font-size: 40px;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 2% 10%;
-  margin: 5px;
-  color: #505170;
-  text-shadow: 2px 2px gray; 
-  box-shadow: 3px 3px gray;
-  background-image: linear-gradient(to right, #020024, #b6d44a)
-} */
 
 #viewall {
   font-size: 12px;
