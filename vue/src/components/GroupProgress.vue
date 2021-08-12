@@ -19,6 +19,7 @@
                         <div class="progress-value">{{progressLabel}} %</div>
                     </div>
                 </div>
+                <p>Remaining Distance: {{remainingDistance}}</p>
             </div>
         </div>
     </div>
@@ -53,8 +54,13 @@ export default {
       progressLabel() {
           let progressLabel = 0;
           progressLabel = ((this.distanceOfAllUsers / this.event.totalActivityGoal)*100);
-          return progressLabel;
+          return parseFloat(progressLabel).toFixed(1);
       },
+      remainingDistance() {
+        let remainingDistance = 0;
+        remainingDistance = (this.event.totalActivityGoal - this.distanceOfAllUsers);
+        return remainingDistance.toFixed(1)
+      }
     },
 
     watch: {
