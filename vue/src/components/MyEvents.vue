@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-      <img src="..\assets\My Events.png">
+      <img src="..\assets\MyEvents.png">
         <!-- <span id="myEvents"><i class="fas fa-calendar-check" style="color: #505170"></i> My Events</span> -->
           
       <ul>
@@ -10,9 +10,9 @@
           <a href="#" v-on:click.prevent="viewEventDetails(event.eventId)">{{event.eventName}}</a>
         </li> 
       </ul>
-      <button v-on:click="$router.push({name: 'my-event-history'})">View All</button>
+      <router-link id="viewall" v-bind:to="{name: 'my-event-history'}">View All</router-link>
   <div>
-      <router-link v-bind:to="{name: 'create-event'}" >Create New Event</router-link>
+      <button v-on:click="$router.push({name: 'create-event'})" >Create New Event</button>
   </div>
   </div>
 </template>
@@ -65,7 +65,7 @@ width: 100%;
 margin-left: 15%;
 }
 
-#myEvents {
+/* #myEvents {
   font-size: 40px;
   font-weight: bold;
   border-radius: 50%;
@@ -75,12 +75,17 @@ margin-left: 15%;
   text-shadow: 2px 2px gray; 
   box-shadow: 3px 3px gray;
   background-image: linear-gradient(to right, #020024, #b6d44a)
+} */
 
-
-
+#viewall {
+  font-size: 12px;
+  margin-left: 35%;
+  
 }
+
+
 ul {
-  margin-top: 5%;
+   margin-left: 10%;
   line-height: 200%;
 }
 
@@ -92,10 +97,29 @@ img {
 
 /* Events/Goals */
 
+events {
 
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 18px;
+letter-spacing: -0.015em;
+}
 
-/* button {
-color: #18A0FB;
-} */
+button {
+  background-color: #f16120;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  color: #edf0db;
+  text-align: center;
+  width: 50%;
+  height: 25px;
+  margin-top: 3%;
+  margin-left: 20%;
+  margin-bottom: 10%;
+  font-size: 15px;
+  border-radius: 10px;
+}
 
 </style>
