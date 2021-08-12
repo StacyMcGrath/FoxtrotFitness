@@ -163,6 +163,7 @@ form {
   height: 35px;
   font-family: 'Montserrat', sans-serif;
   color: #505170;
+  background-color: #edf0db;
   }
 
 label {

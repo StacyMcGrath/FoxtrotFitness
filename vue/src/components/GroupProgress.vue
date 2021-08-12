@@ -59,7 +59,7 @@ export default {
       remainingDistance() {
         let remainingDistance = 0;
         remainingDistance = (this.event.totalActivityGoal - this.distanceOfAllUsers);
-        return remainingDistance.toFixed(1)
+        return remainingDistance.toFixed(1).toLocaleString();
       }
     },
 
