@@ -1,7 +1,7 @@
 <template>
   <div class="badgesection">
       <h4 id="badgeheader">My Badges</h4>
-        <img class="badgeimage" id="b1" src="../assets/award.png">
+        <!-- <img class="badgeimage" id="b1" src="../assets/award.png"> -->
         <img class="badgeimage" id="b2" src="../assets/exercise.png">
         <!-- <img class="badgeimage" id="b3" src="../assets/heart.jpg"> -->
   </div>
@@ -26,7 +26,7 @@ name: 'badge-section'
     background-color: #edf0db;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "header header header header . ."
-                        "b1 b2 b3 . . ."
+                        "b2 b1 b3 . . ."
                         ". . . . . ."
     
 }
