@@ -10,11 +10,11 @@
         </div>
     </div>
 
-    <div class="container py-5">
+    <!-- <div class="container py-5">
         <div class="row">
             <div class="col-lg-7 mx-auto bg-white rounded shadow">
 
-                <!-- Fixed header table-->
+                
                 <div class="table-responsive">
                     <table>
                         <thead>
@@ -33,10 +33,27 @@
                            
                         </tbody>
                     </table>
-                </div><!-- End -->
+                </div>
                 
             </div>
         </div>
+    </div> -->
+    <div class="listcontainer">
+      
+        
+        <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-1">Rank</div>
+            <div class="col col-2">Username</div>
+            <div class="col col-3"># of Miles</div>
+          </li>
+          <li class="table-row" v-for="(userProfile, index) in sortedUserProfiles" v-bind:key="userProfile.handle">
+            <div class="col col-1" data-label="Rank">{{index+ 1}}</div>
+            <div class="col col-2" data-label="Username">{{userProfile.handle}}</div>
+            <div class="col col-3" data-label="Distance">{{totalDistanceForEachUser(userProfile.userId)}}</div>
+          </li>
+        </ul> 
+      
     </div>
 </div>
 </template>
@@ -102,20 +119,20 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 .container py-5 {
     margin: 0;
     padding: 0;
-    width: 100%;
+    max-width: 100%;
 }
 
-.table-fixed tbody {
+/* .table-fixed tbody {
     height: 300px;
     overflow-y: auto;
     width: 100%;
 
-}
+} */
 h1 {
     font-family: 'Montserrat', sans-serif;
     color: #505170;
@@ -125,15 +142,15 @@ p {
     color: #505170;
 }
 
-.table-fixed thead,
+/* .table-fixed thead,
 .table-fixed tbody,
 .table-fixed tr,
 .table-fixed td,
 .table-fixed th {
     display: block;
-}
+} */
 
-.table-fixed tbody td,
+/* .table-fixed tbody td,
 .table-fixed tbody th,
 .table-fixed thead > tr > th {
     float: left;
@@ -144,7 +161,7 @@ p {
         clear: both;
         display: block;
     }
-}
+} */
 
 body {
     background: #e6e6e6;
@@ -152,6 +169,50 @@ body {
     color: #505170;
     min-height: 100vh;
 }
+.listcontainer {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+li {
+    border-radius: 3px;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .table-header {
+     background-color: #e6e6e6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: bold;
+    vertical-align: bottom;
+    margin-bottom: 0%;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    
+  }
+  .table-row:nth-child(odd) {
+  background: #edf0db;
+  }
+  .table-row:nth-child(even) {
+    background: #cfe6e0;
+    
+  }
+  .col-1 {
+    flex-basis: 1fr;
+  }
+  .col-2 {
+    flex-basis: 1fr;
+  }
+  .col-3 {
+    flex-basis: 1fr;
+  }
 
 
 

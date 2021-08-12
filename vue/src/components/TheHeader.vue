@@ -10,7 +10,7 @@
         <li2><router-link  class="register" v-bind:to="{name: 'login'}" v-if="$store.state.token == ''">Login</router-link></li2>
         <li2><router-link  class="register" v-bind:to="{name: 'logout'}" v-if="$store.state.token != ''">Logout</router-link></li2>    
         <li2><router-link class="register" v-bind:to="{name: 'register'}" v-show="$store.state.token == ''">Register</router-link></li2>
-        <li3 v-if="$store.state.token != ''">Welcome, User!</li3>
+        <li3 v-if="$store.state.token != ''">Welcome!</li3>
      </ul>
     </nav>
 

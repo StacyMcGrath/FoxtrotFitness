@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-        <p><input type="text" name="eventName" placeholder="Search Event Name" v-model="eventFilter"></p>
-        <p>
+        <span><input type="text" name="eventName" placeholder="Search Event Name" v-model="eventFilter"></span>
+        <span>
                         <select v-model="activityFilter">
                           <option disabled value="">Filter by Activity</option>
                           <option value="">View All</option>
@@ -11,8 +11,8 @@
                           <option>Cycling</option>
                           <option>Other</option>
                         </select>
-        </p>
-        <p><button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button></p>
+        </span>
+        <span><button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button></span>
 
       <ul class="responsive-table">
           <li class="table-header">

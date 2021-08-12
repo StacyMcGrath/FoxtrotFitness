@@ -2,10 +2,9 @@
     <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3>Create a New Goal</h3>
-            <p class="blue-text"></p>
+            
             <div class="card">
-                <h5 class="text-center mb-4">Create a New Goal</h5>
+                <h3 class="text-center mb-4">Create a New Goal</h3>
                 <div v-show="logMessage != ''">{{this.logMessage}}</div>
                 <form class="form-card" v-on:submit.prevent="submitForm">
                     <div class="row justify-content-between text-left">
@@ -26,8 +25,15 @@
                                 <option>Other</option>
                             </select>
                        </div>  
-
+                     
+                       <!-- <label for="select" class="form-control-label px-3">Activity Type(s)</label>
+                    <div class="dbgOuter">
+                    <div class="dbgCont" v-for="activity in goal.activityType" :key="activity">
+                        <input type="checkbox" class="dbgCheck" v-model="goal.activityType" :value="activity"/>
+                        <label id="activity">{{activity}}</label>
+                        -->
                     </div>
+                     
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> 
                             <label class="form-control-label px-3">Start Date<span class="text-danger"> *</span></label> 
@@ -116,17 +122,23 @@ handleErrorResponse(error) {
         userId: null
    }
  }
+},
+    created() {
+    goalService.retrieveGoalsByUser().then(response => {
+        this.goals = response.data;
+  }
+    )
 }
 }
 
 </script>
 
 <style scoped>
-body {
-    color: #000;
+.container-fluid {
+    color: rgb(99, 86, 86);
     overflow-x: hidden;
     height: 100%;
-    background-image: url("https://i.imgur.com/GMmCQHC.png");
+    background-image: url("../assets/Home Page Graphic.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%
 }
@@ -136,11 +148,14 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     border: none !important;
+    background-color: #cfe6e0;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+    
 }
 
-.blue-text {
-    color: #00BCD4
+h3 {
+    color: #f16120;
+    font-weight: bold
 }
 
 .form-control-label {
@@ -164,7 +179,7 @@ textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #00BCD4;
+    border: 1px solid #f16120;
     outline-width: 0;
     font-weight: 400
 }
@@ -174,7 +189,8 @@ textarea:focus {
     font-size: 15px !important;
     font-weight: 400;
     height: 43px;
-    cursor: pointer
+    cursor: pointer;
+    background-color: #f16120;
 }
 
 .btn-block:hover {
@@ -187,4 +203,18 @@ button:focus {
     box-shadow: none !important;
     outline-width: 0
 }
+ 
+  /* .dbgOuter{
+            border: solid 1px #888;
+            border-radius: 4px;
+            padding: 3px 8px 0px 14px;
+            width: 340px;
+            margin: 0 auto;
+            font-size: 10.5pt;
+        }
+        .dbgCont{
+            display: inline-block;
+            height: 24px;
+            margin-left: 6px;
+        } */
 </style>

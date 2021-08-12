@@ -12,7 +12,7 @@
                 </ul>
             </div>
             <div id="event-description">
-                <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl. Leo a diam sollicitudin tempor id eu nisl nunc mi. Vitae auctor eu augue ut lectus arcu. Condimentum vitae sapien pellentesque habitant morbi tristique. Convallis a cras semper auctor. </p><br>
+                <p>{{event.longDescription}}</p><br>
                 </div>
             <div id="event-activities">
                 <h2>Activity Types</h2>
