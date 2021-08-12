@@ -3,7 +3,7 @@
   <h1>Virtual Events</h1>
   <p id="events-text">When you join a virtual event, your effort helps the event community reach a cooperative 
     goal. Working toward a community goal will motivate you to keep moving, and in the process, you'll also 
-    crush your personal goals!<br></p>
+    crush your personal goals!<br><br>Sign up for an event to see the progress and leaderboard, then get moving to climb up the ranks.</p>
   <div class="listbutton"> 
   <button class="list-toggle" v-on:click="cardView = !cardView">{{cardView ? "View as List" : "View Gallery"}}</button>
   </div>
