@@ -3,13 +3,13 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS logged_activity;
 DROP TABLE IF EXISTS event_user;
 DROP TABLE IF EXISTS user_profile;
+DROP TABLE IF EXISTS goal_activity_type;
+DROP TABLE IF EXISTS goals;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS event_activity_type;
-DROP TABLE IF EXISTS goal_activity_type;
 DROP TABLE IF EXISTS premade_goal_activity_type;
 DROP TABLE IF EXISTS activity_type;
 DROP TABLE IF EXISTS event;
-DROP TABLE IF EXISTS goals;
 DROP TABLE IF EXISTS premade_goals;
 
 DROP SEQUENCE IF EXISTS seq_logged_activity_id;
