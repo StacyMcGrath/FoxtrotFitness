@@ -1,11 +1,11 @@
 <template>
   <div>
-      <img src="..\assets\activities.jpg" alt="Image of Activity">
-      <h1>My Recent Activities</h1>
+      <img src="..\assets\MyActivities.png" alt="Image of Activity">
+      
       <ul>
-        <li v-for="activity in computedActivities" v-bind:key="activity.activityId">{{(activity.activityDate) | formatDate }} | {{activity.activityType}} | {{activity.distance.toLocaleString()}} mi. | Time: {{activity.numberOfMinutes}} min.</li>
+        <li v-for="activity in computedActivities" v-bind:key="activity.activityId">{{(activity.activityDate) | formatDate }} | {{activity.activityType}} | {{activity.distance.toLocaleString()}} mi. | {{activity.numberOfMinutes}} min.</li>
       </ul>
-      <button v-on:click="$router.push({name: 'my-activity-history'})">View All</button>
+      <router-link id="viewall" v-bind:to="{name: 'my-activity-history'}">View All</router-link>
   </div>
 </template>
 
@@ -43,8 +43,31 @@ export default {
 
 <style scoped>
 
+.activities {
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 18px;
+letter-spacing: -0.015em;
+width: 100%;
+margin-left:0%;
+}
+
+ul {
+   margin-left: 5%;
+  line-height: 200%;
+}
+
 img {
-    height: 150px;
-    width: auto;
+    width: 80%;
+    height: auto;
+}
+
+#viewall {
+  font-size: 12px;
+  margin-left: 35%;
+  
 }
 </style>

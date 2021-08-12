@@ -2,10 +2,8 @@
     <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3>Create a New Event</h3>
-            <p class="blue-text"><br> </p>
             <div class="card">
-                <h5 class="text-center mb-4">Create a New Event</h5>
+                <h3>Create a New Event</h3>
                 <div v-show="logMessage != ''">{{this.logMessage}}</div>
                 <form class="form-card" v-on:submit.prevent="submitForm">
                     <div class="row justify-content-between text-left">
@@ -131,11 +129,11 @@ handleErrorResponse(error) {
 </script>
 
 <style scoped>
-body {
-    color: #000;
+.container-fluid {
+    color: rgb(99, 86, 86);
     overflow-x: hidden;
     height: 100%;
-    background-image: url("https://i.imgur.com/GMmCQHC.png");
+    background-image: url("../assets/Home Page Graphic.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%
 }
@@ -145,11 +143,13 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     border: none !important;
+    background-color: #cfe6e0;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
 }
 
-.blue-text {
-    color: #00BCD4
+h3 {
+    color: #f16120;
+    font-weight: bold;
 }
 
 .form-control-label {
@@ -165,7 +165,7 @@ button {
     box-sizing: border-box;
     border: 1px solid #ccc;
     font-size: 18px !important;
-    font-weight: 300
+    font-weight: 300;
 }
 
 input:focus,
@@ -173,7 +173,7 @@ textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #00BCD4;
+    border: 1px solid #f16120;
     outline-width: 0;
     font-weight: 400
 }
@@ -183,7 +183,8 @@ textarea:focus {
     font-size: 15px !important;
     font-weight: 400;
     height: 43px;
-    cursor: pointer
+    cursor: pointer;
+    background-color: #f16120;
 }
 
 .btn-block:hover {

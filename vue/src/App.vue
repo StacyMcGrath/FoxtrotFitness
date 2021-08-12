@@ -17,4 +17,13 @@ export default {
 
 <style>
 
+#app {
+  display: flex;
+  min-height:100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+
 </style>

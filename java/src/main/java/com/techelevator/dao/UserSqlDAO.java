@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.techelevator.model.UserProfile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -85,6 +86,8 @@ public class UserSqlDAO implements UserDAO {
 
         return userCreated;
     }
+
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

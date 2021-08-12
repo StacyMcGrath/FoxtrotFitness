@@ -1,15 +1,16 @@
 <template>
   <div class="goals">
-      <img src="..\assets\goal_progress.jpg" alt="Image of Event">
-      <h1>My Goals</h1>
+      <img src="..\assets\MyGoals.png" alt="Image of Event">
+      
       <ul>
         <!-- <router-link v-on:click="$router.push(`/events/${eventId}`)" >{{event.eventName}}</router-link> -->
         
         <li v-for="goal in computedGoals" v-bind:key="goal.userId">{{goal.goalName}}</li> 
       </ul>
-      <button v-on:click="$router.push({name: 'my-goal-history'})">View All</button>
+      <router-link id="viewall" v-bind:to="{name: 'my-goal-history'}">View All</router-link>
   <div>
-      <router-link v-bind:to="{name: 'create-goal'}" >Create New Goal</router-link>
+    <button v-on:click="$router.push({name: 'create-goal'})">Create New Goal</button>
+     
   </div>
 
   </div>
@@ -52,24 +53,47 @@ export default {
 <style scoped>
 
 img {
-    height: 150px;
-    width: auto;
+    width: 80%;
+    height: auto;
 }
 
-/* Events/Goals */
 
-/* .events {
+#viewall {
+  font-size: 12px;
+  margin-left: 35%;
+  
+}
+ul {
+   margin-left: 5%;
+  line-height: 200%;
+}
+
+
+.goals {
 
 font-family: Montserrat;
 font-style: normal;
 font-weight: 500;
-font-size: 15px;
+font-size: 20px;
 line-height: 18px;
 letter-spacing: -0.015em;
+width: 100%;
+margin-left: 15%;
 }
 
 button {
-color: #18A0FB;
-} */
+  background-color: #f16120;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  color: #edf0db;
+  text-align: center;
+  width: 50%;
+  height: 25px;
+  margin-top: 3%;
+  margin-left: 20%;
+  margin-bottom: 10%;
+  font-size: 15px;
+  border-radius: 10px;
+} 
 
 </style>

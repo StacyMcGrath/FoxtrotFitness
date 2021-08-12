@@ -59,15 +59,13 @@ public class EventController {
         eventDAO.addNewEvent(event);
     }
 
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @RequestMapping(path = "/dashboard", method = RequestMethod.POST)
-//    public void logActivity(@RequestBody Activity activity, Principal principal) {
-//        activity.setUserID(userDAO.findIdByUsername(principal.getName()));
-//        activityDAO.logActivity(activity);
-//        //userDAO.findIdByUsername(principal.getName())
-//    }
     @RequestMapping(path = "/events/{eventId}/users", method = RequestMethod.GET)
     public List<UserProfile> getUsersByEvent(@PathVariable int eventId) {
         return eventDAO.retrieveUsersByEventId(eventId);
+    }
+
+    @RequestMapping(path = "/header", method = RequestMethod.GET)
+    public UserProfile getUserProfile(Principal principal) {
+        return eventDAO.getUserProfileForLoggedInUser(userDAO.findIdByUsername(principal.getName()));
     }
 }

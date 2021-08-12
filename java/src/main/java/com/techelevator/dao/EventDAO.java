@@ -12,6 +12,7 @@ public interface EventDAO {
     void addEventToUser(UserEvent userEvent);
     Event addNewEvent(Event event);
     List<UserProfile> retrieveUsersByEventId(int eventId);
+    UserProfile getUserProfileForLoggedInUser(int userId);
 
 
 

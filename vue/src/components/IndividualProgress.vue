@@ -46,15 +46,26 @@ export default {
         })
         return totalDistanceOfUser;
       },
-            getProgress() {
+      getProgress() {
           let percent = 0;
           percent = ((this.totalDistanceOfUser / this.event.userActivityGoal)*100);
-          return percent + "%";
+          if(percent >= 100) {
+            return 100 + "%";
+          } else {
+            return percent + "%";
+          }
       },
       progressLabel() {
           let progressLabel = 0;
           progressLabel = ((this.totalDistanceOfUser / this.event.userActivityGoal)*100);
-          return progressLabel;
+
+            if(progressLabel >= 100) {
+            return 100;
+          } else {
+            return progressLabel;
+          }
+
+        
       }
     },
     created(){
