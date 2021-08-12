@@ -1,9 +1,10 @@
 <template>
   <div class="badgesection">
       <h4 id="badgeheader">My Badges</h4>
-        <!-- <img class="badgeimage" id="b1" src="../assets/award.png"> -->
-        <img class="badgeimage" id="b2" src="../assets/exercise.png">
-        <!-- <img class="badgeimage" id="b3" src="../assets/heart.jpg"> -->
+        <img class="badgeimage" id="b1" src="../assets/medal.png">
+        <img class="badgeimage" id="b2" src="../assets/shoe.png">
+        <img class="badgeimage" id="b3" src="../assets/bike.png">
+        <img class="badgeimage" id="b4" src="../assets/Plus.png">
   </div>
 </template>
 
@@ -25,8 +26,8 @@ name: 'badge-section'
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
     background-color: #edf0db;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "header header header header . ."
-                        "b2 b1 b3 . . ."
+    grid-template-areas: "header header header header header header"
+                        "b2 b1 b3 b4 . ."
                         ". . . . . ."
     
 }

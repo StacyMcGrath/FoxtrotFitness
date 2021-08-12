@@ -18,6 +18,7 @@
                         <div class="progress-value">{{progressLabel.toLocaleString()}}%</div>
                     </div>
                 </div>
+                <p>Remaining Distance: {{remainingDistance}}</p>
               
                     
             </div>
@@ -68,7 +69,11 @@ export default {
       remainingDistance() {
         let remainingDistance = 0;
         remainingDistance = ((this.event.userActivityGoal - this.totalDistanceOfUser));
-        return remainingDistance.toFixed(1).toLocaleString();
+            if(remainingDistance <=0) {
+            return "Congratulations - your goal has been met!";
+          } else {
+        return remainingDistance.toLocaleString();
+      }
       }
     },
     created(){

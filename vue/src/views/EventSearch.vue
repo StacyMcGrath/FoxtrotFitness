@@ -37,6 +37,7 @@ export default {
 .list-toggle {
   font-family: 'Montserrat', sans-serif;
   color: #505170;
+  font-size: 14px;
   margin-left: 2%;
   margin-top: 2%;
   text-align: right;

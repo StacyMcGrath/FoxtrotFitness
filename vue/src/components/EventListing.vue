@@ -103,14 +103,14 @@ body {
 .container {
 
   margin-left: 5%;
-  margin-right: 5%;
+  margin-right: 3%;
 
 }
 .event-filters {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 2rem;
-  grid-template-areas: "namefilter activityfilter  . pastevents";
+  grid-template-areas: "namefilter activityfilter . pastevents";
   margin: 0% 0% 1% 3%;
  
 }
@@ -139,10 +139,12 @@ body {
   color: #505170;
   margin-left: 2%;
   margin-top: 2%;
+  margin-right: 0%;
   text-align: right;
   border: none; 
   background-color: #e6e6e6;
   grid-area: pastevents;
+  font-size: 14px;
 
 }
 

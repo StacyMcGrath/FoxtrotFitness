@@ -7,7 +7,6 @@
             <div class="col col-2">Activity Type(s)</div>
             <div class="col col-3">Activity Goal</div>
             <div class="col col-4">Date Range</div>
-            <div class="col col-5">Progress</div>
           </li>
           <li class="table-row" v-for="goal in goals" v-bind:key="goal.goalId">
             <div class="col col-1" data-label="Goal">{{goal.goalName}}</div>
@@ -16,7 +15,6 @@
             </div>
             <div class="col col-3" data-label="Activity Goal">{{goal.activityGoal}} {{goal.activityUnits}}</div>
             <div class="col col-4" data-label="Date Range">{{goal.startDate | formatDate}} - {{goal.endDate | formatDate}}</div>
-            <div class="col col-5" data-label="Image"></div>
           </li>
         </ul>  
   </div>
@@ -99,21 +97,18 @@ h2 {
     
   }
   .col-1 {
-    flex-basis: 20%;
+    flex-basis: 27%;
   }
   .col-2 {
-    flex-basis: 15%;
+    flex-basis: 22.5%;
   }
   .col-3 {
-    flex-basis: 15%;
+    flex-basis: 22.5%;
   }
   .col-4 {
-    flex-basis: 25%;
+    flex-basis: 28%;
   }
 
-  .col-5 {
-    flex-basis: 25%;
-  }
   
   
 

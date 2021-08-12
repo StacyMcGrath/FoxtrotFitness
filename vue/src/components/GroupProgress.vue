@@ -49,17 +49,32 @@ export default {
       getProgress() {
           let percent = 0;
           percent = ((this.distanceOfAllUsers / this.event.totalActivityGoal)*100);
-          return percent + "%";
+            if(percent >= 100) {
+            return 100 + "%";
+          } else {
+            return percent + "%";
+          }
+        
+
       },
       progressLabel() {
           let progressLabel = 0;
           progressLabel = ((this.distanceOfAllUsers / this.event.totalActivityGoal)*100);
-          return parseFloat(progressLabel).toFixed(1);
+            if(progressLabel >= 100) {
+            return 100;
+          } else {
+            return parseFloat(progressLabel).toFixed(1);
+          }
+         
       },
       remainingDistance() {
         let remainingDistance = 0;
         remainingDistance = (this.event.totalActivityGoal - this.distanceOfAllUsers);
-        return remainingDistance.toFixed(1).toLocaleString();
+          if(remainingDistance <=0) {
+            return "Congratulations - the goal has been met!";
+          } else {
+        return remainingDistance.toLocaleString();
+      }
       }
     },
 

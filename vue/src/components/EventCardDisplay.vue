@@ -124,6 +124,7 @@ export default {
   border: none; 
   background-color: #e6e6e6;
   grid-area: pastevents;
+  font-size: 14px;
 
 }
 </style>
