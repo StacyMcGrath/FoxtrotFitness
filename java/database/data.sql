@@ -203,7 +203,16 @@ INSERT INTO event_user (event_id, user_id) VALUES (9, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (10, 3);
 INSERT INTO event_user (event_id, user_id) VALUES (11, 4);
 INSERT INTO event_user (event_id, user_id) VALUES (4, 5);
-
+INSERT INTO event_user (event_id, user_id) VALUES (2, 6);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 7);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 8);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 9);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 10);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 11);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 12);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 13);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 14);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 15);
 
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
 VALUES (3, 1, '2021-07-15', 2.5, 25);
