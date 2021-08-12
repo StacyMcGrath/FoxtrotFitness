@@ -10,7 +10,7 @@
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-12 flex-column d-flex"> 
                             <label class="form-control-label px-3">Give your goal a name:<span class="text-danger"> *</span></label>
-                            <input type="text" id="goalName" name="goalName" placeholder="" v-model="goal.goalName"> 
+                            <input type="text" id="goalName" name="goalName" placeholder="Enter Goal Name" v-model="goal.goalName"> 
                         </div>
                     </div>
                     <div class="row justify-content-between text-left">
@@ -161,6 +161,9 @@ h3 {
 .form-control-label {
     margin-bottom: 0
 }
+.form-control {
+    background-color: #edf0db;
+}
 
 input,
 textarea,
@@ -171,7 +174,8 @@ button {
     box-sizing: border-box;
     border: 1px solid #ccc;
     font-size: 18px !important;
-    font-weight: 300
+    font-weight: 300;
+    background-color: #edf0db;
 }
 
 input:focus,
