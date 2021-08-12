@@ -147,7 +147,6 @@ INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 2);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 3);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (10, 3);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (11, 2);
-INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (12, 1);
 
 INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 1);
 INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 2);
@@ -201,11 +200,8 @@ INSERT INTO event_user (event_id, user_id) VALUES (7, 4);
 INSERT INTO event_user (event_id, user_id) VALUES (6, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (8, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (9, 5);
-INSERT INTO event_user (event_id, user_id) VALUES (12, 3);
-INSERT INTO event_user (event_id, user_id) VALUES (12, 4);
 INSERT INTO event_user (event_id, user_id) VALUES (10, 3);
 INSERT INTO event_user (event_id, user_id) VALUES (11, 4);
-INSERT INTO event_user (event_id, user_id) VALUES (12, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (4, 5);
 
 
