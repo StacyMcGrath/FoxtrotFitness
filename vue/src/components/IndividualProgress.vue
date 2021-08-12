@@ -92,6 +92,8 @@ export default {
     }
 </script>
 
-<style>
-
+<style scoped>
+.progress-value {
+  color: #505170;
+}
 </style>

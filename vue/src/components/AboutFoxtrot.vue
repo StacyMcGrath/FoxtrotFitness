@@ -12,25 +12,35 @@
   <carousel-3d :width="400" :height="280" :autoplay="true" :autoplay-timeout="2000">
     <slide :index="0">
         <figure>
-        <img :width="400" id="img1" src="..\assets\MyDashboard.png">
+        <img :width="400" id="img1" src="..\assets\Dashboard.png">
         <figcaption>
-          The sky is the limit only for those who aren't afraid to fly!
-                    The sky is the limit only for those who aren't afraid to fly!
-
+        Log in to see your personal dashboard, where you can log activities, track events and goals, and see your badges!
         </figcaption>
         </figure>
     </slide>
     <slide :index="1">
-        <img id="img2" src="..\assets\EventDetail.png">
-    </slide>
-    <slide :index="2">
-        <img id="img3" src="..\assets\MyGoalsHistory.png">
+        <img id="img2" src="..\assets\activityhistory.png">
+        <figcaption>
+        View a complete history of all logged activities.
+        </figcaption>
     </slide>
     <slide :index="3">
-        <img id="img2" src="..\assets\EventDetail.png">
+        <img id="img3" src="..\assets\createnewevent.png">
+        <figcaption>
+        Create a new virtual event to share with your friends! Select activity types, dates, and distance goals
+        </figcaption>
+    </slide>
+    <slide :index="2">
+        <img id="img4" src="..\assets\events.png">
+        <figcaption>
+        Browse a variety of fun virtual challenges, each with an individual goal and a collective community goal!
+        </figcaption>
     </slide>
     <slide :index="4">
-        <img id="img3" src="..\assets\MyGoalsHistory.png">
+        <img id="img5" src="..\assets\progress.png">
+        <figcaption>
+        When you join an event, you'll see your progres, the group progres, and a leaderboard!
+        </figcaption>
     </slide>
   </carousel-3d>
 </div>
