@@ -60,7 +60,7 @@ img {
 
 #viewall {
   font-size: 12px;
-  margin-left: 35%;
+  margin-left: 30%;
   
 }
 ul {
@@ -79,6 +79,7 @@ line-height: 18px;
 letter-spacing: -0.015em;
 width: 100%;
 margin-left: 15%;
+margin-right: 15%
 }
 
 button {
@@ -90,10 +91,10 @@ button {
   width: 50%;
   height: 25px;
   margin-top: 3%;
-  margin-left: 20%;
+  margin-left: 12%;
   margin-bottom: 10%;
   font-size: 15px;
-  border-radius: 10px;
+  border-radius: 8px;
 } 
 
 </style>

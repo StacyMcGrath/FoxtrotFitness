@@ -12,7 +12,7 @@
                     <div class="row justify-content-between text-left">
                       <div class="form-group col-sm-6 flex-column d-flex">  
                           <label for="activityType">Activity: </label>
-                            <select class="form-control" id="activityType" multiple v-model="event.activityType">
+                            <select class="form-control" :select-size="5" id="activityType" multiple v-model="event.activityType">
                             <option disabled value="">Choose Activity</option>
                                 <option>Running</option>
                                 <option>Walking</option>
@@ -40,7 +40,7 @@
                             <input type="text" id="userDistance" placeholder="Miles" v-model="event.userActivityGoal" > 
                         </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> 
-                            <label class="form-control-label px-3">Total Distance Goal: <span class="text-danger"> *</span></label> 
+                            <label class="form-control-label px-3">Community Distance Goal: <span class="text-danger"> *</span></label> 
                             <input type="text" id="totalDistance" placeholder="Miles" v-model="event.totalActivityGoal" > 
                         </div>
 
@@ -148,7 +148,9 @@ handleErrorResponse(error) {
 }
 
 h3 {
+    font-family: 'Montserrat', sans-serif;
     color: #f16120;
+    font-size: 32px;
     font-weight: bold;
 }
 
@@ -170,6 +172,7 @@ button {
     font-size: 18px !important;
     font-weight: 300;
     background-color: #edf0db;
+    
 }
 
 input:focus,
@@ -184,12 +187,16 @@ textarea:focus {
 
 
 .btn-block {
-    text-transform: uppercase;
-    font-size: 15px !important;
-    font-weight: 400;
-    height: 43px;
-    cursor: pointer;
-    background-color: #f16120;
+   background-color: #f16120;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  color: #edf0db;
+  text-align: center;
+  width: 70%;
+  margin-top: 3%;
+  margin-left: 20%;
+  font-size: 15px;
+  border-radius: 10px;
 }
 
 .btn-block:hover {

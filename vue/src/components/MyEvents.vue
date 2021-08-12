@@ -91,7 +91,7 @@ events {
 font-family: Montserrat;
 font-style: normal;
 font-weight: 500;
-font-size: 15px;
+font-size: 20px;
 line-height: 18px;
 letter-spacing: -0.015em;
 }
@@ -105,10 +105,10 @@ button {
   width: 50%;
   height: 25px;
   margin-top: 3%;
-  margin-left: 20%;
+  margin-left: 18%;
   margin-bottom: 10%;
   font-size: 15px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 </style>

@@ -67,7 +67,7 @@ img {
 
 #viewall {
   font-size: 12px;
-  margin-left: 35%;
+  margin-left: 43%;
   
 }
 </style>

@@ -50,16 +50,19 @@
                             <label class="form-control-label px-3">Activity Goal: <span class="text-danger"> *</span></label> 
                             <input type="text" id="userDistance" placeholder="Please enter a number" v-model="goal.activityGoal" > 
                         </div>
-                        <div class="form-group col-sm-3 flex-column d-flex"> 
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div> 
                             <input type="radio" id="miles" value="Miles" v-model="goal.activityUnits">
                             <label for="miles">Miles</label>
                         </div>
-                        <div class="form-group col-sm-3 flex-column d-flex">
+                        <div> 
                             <input type="radio" id="minutes" value="Minutes" v-model="goal.activityUnits">
                             <label for="two">Minutes</label>   
-                        </div>     
-                    </div>
+                        </div>
+                    </div>        
                     
+                
                     <div class="row justify-content-end">
                         <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Create New Goal</button> </div>
                     </div>
@@ -134,6 +137,7 @@ handleErrorResponse(error) {
 </script>
 
 <style scoped>
+
 .container-fluid {
     color: rgb(99, 86, 86);
     overflow-x: hidden;
@@ -154,8 +158,10 @@ handleErrorResponse(error) {
 }
 
 h3 {
+    font-family: 'Montserrat', sans-serif;
     color: #f16120;
-    font-weight: bold
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .form-control-label {
@@ -189,17 +195,38 @@ textarea:focus {
 }
 
 .btn-block {
-    text-transform: uppercase;
-    font-size: 15px !important;
-    font-weight: 400;
-    height: 43px;
-    cursor: pointer;
-    background-color: #f16120;
+   background-color: #f16120;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  color: #edf0db;
+  text-align: center;
+  width: 60%;
+  margin-top: 3%;
+  margin-left: 20%;
+  font-size: 15px;
+  border-radius: 10px;
 }
+ 
+
 
 .btn-block:hover {
     color: #fff !important
 }
+
+    label {
+      float: left;
+      clear: none;
+      display: block;
+      padding: 0px 1em 0px 8px;
+    }
+    
+    input[type=radio],
+    input.radio {
+      float: left;
+      clear: none;
+      margin: 2px 0 0 2px;
+      background: #edf0db;
+    }
 
 button:focus {
     -moz-box-shadow: none !important;
