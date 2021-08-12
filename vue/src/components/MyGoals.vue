@@ -9,7 +9,7 @@
       </ul>
       <router-link id="viewall" v-bind:to="{name: 'my-goal-history'}">View All</router-link>
   <div>
-    <button v-on:click="$router.push({name: 'create=goal'})">Create New Goal</button>
+    <button v-on:click="$router.push({name: 'create-goal'})">Create New Goal</button>
      
   </div>
 

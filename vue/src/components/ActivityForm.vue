@@ -145,10 +145,10 @@ handleErrorResponse(error) {
 }
 form {
   display: grid;
-  padding: 2% 5% 5%;
+  padding: 2% 0% 5% 2%;
   background: #e6e6e6;
   font-family: 'Monserrat', sans-serif;
-  grid-template-columns:1fr 1fr 2fr;
+  grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:
   "header header header"
   "date activity ." 

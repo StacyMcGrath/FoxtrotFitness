@@ -1,7 +1,10 @@
 <template>
 <div>
   <h1>{{UserProfile.firstName}}'s Dashboard </h1>
-  <activity-form class="form"/>
+  <div class="topsection">
+    <activity-form class="form" id="activityform"/>
+    <badge-section id="badgesection"/>
+  </div>
   <div class="dashboard">
     <my-events class="events"/>
     <my-activities class="activities"/>
@@ -16,9 +19,10 @@ import MyActivities from '../components/MyActivities.vue'
 import MyGoals from '../components/MyGoals.vue'
 import MyEvents from '../components/MyEvents.vue'
 import eventService from '../services/EventService.js'
+import BadgeSection from '../components/BadgeSection.vue'
 
 export default {
-  components: { MyEvents, ActivityForm, MyActivities, MyGoals },
+  components: { MyEvents, ActivityForm, MyActivities, MyGoals, BadgeSection },
   data() {
     return {
     UserProfile: {}
@@ -37,7 +41,7 @@ export default {
 
 .form {
   grid-area: form;
-  
+
 }
 .events {
   grid-area: events;
@@ -55,7 +59,22 @@ justify-items: center;
 grid-template-columns: 1fr 1.25fr 1fr;
 grid-template-areas: 
 "goals activities events";
+}
 
+
+.topsection {
+margin: 0 5% 3%;
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-areas: 
+"activityform badgesection";
+}
+#activityform {
+  grid-area: activityform;
+}
+
+#badgesection {
+  grid-area: badgesection;
 }
 
 h1 {
