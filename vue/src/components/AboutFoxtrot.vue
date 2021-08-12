@@ -9,7 +9,7 @@
     <button id="actionbutton" v-on:click="$router.push({name: 'register'})">Take the first step</button>
 
 <div>
-  <carousel-3d :width="400" :height="280" :autoplay="true" :autoplay-timeout="5000">
+  <carousel-3d :width="400" :height="280" :autoplay="true" :autoplay-timeout="2000">
     <slide :index="0">
         <figure>
         <img :width="400" id="img1" src="..\assets\MyDashboard.png">
@@ -24,6 +24,12 @@
         <img id="img2" src="..\assets\EventDetail.png">
     </slide>
     <slide :index="2">
+        <img id="img3" src="..\assets\MyGoalsHistory.png">
+    </slide>
+    <slide :index="3">
+        <img id="img2" src="..\assets\EventDetail.png">
+    </slide>
+    <slide :index="4">
         <img id="img3" src="..\assets\MyGoalsHistory.png">
     </slide>
   </carousel-3d>
