@@ -72,10 +72,10 @@ submitForm() {
 
 handleErrorResponse(error) {
         if (error.response) {
-            this.logMessage = "Error adding a new activity. Error: " + error.response.status;
+            this.logMessage = "Error adding a new activity. Please fill in required fields & try again. Error: " + error.response.status;
         }
         else if (error.request) {
-               this.logMessage = "Error adding a new activity. Server unavailable, Error: " + error.status;
+               this.logMessage = "Error adding a new activity. Please try again later, Server is currently unavailable, Error: " + error.status;
         }
         else {
             this.logMessage = "Java Green has left you high and dry. Pick better developers next time!";

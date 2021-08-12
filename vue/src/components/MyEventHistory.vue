@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-      <img src="..\assets\goal_progress.jpg" alt="Image of Event">
+      
       <h1>My Events and Goals</h1>
       <!-- <ul> -->
         <!-- <li v-for="event in events" v-bind:key="event.eventId">{{event.eventName}}</li> -->
@@ -40,10 +40,6 @@ export default {
 
 <style scoped>
 
-img {
-    height: 150px;
-    width: auto;
-}
 
 /* Events/Goals */
 
