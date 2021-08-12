@@ -1,18 +1,18 @@
 <template>
   <div class="container">
-        <span><input type="text" name="eventName" placeholder="Search Event Name" v-model="eventFilter"></span>
-        <span>
-                        <select v-model="activityFilter">
-                          <option disabled value="">Filter by Activity</option>
-                          <option value="">View All</option>
-                          <option>Running</option>
-                          <option>Walking</option>
-                          <option>Swimming</option>
-                          <option>Cycling</option>
-                          <option>Other</option>
-                        </select>
-        </span>
-        <span><button v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button></span>
+    <div class="event-filters">
+      <input type="text" id ="event-name-filter" name="eventName" placeholder="Search Event Name" v-model="eventFilter">
+            <select id="activity-type-filter" v-model="activityFilter">
+            <option disabled value="">Filter by Activity</option>
+              <option value="">View All</option>
+              <option>Running</option>
+              <option>Walking</option>
+              <option>Swimming</option>
+              <option>Cycling</option>
+              <option>Other</option>
+            </select>
+      <button class="past-events" v-on:click="togglePastEvents">{{endDateFilter!='' ? "Show Past Events" : "Hide Past Events"}}</button>
+      </div>
 
       <ul class="responsive-table">
           <li class="table-header">
@@ -101,11 +101,49 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 .container {
-  max-width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
+.event-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 2rem;
+  grid-template-areas: "namefilter activityfilter  . pastevents";
+  margin: 0% 0% 1% 3%;
+ 
+}
+
+#event-name-filter {
+  grid-area: namefilter;
+  background-color: #edf0db;
+  font-family: 'Montserrat', sans-serif;
+  color: #505170;
+  border: solid #505170 1px;
+  border-radius: 5px;
+  
+}
+
+#activity-type-filter {
+  grid-area: activityfilter;
+  background-color: #edf0db;
+  font-family: 'Montserrat', sans-serif;
+  color: #505170;
+  border: solid #505170 1px;
+  border-radius: 5px;
+}
+
+.past-events {
+  font-family: 'Montserrat', sans-serif;
+  color: #505170;
+  margin-left: 2%;
+  margin-top: 2%;
+  text-align: right;
+  border: none; 
+  background-color: #e6e6e6;
+  grid-area: pastevents;
+
 }
 
 h2 {
