@@ -62,10 +62,13 @@ export default {
             if(progressLabel >= 100) {
             return 100;
           } else {
-            return progressLabel;
+            return parseFloat(progressLabel).toFixed(1);
           }
-
-        
+      },
+      remainingDistance() {
+        let remainingDistance = 0;
+        remainingDistance = ((this.event.userActivityGoal - this.totalDistanceOfUser));
+        return remainingDistance.toFixed(1);
       }
     },
     created(){
