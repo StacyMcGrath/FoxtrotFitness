@@ -2,7 +2,7 @@
 <div id="homepage">
   <div id="homepage image">
   <img class="bgimg-1" src="..\assets\Home Page Graphic.jpg">
-  <h4 class="top-left">Your Goals + Community Events</h4>
+  <h4 class="top-left">An Active Community in a Virtual World</h4>
   <p>Keep your health and fitness on track by combining your personal goals with fun, virtual community events!</p>
 </div>
 

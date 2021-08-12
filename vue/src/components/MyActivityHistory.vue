@@ -1,4 +1,5 @@
 <template>
+<div class="container-fluid">
   <div class="container">
       
         <h2>My Activity History </h2>
@@ -17,6 +18,7 @@
           </li>
         </ul> 
       
+  </div>
   </div>
 </template>
 
@@ -46,20 +48,33 @@ export default {
 </script>
 
 <style scoped>
+.container-fluid {
+    color: rgb(99, 86, 86);
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url("../assets/Home Page Graphic.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    margin-top: 0;
+}
 body {
   font-family: 'Montserrat', sans-serif;
 }
 .container {
+  background-color: #e6e6e6;
   max-width: 70%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
   padding-right: 10px;
+  align-items: center;
+  padding-bottom: 30px;
 }
 
 h2 {
   font-size: 26px;
-  margin: 20px 0;
+  margin: 20px 30px;
+  padding-top: 30px;
   text-align: center;
   
 }
@@ -71,6 +86,8 @@ h2 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
+    margin-right: 30px;
+    margin-left: 10px;
   }
   .table-header {
      background-color: #e6e6e6;

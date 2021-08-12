@@ -135,7 +135,7 @@ handleErrorResponse(error) {
     height: 100%;
     background-image: url("../assets/Home Page Graphic.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%
+    background-size: 100% auto;
 }
 
 .card {

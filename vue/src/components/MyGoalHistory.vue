@@ -1,4 +1,5 @@
 <template>
+<div class="container-fluid">
   <div class="container">    
         <h2>My Goal History </h2>
         <ul class="responsive-table">
@@ -18,8 +19,7 @@
           </li>
         </ul>  
   </div>
-
-
+  </div>
 </template>
 
 <script>
@@ -48,31 +48,45 @@ export default {
 </script>
 
 <style scoped>
+
+ .container-fluid {
+    color: rgb(99, 86, 86);
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url("../assets/Home Page Graphic.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+} 
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
 .container {
+  background-color: #e6e6e6;
   max-width: 70%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
   padding-right: 10px;
+  /* margin-bottom: 30px; */
+  padding-bottom: 30px;
 }
 
 h2 {
   font-size: 26px;
-  margin: 20px 0;
+  margin: 20px 30px;
+  padding-top: 30px;
   text-align: center;
   
 }
-
-
   li {
     border-radius: 3px;
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
+    margin-right: 30px;
     vertical-align: middle;
   }
   .table-header {
@@ -87,7 +101,6 @@ h2 {
   .table-row {
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
-    vertical-align: middle;
   }
   .table-row:nth-child(even) {
   background: #edf0db;

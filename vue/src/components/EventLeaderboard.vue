@@ -41,7 +41,7 @@
     <div class="listcontainer">
       
         
-        <ul class="responsive-table">
+        <ul class="table-responsive">
           <li class="table-header">
             <div class="col col-1">Rank</div>
             <div class="col col-2">Username</div>
