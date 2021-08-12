@@ -276,7 +276,7 @@ VALUES (14, 4, '2021-08-13', 15, 75);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
 VALUES (15, 5, '2021-08-09', 10, 100);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (16, 6, '2021-08-10', 20, 75);
+VALUES (16, 1, '2021-08-10', 20, 75);
 
 COMMIT TRANSACTION;
 
