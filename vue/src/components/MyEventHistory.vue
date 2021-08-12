@@ -1,4 +1,5 @@
 <template>
+<div class="container-fluid">
   <div class="container">
       
       <h2>My Events</h2>
@@ -33,7 +34,7 @@
           </li>
       </ul>
   
-
+  </div>
   </div>
 </template>
 
@@ -68,22 +69,34 @@ export default {
 </script>
 
 <style scoped>
+ .container-fluid {
+    color: rgb(99, 86, 86);
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url("../assets/Home Page Graphic.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+} 
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
 .container {
+  background-color: #e6e6e6;
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
   padding-right: 10px;
   font-family: 'Montserrat', sans-serif;
+  
 }
 
 h2 {
   font-size: 26px;
   margin: 20px 0;
   text-align: center;
+  padding-top: 30px;
   
 }
 
@@ -95,6 +108,7 @@ h2 {
     justify-content: space-between;
     margin-bottom: 25px;
     vertical-align: middle;
+    margin-right: 30px;
   }
   .table-header {
   background-color: #e6e6e6;

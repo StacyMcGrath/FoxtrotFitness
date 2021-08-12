@@ -81,7 +81,7 @@ VALUES ('Foxtrot 5K', 'Lace up your shoes for a virtual 5K run at your convenien
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
 VALUES ('Swim the Channel', 'The distance across the English Channel is 21 miles. Can you swim that far this month?', 'Matthew Webb, a 27-year-old merchant navy captain, becomes the first known person to successfully swim the English Channel. Captain Webb accomplished the grueling 21-mile crossing, which really entailed 39 miles of swimming because of tidal currents, in 21 hours and 45 minutes.  We are not asking you to swim the entire channel in one go, but maybe try to do the whole distance in one month.  Good luck, God Speed, and God Save the Queen!', '2021-08-01', '2021-08-31', 21, 2100, 'event_5.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
-VALUES ('Move it - your way!', 'Run, walk, bike, or swim - even roller skate! Anything goes! Just move your body 50 total miles!', 'In the world of traditional cardio, running, swimming and cycling reign supreme. They all build cardiovascular fitness, but each activity offers unique benefits. Surely, one must be better than the others, right?  Actually, the best cardio workout is the one that works for you. And the best cardio workout for you depends on your goals and experience level.', '2021-09-01', '2021-09-14', 50, 5000, 'event_6.jpg');
+VALUES ('Move it - your way!', 'Run, walk, bike, or swim - even roller skate! Anything goes! Just move your body 50 total miles!', 'In the world of traditional cardio, running, swimming and cycling reign supreme. They all build cardiovascular fitness, but each activity offers unique benefits. Surely, one must be better than the others, right?  Actually, the best cardio workout is the one that works for you. And the best cardio workout for you depends on your goals and experience level.', '2021-08-01', '2021-09-01', 50, 5000, 'event_6.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
 VALUES ('Pan Ohio Hope Ride - Create Your Own 328', 'Unable to join us to ride 328 miles? Complete the miles on your own during the month of July!', 'This option creates the flexibility to structure rides when and how you prefer. You can ride 328 miles over the traditional four-day period, or ride a little bit every day of the month - whatever works for you! Zwift, Peloton, and other indoor trainer miles count in addition to any outdoor miles. Details on how to track your mileage will be released as the event draws near. Create Your Own 328 participants will receive a custom bib and finisher medal, are eligible for all fundraising incentives, and are welcome to join us for celebrations and other events.', '2021-07-01', '2021-07-31', 328, 4920, 'event_7.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
@@ -92,9 +92,6 @@ INSERT INTO event (event_name, description, long_description, start_date, end_da
 VALUES ('Sea to Sea Cycling', 'Set a goal to cycle the distance from Portland, Oregon to Portland, Maine in a year!', 'The Shining Sea Bikeway (SSB) was named for a line in the song America The Beautiful, written by Falmouth native Katharine Lee Bates. It follows the original route of the New York, New Haven and Hartford Railroad that used to run from Buzzards Bay, through North and West Falmouth, around Woods Hole and into Falmouth Station. In the early 1970''s the Town of Falmouth purchased the right of way, tore up the tracks and officially opened the 3.3-mile Shining Sea Bikeway in 1975.', '2022-01-01', '2022-12-31', 3236, 32360, 'event_10.jpg');
 INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
 VALUES ('Walk the Wall - together!', 'Can we collectively walk the length of the Great Wall of China in a month? Get your friends to join and lace up your shoes!', 'At this speed, a trek on the main line of the Great Wall takes 3 to 5 months at least. If you want to walk the entire Ming Dynasty Great Wall, 442 days are required theoretically. Plus, if you take a one-day break each week, you will need 17 months to finish the hike.', '2022-09-01', '2022-09-30', 30, 2145, 'event_11.jpg');
-INSERT INTO event (event_name, description, long_description, start_date, end_date, user_activity_goal, total_activity_goal, image_name)
-VALUES ('Coach Steve''s Marathon', 'Java Green is going to collectively run a marathon!! That''s just 1.46 miles each!', 'That''s right, Steve.  We made it.  Did you think it was going to happen?  Did we each carry our 1.46 mile weight to get ourselves across the finish line?  I guess we won''t find out until after graduation "TECHNICALLY", but I think we did a good job.', '2021-08-13', '2021-08-13', 1.46, 26.2,'event_12.jpg');
-
 
 INSERT INTO premade_goals (premade_goal_name, premade_goal_description, premade_user_activity_goal, premade_goal_units) 
 VALUES ('Weekly Exercise Time', 'It is recommended that you get 150 minutes of exercise per week! Suggested duration: 1 week', 150, 'minutes');
@@ -150,7 +147,6 @@ INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 2);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (9, 3);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (10, 3);
 INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (11, 2);
-INSERT INTO event_activity_type (event_id, activity_type_id) VALUES (12, 1);
 
 INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 1);
 INSERT INTO goal_activity_type (goal_id, activity_type_id) VALUES (1, 2);
@@ -204,13 +200,19 @@ INSERT INTO event_user (event_id, user_id) VALUES (7, 4);
 INSERT INTO event_user (event_id, user_id) VALUES (6, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (8, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (9, 5);
-INSERT INTO event_user (event_id, user_id) VALUES (12, 3);
-INSERT INTO event_user (event_id, user_id) VALUES (12, 4);
 INSERT INTO event_user (event_id, user_id) VALUES (10, 3);
 INSERT INTO event_user (event_id, user_id) VALUES (11, 4);
-INSERT INTO event_user (event_id, user_id) VALUES (12, 5);
 INSERT INTO event_user (event_id, user_id) VALUES (4, 5);
-
+INSERT INTO event_user (event_id, user_id) VALUES (2, 6);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 7);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 8);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 9);
+INSERT INTO event_user (event_id, user_id) VALUES (2, 10);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 11);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 12);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 13);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 14);
+INSERT INTO event_user (event_id, user_id) VALUES (6, 15);
 
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
 VALUES (3, 1, '2021-07-15', 2.5, 25);
@@ -262,21 +264,28 @@ INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance,
 VALUES (5, 2, '2021-07-25', 4.8, 75);
 
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 2, '2021-08-03', 300, 100);
+VALUES (6, 3, '2021-08-03', 50, 100);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 3, '2021-08-09', 20, 75);
+VALUES (7, 3, '2021-08-09', 45, 75);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 1, '2021-08-10', 3.1, 60);
+VALUES (8, 3, '2021-08-10', 25, 60);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 1, '2021-08-11', 13.1, 200);
+VALUES (9, 3, '2021-08-11', 55, 200);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 5, '2021-08-12', 5, 25);
+VALUES (10, 3, '2021-08-12', 60, 25);
+
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 2, '2021-08-13', 4.8, 75);
+VALUES (11, 1, '2021-08-13', 10, 75);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 2, '2021-08-09', 10, 100);
+VALUES (12, 2, '2021-08-09', 10, 100);
 INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
-VALUES (5, 3, '2021-08-10', 20, 75);
+VALUES (13, 3, '2021-08-10', 15, 75);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (14, 4, '2021-08-13', 15, 75);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (15, 5, '2021-08-09', 10, 100);
+INSERT INTO logged_activity (user_id, activity_type_id, activity_date, distance, number_of_minutes) 
+VALUES (16, 1, '2021-08-10', 20, 75);
 
 COMMIT TRANSACTION;
 
