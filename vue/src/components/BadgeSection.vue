@@ -1,6 +1,6 @@
 <template>
   <div class="badgesection">
-      <h4 id="badgeheader">My Achievements</h4>
+      <h4 id="badgeheader">My Badges</h4>
         <img class="badgeimage" id="b1" src="../assets/event.jpg">
         <img class="badgeimage" id="b2" src="../assets/exercise.jpg">
         <img class="badgeimage" id="b3" src="../assets/heart.jpg">
@@ -23,7 +23,7 @@ name: 'badge-section'
     padding-bottom: 25%;
     border-radius: 8px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    background-color: rgb(212,255,245);
+    background-color: #edf0db;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "header header header header . ."
                         "b1 b2 b3 . . ."
