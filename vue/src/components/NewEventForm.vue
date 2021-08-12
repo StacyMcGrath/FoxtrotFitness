@@ -153,7 +153,10 @@ h3 {
 }
 
 .form-control-label {
-    margin-bottom: 0
+    margin-bottom: 0;
+}
+.form-control {
+    background-color: #edf0db;
 }
 
 input,
@@ -166,6 +169,7 @@ button {
     border: 1px solid #ccc;
     font-size: 18px !important;
     font-weight: 300;
+    background-color: #edf0db;
 }
 
 input:focus,
@@ -177,6 +181,7 @@ textarea:focus {
     outline-width: 0;
     font-weight: 400
 }
+
 
 .btn-block {
     text-transform: uppercase;
